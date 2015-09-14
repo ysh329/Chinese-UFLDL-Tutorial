@@ -15,3 +15,28 @@
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md">线性回归（Linear Regression）</a>  
   *  逻辑斯特回归（Logistic Regression）
   *  向量化（Vectorization）
+  *  Debugging: Gradient Checking
+  *  Softmax Regression
+  *  Debugging: Bias and Variance
+  *  Debugging: Optimizers and Objectives
+* Supervised Neural Networks
+  * Multi-Layer Neural Networks
+  * Exercise: Supervised Neural Network
+* Supervised Convolutional Neural Network
+  * Feature Extraction Using Convolution
+  * Pooling
+  * Exercise: Convolution and Pooling
+  * Optimization: Stochastic Gradient Descent
+  * Convolutional Neural Network
+  * Excercise: Convolutional Neural Network
+* Unsupervised Learning
+  * Autoencoders
+  * PCA Whitening
+  * Exercise: PCA Whitening
+  * Sparse Coding
+  * ICA
+  * RICA
+  * Exercise: RICA
+* Self-Taught Learning
+  * Self-Taught Learning
+  * Exercise: Self-Taught Learning
