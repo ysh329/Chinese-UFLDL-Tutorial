@@ -1,8 +1,9 @@
 # Chinese-UFLDL-Tutorial
-中文版的UFLDL教程，该版本翻译自<a href="http://deeplearning.stanford.edu/tutorial/">UFLDL Tutorial</a>，是新版教程的翻译。也可参考<a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial">老版本的UFLDL中文教程</a>。注：UFLDL是非监督特征学习及深度学习（Unsupervised Feature Learning and Deep Learning）的缩写，而不仅指深度学习（Deep Learning）。
+中文版的UFLDL教程，该版本翻译自<a href="http://deeplearning.stanford.edu/tutorial/">UFLDL Tutorial</a>，是新版教程的翻译。也可参考<a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial">老版本的UFLDL中文教程</a>。  
+注：UFLDL是非监督特征学习及深度学习（Unsupervised Feature Learning and Deep Learning）的缩写，而不仅指深度学习（Deep Learning）。
 
-翻译者：Shuai Yuan
-若有翻译错误，请发邮件至ysh329@sina.com，感谢！
+翻译者：Shuai Yuan  
+若有翻译错误，请发邮件至ysh329@sina.com，感谢！  
 更多详细参考资料，见<a href="https://github.com/bayandin/awesome-awesomeness">计算机科学</a>，<a href="https://github.com/owainlewis/awesome-artificial-intelligence">人工智能</a>，<a href="https://github.com/josephmisiti/awesome-machine-learning">机器学习</a>，<a href="https://github.com/ysh329/awesome-deep-learning">深度学习</a>。
 
 # 欢迎来到UDFDL教程！
@@ -13,7 +14,7 @@
 材料由以下人员提供：Andrew Ng, Jiquan Ngiam, Chuan Yu Foo, Yifan Mai, Caroline Suen, Adam Coates, Andrew Maas, Awni Hannun, Brody Huval, Tao Wang, Sameep Tandon
 ## 获取初学者代码（Starter Code）
 ### 初学者代码
-您可以获得初学者所有练习的代码从<a href="https://github.com/amaas/stanford_dl_ex">该Github的代码仓库</a>。
+您可以获得初学者所有练习的代码从<a href="https://github.com/amaas/stanford_dl_ex">该Github的代码仓库</a>。  
 有关的数据文件可以从<a href="http://ai.stanford.edu/~amaas/data/data.zip">这里</a>下载。 下载到的数据需要解压到名为“common”的文件夹中（以便初学者代码的使用）。
 
 # 目录
