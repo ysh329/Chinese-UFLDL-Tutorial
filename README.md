@@ -12,6 +12,6 @@
 有关的数据文件可以从<a href="http://ai.stanford.edu/~amaas/data/data.zip">这里</a>下载。 下载到的数据需要解压到名为“common”的文件夹中（以便初学者代码的使用）。  
 # 目录 · 非监督特征学习及深度学习教程（UFLDL）  
 * 监督学习与优化（Supervised Learning and Optimization）  
-  *  线性回归（Linear Regression）  
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md">线性回归（Linear Regression）</a>  
   *  逻辑斯特回归（Logistic Regression）
   *  向量化（Vectorization）
