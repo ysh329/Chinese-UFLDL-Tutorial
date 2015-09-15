@@ -43,13 +43,13 @@ $$\frac{\partial J(\theta))}{\partial \theta_{j}} = {\sum_{i}^{}} x_{j}^{(i)}\le
 
 4. 在minFunc（包的计算任务）完成后（如训练结束后），训练集和测试集的误差被打印出来。这一部分作为可选任务，您可以在测试集上对预测和实际价格进行快速的（数据）可视化。
 
-ex1_linreg.m 文件会调用 linear_regression.m 文件，换句话说，在您完成 linear_regression.m 文件里的代码后，您才可执行 ex1_linreg.m 文件（调用 linear_regression.m 文件）。linear_regression.m 文件接收训练数据 $X$，训练目标值（房价） $y$ 以及当前的参数 $\theta$ 。
+<font color=red>ex1_linreg.m</font> 文件会调用 <font color=red>linear_regression.m</font> 文件，换句话说，在您完成 <font color=red>linear_regression.m</font> 文件里的代码后，您才可执行 <font color=red>ex1_linreg.m</font> 文件（调用 linear_regression.m 文件）。linear_regression.m 文件接收训练数据 $X$，训练目标值（房价） $y$ 以及当前的参数 $\theta$ 。
 
 完成本练习的步骤如下：
 
-1. 完成 linear_regression.m 文件中的代码，使其可以针对线性回归问题计算早先定义的目标函数 $J(\theta)$ ，将计算结果保存至名为 $f$ 的变量中。您完成这两个步骤可通过循环训练集（数据矩阵 $X$ 中的列数据）上的样本进行，并且对于每个样本，将其贡献值增加给 $f$ 和 $g$。我们将在下一个练习中创建一个比当前更快的版本。
+1. 完成 <font color=red>linear_regression.m</font> 文件中的代码，使其可以针对线性回归问题计算早先定义的目标函数 $J(\theta)$ ，将计算结果保存至名为 $f$ 的变量中。您完成这两个步骤可通过循环训练集（数据矩阵 $X$ 中的列数据）上的样本进行，并且对于每个样本，将其贡献值增加给 <font color=red>$f$</font> 和 <font color=red>$g$</font>。我们将在下一个练习中创建一个比当前更快的版本。
 
-当您成功地完成了练习，绘制的结果图看起来应该像下面这样：
-<img src="./images/House_results.png">
+当您成功地完成了练习，绘制的结果图看起来应该像下面这样：  
+<img src="./images/House_results.png">  
 （您的图看起来可能会略有不同，这取决于随机选择的训练和测试集数据）  
 特别地，训练集和测试集的均方根（RMS，Root Mean Square）误差值都是介于4.5和5之间。
