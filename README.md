@@ -1,12 +1,15 @@
 # Chinese-UFLDL-Tutorial
 中文版的UFLDL教程，该版本翻译自<a href="http://deeplearning.stanford.edu/tutorial/">UFLDL Tutorial</a>，是新版教程的翻译。也可参考<a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial">老版本的UFLDL中文教程</a>。  
+
+自己对新版UFLDL教程翻译过程中，发现的英文错误，见 <a href="./新版教程英文原文勘误表.md">新版教程英文原文勘误表</a>。
+
 注：UFLDL是非监督特征学习及深度学习（Unsupervised Feature Learning and Deep Learning）的缩写，而不仅指深度学习（Deep Learning）。
 
 翻译者：Shuai Yuan  
 若有翻译错误，请发邮件至ysh329@sina.com，感谢！  
 更多详细参考资料，见<a href="https://github.com/bayandin/awesome-awesomeness">计算机科学</a>，<a href="https://github.com/owainlewis/awesome-artificial-intelligence">人工智能</a>，<a href="https://github.com/josephmisiti/awesome-machine-learning">机器学习</a>，<a href="https://github.com/ysh329/awesome-deep-learning">深度学习</a>。
 
-# 欢迎来到UDFDL教程！
+# 欢迎来到UFLDL教程！
 说明：本教程将会教给您非监督特征学习以及深度学习的主要思想。通过它，您将会实现几个特征学习或深度学习的算法，看到这些算法为你（的工作）带来的作用，以及学习如何将这些思想应用到适用的新问题上。
 
 本教程假定您已经有了基本的机器学习知识（具体而言，熟悉监督学习，逻辑斯特回归以及梯度下降法的思想）。如果您不熟悉这些，我们建议您先去<a href="http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=MachineLearning">机器学习课程</a>中去学习，并完成其中的第II，III，IV章节（即到逻辑斯特回归）。
@@ -20,7 +23,7 @@
 # 目录
 * 监督学习与优化（Supervised Learning and Optimization）
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md">线性回归（Linear Regression）</a>
-  *  逻辑斯特回归（Logistic Regression）
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/逻辑斯特回归（Logistic Regression）.md">逻辑斯特回归（Logistic Regression）</a>
   *  向量化（Vectorization）
   *  调试：梯度检查（Debugging: Gradient Checking）
   *  Softmax回归（Softmax Regression）
