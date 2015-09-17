@@ -27,14 +27,23 @@ $$ \triangledown_{\theta} J(\theta) = \sum_{i}x^{(i)} \left ( h_{\theta}(x^{(i)}
 
 本次练习的初学者代码已经在<a href="https://github.com/amaas/stanford_dl_ex">初学者代码（Starter Code）的 GitHub Rep</a> 中的 ex1/ 目录中。  
 
-In this exercise you will implement the objective function and gradient computations for logistic regression and use your code to learn to classify images of digits from the MNIST dataset as either “0” or “1”. Some examples of these digits are shown below:
-
 在本次练习中，您将会实现逻辑斯特回归（Logistic Regression）的目标函数（Objective Function）以及梯度计算（Gradient Computation），并使用您的代码从 <a href="http://yann.lecun.com/exdb/mnist/">MNIST 数据集</a> 中，学习分类数字（“0”或“1”的）图片。如下是列举的一些数字图片：  
 
-<img src="./images/Mnist_01.png">  
-
-Each of the digits is is represented by a 28x28 grid of pixel intensities, which we will reformat as a vector x(i) with 28*28 = 784 elements. The label is binary, so y(i)∈{0,1}.
+<img src="./images/Mnist_01.png" />  
 
 
+我们使用 $28*28$ 像素规格来表示每个数字图片，我们将每张数字图片的格式变成有着 $28*28 = 784 $ 个元素的向量 $x^{(i)}$ 的形式。其类标记是 $y^{(i)}\in \{0,1\}$ 两种值中的一种。  
 
-You will find starter code for this exercise in the ex1/ex1b_logreg.m file. The starter code file performs the following tasks for you:
+您可以在初学者代码（Starter Code）中的 <font color=red>`ex1/ex1b_logreg.m`</font> 文件中找到本次的练习。初学者代码（Starter Code）文件里将会给您显示如下任务：  
+
+1. 调用 <font color=red>`ex1_load_mnist.m`</font> 文件将 MNIST 训练与测试集数据载入。之后读入像素值到矩阵 $X$ 中（第 $i$ 个样本的第 $j$ 个像素值就是 $X_{ji} = X_{j}^{(i)}$ ），同时为了标签行向量 $y$ 具有零均值和单位方差，（我们会）对像素强度做一些简单的标准化处理。尽管 <a href="http://yann.lecun.com/exdb/mnist/">MNIST 数据集</a> 包含了10个不同的数字（$0-9$），但在本次练习中，我们只将读取其中的数字 $0$ 和数字 $1$ —— ex1_load_mnist 函数将会为您做（数据载入）这些。
+
+2. 为了 $\theta_{0}$ 可以作为截距项（Intercept Term），我们在代码将中对参数 $\theta$ 后面追加一行数值 $1$。
+
+3. 代码将会调用 <font color=red>`minFunc包`</font> 中的 <font color=red>`logistic_regression.m`</font> 文件作为目标函数。您的任务是将 <font color=red>`logistic_regression.m`</font> 文件中的代码补全，并使其返回目标函数值及其梯度值。
+
+4. 在 <font color=red>`minFunc包`</font> （的计算）完成后，在训练集和测试集上的分类准确率将会打印出来。
+
+（类似先前的）线性回归中的练习，您将会实现 <font color=red>`logistic_regression.m`</font>，（该文件中的代码）在所有的训练样本 $x^{(i)}$ 上进行循环，计算出目标函数 $J(θ;X,y)$ 的值。所得到的目标值将会保存在变量 $f$ 中。你也需要计算梯度 $\triangledown_{\theta}J(\theta; X, y)$ 并将其结果保存至变量 $g$ 中。当你完成了这些任务，你将可以运行 <font color=red>`ex1b_logreg.m`</font> 中的代码来训练分类器并测试它（的性能）。  
+
+如果您的代码工作正常，您将会发现您的分类器在训练集和测试集上能够达到100％的准确率！实际上，这是一个较简单的分类问题，因为数字 $0$ 和 $1$ 本身看起来就很不相同。在今后的练习中，想要得到像这样完美的结果其实是很困难的。

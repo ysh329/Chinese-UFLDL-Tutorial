@@ -33,21 +33,21 @@ $$\frac{\partial J(\theta))}{\partial \theta_{j}} = {\sum_{i}^{}} x_{j}^{(i)}\le
 ## 练习 1A：线性回归（Exercise 1A: Linear Regression）
 在本次练习中您将会使用MATLAB实现线性回归中的目标函数（Objective Function）和梯度计算（Gradient Copmutation）。  
 
-在初学者代码（Starter Code）包中的 <font color=red>ex1/</font> 目录下，您将会找到 <font color=red>ex1_linreg.m</font> 文件，其包含了一个简单的线性回归（Linear Regression）的实验。该文件为您提供了大部分较为固定的步骤流程：
+在初学者代码（Starter Code）包中的 <font color=red>`ex1/`</font> 目录下，您将会找到 <font color=red>`ex1_linreg.m`</font> 文件，其包含了一个简单的线性回归（Linear Regression）的实验。该文件为您提供了大部分较为固定的步骤流程：
 
-1. 数据从 <font color=red>housing.data</font> 文件中加载。一个额外的特征值“1”加入到数据集中，（与其对应的） $\theta_{1}$ （即 $\theta$ 向量中的第一个元素）在线性函数中是作为截距项存在的。
+1. 数据从 <font color=red>`housing.data`</font> 文件中加载。一个额外的特征值“1”加入到数据集中，（与其对应的） $\theta_{1}$ （即 $\theta$ 向量中的第一个元素）在线性函数中是作为截距项存在的。
 
-2. 在数据集中的样本是随机排序的，同时数据被分成了训练集和测试集。被用来给学习算法作为输入的特征数据存储在变量 <font color=red>train.X</font> 和 <font color=red>tests.X</font>，被预测的目标值对每个样本即估计的房价。训练集样本和测试集样本的房价分别存储在 "train.y" 和 "test.y" 中。您将会用到训练集寻找最优的参数 $\theta$ 值来预测房价，并之后在测试集上检查（该最优参数 $\theta$ 的）表现。
+2. 在数据集中的样本是随机排序的，同时数据被分成了训练集和测试集。被用来给学习算法作为输入的特征数据存储在变量 <font color=red>`train.X`</font> 和 <font color=red>`tests.X`</font>，被预测的目标值对每个样本即估计的房价。训练集样本和测试集样本的房价分别存储在 <font color=red>`train.y`</font> 和 <font color=red>`test.y`</font> 中。您将会用到训练集寻找最优的参数 $\theta$ 值来预测房价，并之后在测试集上检查（该最优参数 $\theta$ 的）表现。
 
-3. 该代码调用 minFunc 优化包。 minFunc 将试图在目标函数的最小值处，找到 $\theta$ 参数的最优值，目标函数已经在 <font color=red>linear_regression.m</font> 中实现。您的任务是（在 linear_regression.m 中）实现在参数 $\theta$ 下目标函数及梯度的计算。
+3. 该代码调用 minFunc 优化包。 minFunc 将试图在目标函数的最小值处，找到 $\theta$ 参数的最优值，目标函数已经在 <font color=red>`linear_regression.m`</font> 中实现。您的任务是（在 linear_regression.m 中）实现在参数 $\theta$ 下目标函数及梯度的计算。
 
 4. 在minFunc（包的计算任务）完成后（如训练结束后），训练集和测试集的误差被打印出来。这一部分作为可选任务，您可以在测试集上对预测和实际价格进行快速的（数据）可视化。
 
-<font color=red>ex1_linreg.m</font> 文件会调用 <font color=red>linear_regression.m</font> 文件，换句话说，在您完成 <font color=red>linear_regression.m</font> 文件里的代码后，您才可执行 <font color=red>ex1_linreg.m</font> 文件（调用 linear_regression.m 文件）。linear_regression.m 文件接收训练数据 $X$，训练目标值（房价） $y$ 以及当前的参数 $\theta$ 。
+<font color=red>`ex1_linreg.m`</font> 文件会调用 <font color=red>`linear_regression.m`</font> 文件，换句话说，在您完成 <font color=red>`linear_regression.m`</font> 文件里的代码后，您才可执行 <font color=red>`ex1_linreg.m`</font> 文件（调用 <font color=red>`linear_regression.m`</font> 文件）。<font color=red>`linear_regression.m`</font> 文件接收训练数据 $X$，训练目标值（房价） $y$ 以及当前的参数 $\theta$ 。
 
 完成本练习的步骤如下：
 
-1. 完成 <font color=red>linear_regression.m</font> 文件中的代码，使其可以针对线性回归问题计算早先定义的目标函数 $J(\theta)$ ，将计算结果保存至名为 $f$ 的变量中。您完成这两个步骤可通过循环训练集（数据矩阵 $X$ 中的列数据）上的样本进行，并且对于每个样本，将其贡献值增加给 <font color=red>$f$</font> 和 <font color=red>$g$</font>。我们将在下一个练习中创建一个比当前更快的版本。
+1. 完成 <font color=red>`linear_regression.m`</font> 文件中的代码，使其可以针对线性回归问题计算早先定义的目标函数 $J(\theta)$ ，将计算结果保存至名为 $f$ 的变量中。您完成这两个步骤可通过循环训练集（数据矩阵 $X$ 中的列数据）上的样本进行，并且对于每个样本，将其贡献值增加给 <font color=red>$f$</font> 和 <font color=red>$g$</font>。我们将在下一个练习中创建一个比当前更快的版本。
 
 当您成功地完成了练习，绘制的结果图看起来应该像下面这样：  
 <img src="./images/House_results.png">  
