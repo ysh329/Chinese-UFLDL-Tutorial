@@ -8,3 +8,18 @@
 ## 案例：矩阵乘法（Example: Many matrix-vector products）
 
 我们经常一次计算多个矩阵或矢量的乘积（矩阵乘法）。例如，当我们对数据集（其中，参数 $\theta$ 可能是一个二维矩阵或矢量）中的每个样本计算 $\theta^{\top}x^{(i)}$，例如。我们可以通过将每个样本 $x^{(i)}$ 连接起来，以形成包含了整个数据集的矩阵 $X$ ，其每一列是一个样本：  
+$$
+X = \left[\begin{array}{cccc}
+  | & |  &  | & | \\
+  x^{(1)} & x^{(2)} & \cdots & x^{(m)}\\
+    | & |  &  | & |\end{array}\right]
+$$
+
+
+$$
+\left[\begin{array}{cccc}
+| & |  &  | & | \\
+y^{(1)} & y^{(2)} & \cdots & y^{(m)}\\
+| & |  &  | & |\end{array}\right] = Y = W X
+$$
+
