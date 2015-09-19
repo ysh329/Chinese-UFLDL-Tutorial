@@ -25,7 +25,7 @@
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md">线性回归（Linear Regression）</a>
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/逻辑斯特回归（Logistic Regression）.md">逻辑斯特回归（Logistic Regression）</a>
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/向量化（Vectorization）.md">向量化（Vectorization）</a>
-  *  调试：梯度检查（Debugging: Gradient Checking）
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：梯度检查（Debugging：Gradient Checking）.md">调试：梯度检查（Debugging: Gradient Checking）</a>
   *  Softmax回归（Softmax Regression）
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：偏差和方差（Debugging：Bias and Variance）.md">调试：偏差和方差（Debugging: Bias and Variance）</a>
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：优化器和目标（Debugging：Optimizers and Objectives）.md">调试：优化器和目标（Debugging: Optimizers and Objectives）</a>

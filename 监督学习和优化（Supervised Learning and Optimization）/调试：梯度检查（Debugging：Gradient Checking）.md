@@ -1,0 +1,5 @@
+# 调试：梯度检查（Debugging: Gradient Checking）
+## 
+So far we have worked with relatively simple algorithms where it is straight-forward to compute the objective function and its gradient with pen-and-paper, and then implement the necessary computations in MATLAB. For more complex models that we will see later (like the back-propagation method for neural networks), the gradient computation can be notoriously difficult to debug and get right. Sometimes a subtly buggy implementation will manage to learn something that can look surprisingly reasonable (while performing less well than a correct implementation). Thus, even with a buggy implementation, it may not at all be apparent that anything is amiss. In this section, we describe a method for numerically checking the derivatives computed by your code to make sure that your implementation is correct. Carrying out the derivative checking procedure described here will significantly increase your confidence in the correctness of your code.
+
+迄今为止，我们已经实现了较为简单的算法，这些算法都是直截了当地计算目标函数和梯度的。在 MATLAB 里实现必要的计算。在后面的章节中，我们将会讲到更复杂的模型（例如神经网络的反向传播算法）。对于这些模型来说，其梯度计算会变得难以调试及难以得到正确的
