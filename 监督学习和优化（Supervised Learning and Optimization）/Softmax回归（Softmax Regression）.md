@@ -1,9 +1,10 @@
 # Softmax回归（Softmax Regression）  
 ## 
 ## 介绍（Introduction）  
-Softmax regression (or multinomial logistic regression) is a generalization of logistic regression to the case where we want to handle multiple classes. In logistic regression we assumed that the labels were binary: y(i)∈{0,1}. We used such a classifier to distinguish between two kinds of hand-written digits. Softmax regression allows us to handle y(i)∈{1,…,K} where K is the number of classes.  
 
-Recall that in logistic regression, we had a training set {(x(1),y(1)),…,(x(m),y(m))} of m labeled examples, where the input features are x(i)∈Rn. With logistic regression, we were in the binary classification setting, so the labels were y(i)∈{0,1}. Our hypothesis took the form:  
+Softmax回归（或称为多元逻辑斯特回归）是通常的逻辑斯特回归用来处理多类分类问题的更一般化形式。在逻辑斯特回归中，我们假定标签都是二元的：即 $y^{(i)} \in \{0,1\}$ 。我们曾用这样的一个分类器来做两类的手写数字分类。然而，Softmax 回归可让我们处理K类（的分类问题），其中类标签 $y^{(i)} \in \{1,K\}$ 。  
+
+不妨再回归一下逻辑斯特回归，我们有m个已标记样本的训练集 $\{ (x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)}) \}$ ，其中（每个样本的）输入特征是 $x^{(i)} \in \Re^{n}$ 。在先前的逻辑斯特回归中，我们的分类设定的是两类，所以类标签是 $y^{(i)} \in \{0,1\}$ ，我们假设采取这样的形式：  
 
 $$
 \begin{align}
@@ -11,7 +12,8 @@ h_\theta(x) = \frac{1}{1+\exp(-\theta^\top x)},
 \end{align}
 $$  
 
-and the model parameters θ were trained to minimize the cost function  
+
+其中，模型参数 $\theta$ 被用来训练以最小化代价函数  
 
 $$
 \begin{align}
@@ -19,9 +21,10 @@ J(\theta) = -\left[ \sum_{i=1}^m y^{(i)} \log h_\theta(x^{(i)}) + (1-y^{(i)}) \l
 \end{align}
 $$  
 
-In the softmax regression setting, we are interested in multi-class classification (as opposed to only binary classification), and so the label y can take on K different values, rather than only two. Thus, in our training set {(x(1),y(1)),…,(x(m),y(m))}, we now have that y(i)∈{1,2,…,K}. (Note that our convention will be to index the classes starting from 1, rather than from 0.) For example, in the MNIST digit recognition task, we would have K=10 different classes.  
+在Softmax回归的设定中，（与前文中两类分类相反）我们的兴趣在多类分类，正因如此标签 $y$ 可以取 $K$ 个不同的值，而不仅限于（两类分类中的）两个值。因此，训练集样本 $\{ (x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)}) \}$ 的类别标签值有 $y^{(i)} \in \{1, 2, \ldots, K\}$ 。（注意：我们通常起始类从 $1$ 开始，而不是 $0$ ）。举个例子，在 MNIST 数字识别任务中，我们有 $K = 10$ ，即不同的类别个数是10个。  
 
-Given a test input x, we want our hypothesis to estimate the probability that P(y=k|x) for each value of k=1,…,K. I.e., we want to estimate the probability of the class label taking on each of the K different possible values. Thus, our hypothesis will output a K-dimensional vector (whose elements sum to 1) giving us our K estimated probabilities. Concretely, our hypothesis hθ(x) takes the form:  
+
+给出测试输入 $x$ ，我们希望我们的假设可以针对同一样本在不同的 $k$ （其中，$k = 1, ..., K$）值下估计概率 $P(y=k | x)$ 的值。也就是说，我们想要估计类标签取 $K$ 个不同的值时的概率。由此，我们的假设将会输出 $K$ 维向量（该向量元素值和为 $1$ ），它给出的是 $K$ 个估计的概率值。更具体地说，我们的假设 $h_{\theta}(x)$ 会采取这样的形式：  
 
 $$
 \begin{align}
@@ -43,9 +46,10 @@ P(y = K | x; \theta)
 \end{align}
 $$  
 
-Here θ(1),θ(2),…,θ(K)∈Rn are the parameters of our model. Notice that the term 1∑Kj=1exp(θ(j)⊤x) normalizes the distribution, so that it sums to one.  
+这里，$\theta^{(1)}, \theta^{(2)}, \ldots, \theta^{(K)} \in \Re^{n}$ 是我们模型的参数。需要注意的是，$\frac{1}{ \sum_{j=1}^{K}{\exp(\theta^{(j)\top} x) } }$ 这一项对分布进行了标准化（$normalize$），所以其（最终）会加和为一项。  
 
-For convenience, we will also write θ to denote all the parameters of our model. When you implement softmax regression, it is usually convenient to represent θ as a n-by-K matrix obtained by concatenating θ(1),θ(2),…,θ(K) into columns, so that  
+
+为方便起见，我们也写 $\theta$ 来表示我们模型的所有参数。当你实现 Softmax 回归时，$n$ 行 $K$ 列的矩阵 $\theta$ 其实也是一列列 $\theta^{(k)}$ 所组成的，即  
 
 $$
 \theta = \left[\begin{array}{cccc}| & | & | & | \\
@@ -56,7 +60,8 @@ $$
 
 
 ## 代价函数（Cost Function）  
-We now describe the cost function that we’ll use for softmax regression. In the equation below, 1{⋅} is the ”‘indicator function,”’ so that 1{a true statement}=1, and 1{a false statement}=0. For example, 1{2+2=4} evaluates to 1; whereas 1{1+1=5} evaluates to 0. Our cost function will be:  
+
+我们现在来描述 softmax 回归的代价函数。在下面的方程中， $1\{\cdot\}$ 被称为“指示器函数”（$indicator function$），即 $1\{真实的陈述\} = 1$ ，$1\{虚假的陈述\} = 0$ 。例如， $1\{2+2=4\}$ 求出的数值为 $1$ ；而 $1\{1+1=5\}$ 求出的数值为 $0$ 。我们的代价函数将会是：  
 
 $$
 \begin{align}
@@ -64,8 +69,7 @@ J(\theta) = - \left[ \sum_{i=1}^{m} \sum_{k=1}^{K}  1\left\{y^{(i)} = k\right\} 
 \end{align}
 $$  
 
-Notice that this generalizes the logistic regression cost function, which could also have been written:  
-
+值得注意的是，我们也可以将逻辑斯特回归的代价函数等价地写成这样的形式：  
 
 $$
 \begin{align}
@@ -74,13 +78,15 @@ J(\theta) &= - \left[ \sum_{i=1}^m   (1-y^{(i)}) \log (1-h_\theta(x^{(i)})) + y^
 \end{align}
 $$  
 
-The softmax cost function is similar, except that we now sum over the K different possible values of the class label. Note also that in softmax regression, we have that  
+除了我们需要将 $K$ 个不同的类标签可能值相加外， softmax 的代价函数（与逻辑斯特回归的代价函数）是相似的。需要注意的是，在 Softmax 回归中我们有：  
 
 $$
 P(y^{(i)} = k | x^{(i)} ; \theta) = \frac{\exp(\theta^{(k)\top} x^{(i)})}{\sum_{j=1}^K \exp(\theta^{(j)\top} x^{(i)}) }
 $$  
 
 We cannot solve for the minimum of J(θ) analytically, and thus as usual we’ll resort to an iterative optimization algorithm. Taking derivatives, one can show that the gradient is:  
+
+我们不能解决 $J(\theta)$ 的最小化问题
 
 $$
 \begin{align}
