@@ -21,7 +21,7 @@ J(\theta) = -\left[ \sum_{i=1}^m y^{(i)} \log h_\theta(x^{(i)}) + (1-y^{(i)}) \l
 \end{align}
 $$  
 
-在Softmax回归的设定中，（与前文中两类分类相反）我们的兴趣在多类分类，正因如此标签 $y$ 可以取 $K$ 个不同的值，而不仅限于（两类分类中的）两个值。因此，训练集样本 $\{ (x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)}) \}$ 的类别标签值有 $y^{(i)} \in \{1, 2, \ldots, K\}$ 。（注意：我们通常起始类从 $1$ 开始，而不是 $0$ ）。举个例子，在 MNIST 数字识别任务中，我们有 $K = 10$ ，即不同的类别个数是10个。  
+在Softmax回归的设定中，（与前文中两类分类相反）我们的兴趣在多类分类，正因如此标签 $y$ 可以取 $K$ 个不同的值，而不仅限于（两类分类中的）两个值。因此，训练集样本 $\{ (x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)}) \}$ 的类别标签值有 $y^{(i)} \in \{1, 2, \ldots, K\}$ 。（注意：我们通常起始类从 $1$ 开始，而不是 $0$ ）。举个例子，在 $MNIST$ 数字识别任务（译者注： MNIST 是一个手写数字识别库，由NYU 的Yann LeCun 等人维护。http://yann.lecun.com/exdb/mnist/ ）中，我们有 $K = 10$ ，即不同的类别个数是10个。  
 
 
 给出测试输入 $x$ ，我们希望我们的假设可以针对同一样本在不同的 $k$ （其中，$k = 1, ..., K$）值下估计概率 $P(y=k | x)$ 的值。也就是说，我们想要估计类标签取 $K$ 个不同的值时的概率。由此，我们的假设将会输出 $K$ 维向量（该向量元素值和为 $1$ ），它给出的是 $K$ 个估计的概率值。更具体地说，我们的假设 $h_{\theta}(x)$ 会采取这样的形式：  
@@ -61,7 +61,7 @@ $$
 
 ## 代价函数（Cost Function）  
 
-我们现在来描述 softmax 回归的代价函数。在下面的方程中， $1\{\cdot\}$ 被称为“指示器函数”（$indicator function$），即 $1\{真实的陈述\} = 1$ ，$1\{虚假的陈述\} = 0$ 。例如， $1\{2+2=4\}$ 求出的数值为 $1$ ；而 $1\{1+1=5\}$ 求出的数值为 $0$ 。我们的代价函数将会是：  
+我们现在来描述 Softmax 回归的代价函数。在下面的方程中， $1\{\cdot\}$ 被称为“指示器函数”（$indicator function$ ，译者注：老版教程中译为“示性函数”），即 $1\{值为真的表达式\} = 1$ ，$1\{值为假的表达式\} = 0$ 。例如， $1\{2+2=4\}$ 求出的数值为 $1$ ；而 $1\{1+1=5\}$ 求出的数值为 $0$ 。我们的代价函数将会是：  
 
 $$
 \begin{align}
@@ -69,7 +69,7 @@ J(\theta) = - \left[ \sum_{i=1}^{m} \sum_{k=1}^{K}  1\left\{y^{(i)} = k\right\} 
 \end{align}
 $$  
 
-值得注意的是，我们也可以将逻辑斯特回归的代价函数等价地写成这样的形式：  
+值得注意的是，我们也可以将逻辑斯特回归的代价函数等价地写成这样类似的形式：  
 
 $$
 \begin{align}
@@ -78,7 +78,7 @@ J(\theta) &= - \left[ \sum_{i=1}^m   (1-y^{(i)}) \log (1-h_\theta(x^{(i)})) + y^
 \end{align}
 $$  
 
-除了我们需要将 $K$ 个不同的类标签可能值相加外， softmax 的代价函数（与逻辑斯特回归的代价函数）是相似的。需要注意的是，在 Softmax 回归中我们有：  
+除了我们需要将 $K$ 个不同的类标签可能值相加外， Softmax 的代价函数（与逻辑斯特回归的代价函数）是相似的。需要注意的是，在 Softmax 回归中我们有：  
 
 $$
 P(y^{(i)} = k | x^{(i)} ; \theta) = \frac{\exp(\theta^{(k)\top} x^{(i)})}{\sum_{j=1}^K \exp(\theta^{(j)\top} x^{(i)}) }
@@ -86,7 +86,7 @@ $$
 
 We cannot solve for the minimum of J(θ) analytically, and thus as usual we’ll resort to an iterative optimization algorithm. Taking derivatives, one can show that the gradient is:  
 
-我们不能解决 $J(\theta)$ 的最小化问题
+我们不能分析式地得到 $J(\theta)$ 的最小值。因此，如往常一样，我们使用迭代优化算法来求解。对其求导，其梯度为：  
 
 $$
 \begin{align}
@@ -94,15 +94,14 @@ $$
 \end{align}
 $$  
 
-Recall the meaning of the ”∇θ(k)” notation. In particular, ∇θ(k)J(θ) is itself a vector, so that its j-th element is ∂J(θ)∂θlk the partial derivative of J(θ) with respect to the j-th element of θ(k).  
+回想 $\nabla_{\theta^{(k)}}$ 符号的含义。尤其需要注意的是， $\nabla_{\theta^{(k)}} J(\theta)$ 其本身就是一个向量，所以，其第 $j$ 个元素即 $\frac{\partial J(\theta)}{\partial \theta_{lk}}$ ，它是关于 $\theta^{(k)}$ 的第 $j$ 个元素的偏导数。  
 
-Armed with this formula for the derivative, one can then plug it into a standard optimization package and have it minimize J(θ).  
-
-
+有了这个导数公式，然后可以将其插入到一个优化包中并最小化 $J(\theta)$ 。  
 
 
-##softmax回归的参数属性（Properties of softmax regression parameterization）  
-Softmax regression has an unusual property that it has a “redundant” set of parameters. To explain what this means, suppose we take each of our parameter vectors θ(j), and subtract some fixed vector ψ from it, so that every θ(j) is now replaced with θ(j)−ψ (for every j=1,…,k). Our hypothesis now estimates the class label probabilities as  
+##Softmax回归的参数属性（Properties of Softmax regression parameterization）  
+
+Softmax 回归有一个不同寻常的特性，那就是参数冗余（ $redundant$ ）。为了解释这个特性，我们假设有参数向量 $\theta^{(j)}$ ，我们对该向量减去某个固定的向量 $\psi$ ，此时（向量中地每个元素） $\theta^{(j)}$ 就被$\theta^{(j)} - \psi$ （其中 $j = 1, ..., k$ ）替代了。现在，我们的假设在计算类标签的概率（表示）为  
 
 $$
 \begin{align}
@@ -113,16 +112,17 @@ P(y^{(i)} = k | x^{(i)} ; \theta)
 \end{align}
 $$  
 
-In other words, subtracting ψ from every θ(j) does not affect our hypothesis’ predictions at all! This shows that softmax regression’s parameters are “redundant.” More formally, we say that our softmax model is ”‘overparameterized,”’ meaning that for any hypothesis we might fit to the data, there are multiple parameter settings that give rise to exactly the same hypothesis function hθ mapping from inputs x to the predictions.  
+换句话说，从每个（元素） $\theta^{(j)}$ 中减去 $\psi$ 一点也不会影响到我们的假设预测！这表明了 Softmax 回归的参数中是有多余的。更正式地说，我们的 Softmax 模型是过参数化的（ $overparameterized$ ），意味着对任何一个拟合数据的假设而言，有多种参数取值很有可能得到同样的假设 $h_\theta$，即从输入 $x$ 得到同样的预测结果。  
 
-Further, if the cost function J(θ) is minimized by some setting of the parameters (θ(1),θ(2),…,θ(k)), then it is also minimized by (θ(1)−ψ,θ(2)−ψ,…,θ(k)−ψ) for any value of ψ. Thus, the minimizer of J(θ) is not unique. (Interestingly, J(θ) is still convex, and thus gradient descent will not run into local optima problems. But the Hessian is singular/non-invertible, which causes a straightforward implementation of Newton’s method to run into numerical problems.)  
+进一步说，如果成本函数（ $cost function$ ）$J(\theta)$ 被某组参数 $(\theta^{(1)}, \theta^{(2)},\ldots, \theta^{(k)})$ 最小化，那么对任意的 $\psi$ ，成本函数也可以被 $(\theta^{(1)} - \psi, \theta^{(2)} - \psi,\ldots, \theta^{(k)} - \psi)$ 最小化。因此， $J(\theta)$ 的最小值时的参数并不唯一。（有趣的是， $J(\theta)$ 仍是凸的，并且在梯度下降中不会遇到局部最优问题，但是 $Hessian$ 矩阵是奇异或者不可逆的，这将会导致在牛顿法的直接实现上遇到数值问题。）  
 
 Notice also that by setting ψ=θ(K), one can always replace θ(K) with θ(K)−ψ=0⃗  (the vector of all 0’s), without affecting the hypothesis. Thus, one could “eliminate” the vector of parameters θ(K) (or any other θ(k), for any single value of k), without harming the representational power of our hypothesis. Indeed, rather than optimizing over the K⋅n parameters (θ(1),θ(2),…,θ(K)) (where θ(k)∈Rn), one can instead set θ(K)=0⃗  and optimize only with respect to the K⋅n remaining parameters.  
 
 
 
 # 与逻辑斯特回归的关系（Relationship to Logistic Regression）  
-In the special case where K=2, one can show that softmax regression reduces to logistic regression. This shows that softmax regression is a generalization of logistic regression. Concretely, when K=2, the softmax regression hypothesis outputs  
+
+在 $K=2$ 特例中，一个可以证明的是 Softmax 回归简化为了逻辑斯特回归。这表明了 Softmax 回归是逻辑斯特回归的一般化形式。更具体地说，当 $K=2$，Softmax 回归的假设输出为  
 
 $$
 \begin{align}
@@ -137,6 +137,8 @@ h_\theta(x) &=
 $$  
 
 Taking advantage of the fact that this hypothesis is overparameterized and setting ψ=θ(2), we can subtract θ(2) from each of the two parameters, giving us  
+
+我们可以利用假设是过参数化的这一事实，设定 $\psi = \theta^{(2)}$ ，我们可以从这两个参数中的每个减去 $\theta^{(2)}$ 。
 
 $$
 \begin{align}
