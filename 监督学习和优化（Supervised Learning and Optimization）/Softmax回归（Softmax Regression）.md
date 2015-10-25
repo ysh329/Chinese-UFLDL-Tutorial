@@ -166,29 +166,24 @@ $$
 
 在本次练习中，你将会借助 $MNIST$ 数据集，训练一个用于处理 $10$ 个数字的分类器。这部分代码除会读取整个 $MNIST$ 数据的训练和测试集外，其余的部分会与先前我们在练习 1B 中的代码（仅仅是识别数字 $0$ 和 $1$）非常类似，并且标签值 $y^{(i)}$ 从原本的 $2$ 类到现在的 $10$ 类， 即 $y^{(i)} \in \{1,\ldots,10\}$ 。（标签值的改变可以使您方便地将 $y^{(i)}$ 的值作为矩阵的下标。）  
 
-这部分代码的表现应该和在练习 1B 中的一样：读取训练和测试数据，同时加入截距项，然后借助 softmax_regression_vec.m 文件调用 minFunc 作为目标函数。当训练完成后，将会输出手写数字识别问题中，这 $10$ 个类（译者注：对应从 $0$ 到 $9$ 这$10$ 个数字）的训练和测试集上的准确率。  
+这部分代码的表现应该和在练习 1B 中的一样：读取训练和测试数据，同时加入截距项，然后借助 <font color=red>`softmax_regression_vec.m`</font> 文件调用 <font color=red>`minFunc`</font> 作为目标函数。当训练完成后，将会输出手写数字识别问题中，这 $10$ 个类（译者注：对应从 $0$ 到 $9$ 这$10$ 个数字）的训练和测试集上的准确率。  
 
-Your task is to implement the softmax_regression_vec.m file to compute the softmax objective function J(θ;X,y) and store it in the variable f. You must also compute the gradient ∇θJ(θ;X,y) and store it in the variable g. Don’t forget that minFunc supplies the parameters θ as a vector. The starter code will reshape θ into a n-by-(K-1) matrix (for K=10 classes). You also need to remember to reshape the returned gradient g back into a vector using g=g(:);   
-
-您的任务是实现 softmax_regression_vec.m 文件中计算 softmax 目标函数 $J(\theta; X,y)$ 的部分，同时将计算结果存储在变量 $f$ 中。  
+您的任务是实现 <font color=red>`softmax_regression_vec.m`</font> 文件中计算 softmax 目标函数 $J(\theta; X,y)$ 的部分，同时将计算结果存储在变量 $f$ 中。  
 
 您也务必计算梯度项  $\nabla_{\theta} J(\theta; X,y)$ ，并将其结果存在变量 $g$ 中。请不要忘记 <font color=red>`minFunc`</font> 提供了向量参数 $\theta$ 。初学者代码将会对参数 $\theta$ 变形为一个 $n$ 行 $K-1$ 列的矩阵（对于 $10$ 个类这种情况，即 $K=10$）。同时，您也不要忘记了如何将返回的梯度 $g$ 返回成一个向量的方法，即 `g=g(:)` ；
 
-You can start out with a for-loop version of the code if necessary to get the gradient right. (Be sure to use the gradient check debugging strategy covered earlier!) However, you might find that this implementation is too slow to run the optimizer all the way through. After you get the gradient right with a slow version of the code, try to vectorize your code as well as possible before running the full experiment.  
 
-如果有必要验证梯度是否计算正确，你也可以写一段使用 for 循环的代码进行检查。（确保尽早进行了梯度检查一验证梯度计算是否正确！）  
+如果有必要得到梯度权，你可以以写一段使用 for 循环的代码开始（请务必使用前面介绍的渐变检查调试策略！）。然而，您也许会发现这个实现的版本速度太慢，以至于优化不能通过所有的方式（ 译者注：翻译不确定。“However, you might find that this implementation is too slow to run the optimizer all the way through.”）。在您得到一个运行较慢梯度权计算的版本后，您可以在进行所有实验前，尝试尽可能地将您的代码进行向量化处理。   
 
-Here are a few MATLAB tips that you might find useful for implementing or speeding up your code (though these may or may not be useful depending on your implementation strategy):  
+下面是几条 MATLAB 的小提示，可能对您实现或者加速代码能起到作用（这些提示可能多少会有用处，但更多地取决于您的实现策略）。  
 
-1.Suppose we have a matrix A and we want to extract a single element from each row, where the column of the element to be extracted from row i is stored in y(i), where y is a row vector. We can use the sub2ind() function like this:  
+1. 假设我们有一个矩阵 $A$ ，我们想从每行抽出单个元素。其中，从第 $i$ 行抽出的元素，其列值并存在变量 $y(i)$ 中， $y$ 是一个行向量。这个转换过程我们可以用函数 <font color=red>`sub2ind`</font>来实现：  
 
-```
-I=sub2ind(size(A), 1:size(A,1), y);  
-values = A(I);  
-```  
+    ```
+    I=sub2ind(size(A), 1:size(A,1), y);  
+    values = A(I);  
+    ```  
 
+    这段代码将会采用索引对 $(i,j)$ ，并计算出矩阵 $A$ 中在$(i,j)$ 位置处的一维索引。所以， $I(1)$ 将会矩阵 $A$ 中位置在 $(1, y(1))$ 处的元素下标，同样， $I(2)$ 将会矩阵 $A$ 中位置在 $(2, y(2))$ 处的元素下标。  
 
-This code will take each pair of indices (i,j) where i comes from the second argument and j comes from the corresponding element of the third argument, and compute the corresponding 1D index into A for the (i,j)‘th element. So, I(1) will be the index for the element at location (1,y(1)), and I(2) will be the index for the element at (2,y(2)).  
-
-
-2.When you compute the predicted label probabilities y^(i)k=exp(θ⊤:,kx(i))/(∑Kj=1exp(θ⊤:,jx(i))), try to use matrix multiplications and bsxfun to speed up the computation. For example, once θ is in matrix form, you can compute the products for every example and the first 9 classes using a=θ⊤X. (Recall that the 10th class is left out of θ, so that a(10,:) is just assumed to be 0.)  
+2. 当你计算预测类标签概率 $\hat{y}^{(i)}_k = \exp(\theta_{:,k}^\top x^{(i)}) / (\sum^K_{j=1} \exp(\theta_{:,j}^\top x^{(i)}))$ 时，试着用矩阵乘法以及 <font color=red>`bsxfun`</font> 来加速计算。比方说，当 $\theta$ 是矩阵的形式时，你可以为每个样本及其对应的 $9$ 类使用 $a = \theta^\top X$ 这样矩阵的形式，来计算乘积（再次强调一下，第 $10$ 类已经从 $\theta$ 中省略了，也就是说 $a(10,:)$ 的值被假定为 $0$）。
