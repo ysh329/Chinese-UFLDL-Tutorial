@@ -33,19 +33,29 @@ $$
 双曲正切函数 $tanh(z)$ 是 $S$ 型函数的一个缩放版本，其输出范围是 $[-1,1]$ ，而不是 $[０,1]$ 。整流线性函数是一个分段的线性函数，当输入 $z$ 值小于 $0$ 时，其函数值为 $
 0$ 。  
 
-Note that unlike some other venues (including the OpenClassroom videos, and parts of CS229), we are not using the convention here of x0=1. Instead, the intercept term is handled separately by the parameter b.  
+值得注意的是，不像其它地方（包括开放式的课堂教学视频，以及部分 CS229 的课程），我们不按照惯例 $x_0=1$ ，相反，截距项是由参数 $b$ 单独处理。  
 
-需要注意的是，某些其它
-
-
-Finally, one identity that’ll be useful later: If f(z)=1/(1+exp(−z)) is the sigmoid function, then its derivative is given by f′(z)=f(z)(1−f(z)). (If f is the tanh function, then its derivative is given by f′(z)=1−(f(z))2.) You can derive this yourself using the definition of the sigmoid (or tanh) function. The rectified linear function has gradient 0 when z≤0 and 1 otherwise. The gradient is undefined at z=0, though this doesn’t cause problems in practice because we average the gradient over many training examples during optimization.  
-
+最后我们要说的是在后面将会很有用的一个等式： $f(z) = 1/(1+\exp(-z))$ 是一个 $S$ 型函数，其导数为 $f'(z) = f(z) (1-f(z))$ （如果 $f$ 是双曲函数 $tanh$ ，则其导数为 $f'(z) = 1- (f(z))^2$ ）。您也可以自己通过 $S$ 型函数（或双曲函数 $tanh$）的定义尝试求导。整流线性函数在输入 $z \leq 0$ 时梯度为 $0$ ，其它取值时为 $1$ 。当输入值 $z=0$ 时，梯度是不确定的，但这并不会在实际中引起什么问题，因为在优化过程中，我们是建立在大量的训练样本之上来计算梯度的平均值的。  
 
 
 ## 神经网络模型（Neural Network model）　　
-A neural network is put together by hooking together many of our simple “neurons,” so that the output of a neuron can be the input of another. For example, here is a small neural network:　　
 
+神经网络是通过将众多简单的神经元连接在一起得到的，一个神经元的输出可以是另一个的输入。例如，这里是一个小神经网络：  
 
 <center><img src="./images/Network331.png" width=300 /></center>  
 
-In this figure, we have used circles to also denote the inputs to the network. The circles labeled “+1” are called bias units, and correspond to the intercept term. The leftmost layer of the network is called the input layer, and the rightmost layer the output layer (which, in this example, has only one node). The middle layer of nodes is called the hidden layer, because its values are not observed in the training set. We also say that our example neural network has 3 input units (not counting the bias unit), 3 hidden units, and 1 output unit.
+在这幅图中，我们用圆圈来表示网络的输入。在圈里被表为 “+1” 的圆圈称为偏置单元，对应于截距项。网络最左边的那一层称为输入层，而输出层即最右层（在这个例子中，输出层只有一个节点）。介于最左和最右的中间层称为隐藏层，因为它的值是无法在训练集中观察到的。由此，我们可以说，该例子中的神经网络有 3 个输入单元（不把计偏置单元计算在内）， 3 个隐藏单元，和 1 个输出单元。  
+
+We will let nl denote the number of layers in our network; thus nl=3 in our example. We label layer l as Ll, so layer L1 is the input layer, and layer Lnl the output layer. Our neural network has parameters (W,b)=(W(1),b(1),W(2),b(2)), where we write W(l)ij to denote the parameter (or weight) associated with the connection between unit j in layer l, and unit i in layer l+1. (Note the order of the indices.) Also, b(l)i is the bias associated with unit i in layer l+1. Thus, in our example, we have W(1)∈R3×3, and W(2)∈R1×3. Note that bias units don’t have inputs or connections going into them, since they always output the value +1. We also let sl denote the number of nodes in layer l (not counting the bias unit).
+
+$n_l$ 表示网络的层数；因此，在我们的例子中 $n_l = 3$ 。我们把层 $l$ （第一层）表示为 $L_1$，所以层 $L_1$ 为输入层，输出层用 $L_{n_l}$ 来表示。我们的神经网络参数 $(W,b) = (W^{(1)}, b^{(1)}, W^{(2)}, b^{(2)})$ ，参数 $W^{(l)}_{ij}$ 表示第 $l$ 层的第 $j$ 个单元与第 $$
+单位J L层之间的连接相关联，并在单位我层L + 1。（请注意指数的顺序），我是一个与单位有关的偏见，我在1层。因此，在我们的例子中，我们有W（1）∈R3×3，和W（2）∈R1×3。请注意，偏置单元没有输入或连接进入它们，因为它们总是输出的值+ 1。我们也让SL表示节点层L的数量（不包括偏置单元）。  
+
+We will write a(l)i to denote the activation (meaning output value) of unit i in layer l. For l=1, we also use a(1)i=xi to denote the i-th input. Given a fixed setting of the parameters W,b, our neural network defines a hypothesis hW,b(x) that outputs a real number. Specifically, the computation that this neural network represents is given by:
+
+
+
+
+
+
+
