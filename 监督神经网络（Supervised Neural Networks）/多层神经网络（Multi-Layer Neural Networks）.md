@@ -115,14 +115,47 @@ $$
 
 在 $J(W,b)$ 定义中的第一项是均方差项。第二项是一个正则化项（也叫权重衰减项），它会降低权重的大小，并有助于防止过拟合。  
 
-(Note: Usually weight decay is not applied to the bias terms b(l)i, as reflected in our definition for J(W,b). Applying weight decay to the bias units usually makes only a small difference to the final network, however. If you’ve taken CS229 (Machine Learning) at Stanford or watched the course’s videos on YouTube, you may also recognize this weight decay as essentially a variant of the Bayesian regularization method you saw there, where we placed a Gaussian prior on the parameters and did MAP (instead of maximum likelihood) estimation.)
+（注：权重衰减通常不适用于偏置项 $b_{i}^{(l)}$ ），比如我们 $J(W,b)$ 在定义中就没有使用。一般来说，将权重衰减应用到偏置单元中只会对最终的神经网络产生很小的影响。如果您在斯坦福选修过 CS229 （机器学习）课程，或者在 YouTube 上看过课程视频，您也许会认识到这里的权重衰减，其实是课上提到的贝叶斯正则化方法的变种，在贝叶斯正则化中，我们将高斯先验概率引入到参数中计算 $MAP$ （极大后验）估计（而不是极大似然估计）。  
 
-（注：通常的重量衰减不适用于偏置项）我，如反映在我们的定义为（瓦特，乙）。将重量衰减到偏置单元通常只对最终网络的一个小的差异，但是。如果你已经采取了229（机器学习）在斯坦福或观看课程的视频在YouTube上，你也会认识到这是一个变种的重量衰减你看到的贝叶斯正则化方法，我们在那里放置了一个高斯先验的参数和没有地图（而不是最大似然估计））。
+权重衰减参数 $λ$ 用于控制公式中两项的相对重要性。在此重申一下这两个复杂函数的含义： $J(W,b; x,y)$ 是针对单个样本计算平方误差得到的代价函数；而 $J(W,b)$ 则是对整体样本的代价函数，它包含权重衰减项。  
 
-The weight decay parameter λ controls the relative importance of the two terms. Note also the slightly overloaded notation: J(W,b;x,y) is the squared error cost with respect to a single example; J(W,b) is the overall cost function, which includes the weight decay term.
+以上的代价函数通常被用来解决分类和回归问题。在分类问题上，我们分别用 $y=0$ 或 $1$ 来表示这两个类标签（回顾一下 $S$ 型激活函数的输出值介于 $[0,1]$ 之间；如果我们之前使用 $tanh$ 双曲正切激活函数，那么激活函数的输出值将会是$-1$ 和 $+1$，刚好用来代表两类）。在回归问题上，我们首先放缩输出值范围，确保最终其输出值在 $[0,1]$ 上（或者如果我们使用双曲正切激活函数，那么输出值在 $[-1,1]$ 上）。  
+
+我们的目标是最小化把 $W$ 和 $b$ 作为参数的函数 $J(W,b)$ 。为训练神经网络，我们将会初始化每一个 $W_{ij}^{(l)}$ 参数，以及每一个 $b_{i}^{(l)}$ 参数，把它们初始化为一个接近 $0$ 且小的随机值（比如说，使用正态分布 $\textstyle {Normal}(0,\epsilon^2)$ 生成的随机值，其中 $\textstyle \epsilon$ 设置为 $\textstyle 0.01$），之后再对目标函数应用如批量梯度下降法（ $Batch \ Gradient \ Descent$ ）来进行参数优化。因为 $J(W, b)$ 是一个非凸函数，梯度下降有可能使我们的函数值到局部最优；然而，实际中，梯度下降通常效果还不错。最后需要注意的是，对参数进行随机初始化是很重要的，而不是全把它们初始设置为 $0$ 。如果所有的参数都起始于一个相同的值，那么所有的隐含层单元将会学习到一样的函数（对于所有的 $i$ 值， $W^{(1)}_{ij}$ 将总是相同的，即对任意输入 $x$ ，有 $a^{(2)}_1 = a^{(2)}_2 = a^{(2)}_3 = \ldots$ ）。随机初始化的目的是使**对称失效（ $Symmetry \ Breaking$ ）**。  
+
+梯度下降法中每一次迭代都按照如下公式对参数 $\textstyle W$ 和 $\textstyle b$ 进行更新：  
+
+$$
+\begin{align}
+W_{ij}^{(l)} &= W_{ij}^{(l)} - \alpha \frac{\partial}{\partial W_{ij}^{(l)}} J(W,b) \\
+b_{i}^{(l)} &= b_{i}^{(l)} - \alpha \frac{\partial}{\partial b_{i}^{(l)}} J(W,b)
+\end{align}
+$$  
+
+其中， $\alpha$ 是学习率，以上公式中一个关键步骤是计算偏导数。我们现在来讲一下**反向传播**（ $Backpropagation$ ）算法，它是一种计算偏导数的高效方法。  
+
+我们首先讲一下反向传播是如何计算 $\textstyle \frac{\partial}{\partial W_{ij}^{(l)}} J(W,b; x, y)$ 和 $\textstyle \frac{\partial}{\partial b_{i}^{(l)}} J(W,b; x, y)$ 的，以及针对一个样本 $(x,y)$ 的代价函数 $J(W,b;x,y)$ 的偏导数。一旦我们把这些计算出来了，我们将会看到计算所有样本的代价函数 $J(W,b)$ 的偏导数：  
+
+$$
+\begin{align}
+\frac{\partial}{\partial W_{ij}^{(l)}} J(W,b) &=
+\left[ \frac{1}{m} \sum_{i=1}^m \frac{\partial}{\partial W_{ij}^{(l)}} J(W,b; x^{(i)}, y^{(i)}) \right] + \lambda W_{ij}^{(l)} \\
+\frac{\partial}{\partial b_{i}^{(l)}} J(W,b) &=
+\frac{1}{m}\sum_{i=1}^m \frac{\partial}{\partial b_{i}^{(l)}} J(W,b; x^{(i)}, y^{(i)})
+\end{align}
+$$  
+
+上述两个公式略有不同，这是因为权重衰减应用在了参数 $W$ 上，而不是参数 $b$ 。  
+
+The intuition behind the backpropagation algorithm is as follows. Given a training example (x,y), we will first run a “forward pass” to compute all the activations throughout the network, including the output value of the hypothesis hW,b(x). Then, for each node i in layer l, we would like to compute an “error term” δ(l)i that measures how much that node was “responsible” for any errors in our output. For an output node, we can directly measure the difference between the network’s activation and the true target value, and use that to define δ(nl)i (where layer nl is the output layer). How about hidden units? For those, we will compute δ(l)i based on a weighted average of the error terms of the nodes that uses a(l)i as an input. In detail, here is the backpropagation algorithm:  
+
+背后的反向传播算法的直觉如下。给定一个训练实例（x，y），我们将首先运行一个“前传”来计算整个网络的所有活动，包括假设硬件输出值，B（X）。然后，我在每个节点的第一层，我们要计算一个“误差”δ（L）我的措施多少节点是“负责任的”在我们的输出错误。一个输出节点，我们可以直接测量网络的激活与真实值之间的差异，用以定义δ（NL）我（在层NL是输出层）。隐藏的单位如何？对于这些，我们将计算δ（L）我基于加权平均的计算误差，采用节点（L）我作为输入。详细地说，这里是反向传播算法
 
 
-权重衰减参数λ控制两方面的相对重要性。注意也有轻微超载符号：（重量，乙，乙）是一个单一的例子的平方误差成本
+
+
+
+
 
 
 
