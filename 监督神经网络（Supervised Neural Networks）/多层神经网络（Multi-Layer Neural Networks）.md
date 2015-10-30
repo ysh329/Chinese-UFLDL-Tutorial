@@ -151,15 +151,67 @@ $$
 
 对一个输出节点而言，我们可以直接计算出网络激活值和真实目标值的差距，并用该值来定义误差项 $\delta^{(n_l)}_i$ （第 $n_l$ 层是输出层）。  
 
+那有关隐单元呢？对着那些隐含单元来说，我们将会基于误差项的加权平均，即把 $a^{(l)}_i$ 作为输入的节点的误差项的加权平均，来计算 $\delta^{(l)}_i$ ，详细说来，反向传播算法如下：  
 
-How about hidden units? For those, we will compute δ(l)i based on a weighted average of the error terms of the nodes that uses a(l)i as an input. In detail, here is the backpropagation algorithm:  
+1. 执行前馈传递，其中计算层 $L_2, L_3$ 到输出层 $L_n$ 的激活函数值。  
+2. 对第 $L_n$ 层的每个第 $i$ 个输出单元，设定
+$$
+\begin{align}
+\delta^{(n_l)}_i
+= \frac{\partial}{\partial z^{(n_l)}_i} \;\;
+\frac{1}{2} \left\|y - h_{W,b}(x)\right\|^2 = - (y_i - a^{(n_l)}_i) \cdot f'(z^{(n_l)}_i)
+\end{align}
+$$  
+3. 循环层数。 $For \ l = n_l-1, n_l-2, n_l-3, \ldots, 2$  
+	 - 循环当前层（第 $l$ 层）节点（第 $i$ 个节点），设定  
+	 $$
+     \delta^{(l)}_i = \left( \sum_{j=1}^{s_{l+1}} W^{(l)}_{ji} \delta^{(l+1)}_j \right) f'(z^{(l)}_i)
+     $$
+4. 计算所需部分的偏微分，如下已给出：  
+    $$
+    \begin{align}
+    \frac{\partial}{\partial W_{ij}^{(l)}} J(W,b; x, y) &= a^{(l)}_j \delta_i^{(l+1)} \\
+    \frac{\partial}{\partial b_{i}^{(l)}} J(W,b; x, y) &= \delta_i^{(l+1)}.
+    \end{align}
+    $$
 
+最后，我们可以用矩阵和向量的符号标记来重写算法。我们使用 $\textstyle \bullet$ 来表示逐个元素地点乘操作（在 Matlab 或 Octave 中，我们使用 .* 来表示，这也被称作 $Hadamard$ 乘积）。如果有 $\textstyle a = b \bullet c$ ，即 $\textstyle a_i = b_ic_i$ 。与我们将 $\textstyle f(\cdot)$ 的定义从逐个元素扩展应用到向量上一样，我们也可以对 $\textstyle f'(\cdot)$ 做同样的操作（那么有，$\textstyle f'([z_1, z_2, z_3]) = [f'(z_1), f'(z_2), f'(z_3)]$）。  
 
+现在，算法流程可以写为：  
 
+1. 执行前馈传递，使用定义前馈传递流程的方程来计算第二，三层 $L_2, L_3$ 直到输出层 $L_n$ 的激活函数值。  
+2. 对输出层（即第 $n_l$ 层），设定
+$$
+\begin{align} \delta^{(n_l)} = - (y - a^{(n_l)}) \bullet f'(z^{(n_l)}) \end{align}
+$$  
+3. 循环层数 $l$ 。 $For \ l = n_l-1, n_l-2, n_l-3, \ldots, 2$，设定  
+	 $$
+    \begin{align} \delta^{(l)} = \left((W^{(l)})^T \delta^{(l+1)}\right) \bullet f'(z^{(l)}) \end{align}
+     $$
+4. 计算所需部分的偏微分，如下已给出：  
+    $$
+\begin{align}
+\nabla_{W^{(l)}} J(W,b;x,y) &= \delta^{(l+1)} (a^{(l)})^T, \\
+\nabla_{b^{(l)}} J(W,b;x,y) &= \delta^{(l+1)}.
+\end{align}
+    $$  
 
+**实现须知**：在以上所述的第2，3步中，我们需要为每个节点 $i$ 计算偏导数 $\textstyle f'(z^{(l)}_i)$ 。假设 $\textstyle f(z)$ 是一个 S 型激活函数，先前我们已经将第 $l$ 层的第 $i$ 个节点的激活函数值存储在了网络中。因此，通过我们先前得出的 $\textstyle f'(z)$ 的表达式，我们可以计算第 $l$ 层的第 $i$ 个节点的激活函数的偏导数 $\textstyle f'(z^{(l)}_i) = a^{(l)}_i (1- a^{(l)}_i)$ 。  
 
+最后，我们便可以描述整个梯度下降算法了。下面是伪代码， $\textstyle \Delta W^{(l)}$ 是一个矩阵（与 $\textstyle W^{(l)}$ 同一维度），$\textstyle \Delta b^{(l)}$ 是一个向量（与 $\textstyle b^{(l)}$ 同一维度）。注意这个符号，$\textstyle \Delta W^{(l)}$ 是一个矩阵，尤其要说明的是，它并不是 $\textstyle \Delta$ 乘以 $\textstyle W^{(l)}$ ，我们实现一次梯度下降的过程如下：  
 
+1. 对所有层 $l$ ，设定矩阵或向量中元素值均为 $0$ ： $\textstyle \Delta W^{(l)} := 0$ ， $\textstyle \Delta b^{(l)} := 0$ 。  
+2. $For \ i=1 \ to \ m$,
+	1. 使用反向传播计算 $\textstyle \nabla_{W^{(l)}} J(W,b;x,y)$ 和 $
+\textstyle \nabla_{b^{(l)}} J(W,b;x,y)$ 。
+	2. 设定 $\textstyle \Delta W^{(l)} := \Delta W^{(l)} + \nabla_{W^{(l)}} J(W,b;x,y)$ 。
+	3. 设定 $\textstyle \Delta b^{(l)} := \Delta b^{(l)} + \nabla_{b^{(l)}} J(W,b;x,y)$
+3. 更新参数：
+$$
+\begin{align}
+W^{(l)} &= W^{(l)} - \alpha \left[ \left(\frac{1}{m} \Delta W^{(l)} \right) + \lambda W^{(l)}\right] \\
+b^{(l)} &= b^{(l)} - \alpha \left[\frac{1}{m} \Delta b^{(l)}\right]
+\end{align}
+$$
 
-
-
-
+为训练神经网络，我们现在可以通过重复执行梯度下降的步骤的方法，减少成本函数 $\textstyle J(W,b)$ 的值。
