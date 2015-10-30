@@ -1,11 +1,30 @@
 # 练习： 监督神经网络（Exercise: Supervised Neural Networks）  
 
-In this exercise, you will train a neural network classifier to classify the 10 digits in the MNIST dataset. The output unit of your neural network is identical to the softmax regression function you created in the Softmax Regression exercise. The softmax regression function alone did not fit the training set well, an example of underfitting. In comparison, a neural network has lower bias and should better fit the training set. In the section on Multi-Layer Neural Networks we covered the backpropagation algorithm to compute gradients for all parameters in the network using the squared error loss function. For this exercise, we need the same cost function as used for softmax regression (cross entropy), instead of the squared error function.  
+本次练习中，您将训练一个神经网络分类器，并在 MNIST 数据集上对 10 种手写数字进行分类。神经网络的输出单元与您在 <a href="http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression">Softmax 回归</a>练习中创建的是相同的。Softmax 回归的函数本身并不适合拟合训练集，其中一个原因是**欠拟合（$underfitting$）**。  
 
-本次练习中，您将训练一个神经网络分类器，并在 MNIST 数据集上对 10 种手写数字进行分类。神经网络的输出单元与您在 Softmax 回归练习中创建的是相同的。Softmax 回归的函数本身并不适合拟合训练集，其中一个原因是欠拟合。
-相比之下，神经网络具有较低的偏差，应更好地拟合训练集。在多层神经网络的部分中，我们覆盖的反向传播算法计算梯度的所有参数在网络中使用的平方误差损失函数。对于这个练习，我们需要同样的成本函数用于Softmax回归（交叉熵），而不是平方误差函数。  
+相比之下，有着更低偏差（$bias$）的神经网络应能更好地拟合训练集。在<a href="http://ufldl.stanford.edu/tutorial/supervised/MultiLayerNeuralNetworks">多层神经网络</a>这一节中，我们用反向传播算法通过平方误差损失函数来计算网络参数的梯度。在本次练习中，我们需要用到在 Softmax 回归（交叉熵）中同样的成本函数，而不是平方误差函数。  
 
+代价函数与 Softmax 回归的代价函数基本一样。需要注意的是，与从输入数据 $x$ 做预测不同， Softmax 函数把网络 $h_{W,b}(x)$ 的隐含层的最后一层作为输入。其损失函数为：  
 
-The cost function is nearly identical to the softmax regression cost function. Note that instead of making predictions from the input data x the softmax function takes as input the final hidden layer of the network hW,b(x). The loss function is thus,
+$$
+\begin{align}
+J(\theta) = - \left[ \sum_{i=1}^{m} \sum_{k=1}^{K}  1\left\{y^{(i)} = k\right\} \log \frac{\exp(\theta^{(k)\top} h_{W,b}(x^{(i)}))}{\sum_{j=1}^K \exp(\theta^{(j)\top} h_{W,b}(x)^{(i)}))}\right].
+\end{align}
+$$  
 
-代价函数与 Softmax 回归的代价函数基本一样。需要注意的是，
+神经网络和 Softmax 回归在成本函数上的不同，会导致在对输出层 $\delta^{(n_l)}$ 的误差项上，计算出的值不同。对于交叉熵代价有：  
+
+$$
+\begin{align}
+\delta^{(n_l)} = - \sum_{i=1}^{m}{ \left[ \left( 1\{ y^{(i)} = k\}  - P(y^{(i)} = k | x^{(i)}; \theta) \right) \right]  }
+\end{align}
+$$
+
+使用这一项，您应该可以得到用以计算所有网络参数梯度的完整反向传播算法。  
+
+使用先前给出的初学者代码，创建神经网络的前向传播代价函数，并计算其梯度。先前，我们用 minFunc 优化包来做基于梯度的优化。记得对您的梯度计算进行数值检查。您的实现应该支持多隐含层的神经网络训练。当您在开发代码时，请遵循下面的操作节点：  
+
+- 实现一层隐含层的网络，并做梯度检查。当做梯度检查时，您也许会想通过裁剪训练数据的矩阵，来减少输入维度和样本数量。在做梯度检查时，您应该使用较小数量的隐单元以减少计算时间。
+- 对您的两个隐含层网络的实现进行梯度检查。
+- 训练并测试不同的网络架构。您应该可以实现在一层有着256个隐含单元的隐含层，达到在训练集上100%的精度。因为有很多参数，所以存在过拟合的风险。通过对不同的层数，隐含层数，以及权重衰减惩罚值的实验，来进一步理解什么样的架构表现最好。您能找到一个优于您最好的单隐含层架构的多隐含层网络吗？
+- （可选）扩展您的代码使其支持多种非线性隐含单元的选择（ S 型函数，双曲正切 $tanh$ 函数和整流线性函数）。

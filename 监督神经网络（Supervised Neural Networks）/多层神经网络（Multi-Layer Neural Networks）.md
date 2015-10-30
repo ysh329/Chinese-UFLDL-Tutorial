@@ -147,11 +147,12 @@ $$
 
 上述两个公式略有不同，这是因为权重衰减应用在了参数 $W$ 上，而不是参数 $b$ 。  
 
-The intuition behind the backpropagation algorithm is as follows. Given a training example (x,y), we will first run a “forward pass” to compute all the activations throughout the network, including the output value of the hypothesis hW,b(x). Then, for each node i in layer l, we would like to compute an “error term” δ(l)i that measures how much that node was “responsible” for any errors in our output. For an output node, we can directly measure the difference between the network’s activation and the true target value, and use that to define δ(nl)i (where layer nl is the output layer). How about hidden units? For those, we will compute δ(l)i based on a weighted average of the error terms of the nodes that uses a(l)i as an input. In detail, here is the backpropagation algorithm:  
+反向传播算法背后的过程如下：给定一个训练样本 $(x, y)$ ，我们首先执行前向传递，以计算整个网络的激活，这其中包含假设 $h_{W,b}(x)$ 的输出值。然后，对每层 $l$ 的每个节点 $i$ ，我们将会计算一个误差项（$error \ term$）$\delta^{(n_l)}_i$ ，该误差项计算了当前节点对我们网络的输出误差的贡献度。  
 
-背后的反向传播算法的直觉如下。给定一个训练实例（x，y），我们将首先运行一个“前传”来计算整个网络的所有活动，包括假设硬件输出值，B（X）。然后，我在每个节点的第一层，我们要计算一个“误差”δ（L）我的措施多少节点是“负责任的”在我们的输出错误。一个输出节点，我们可以直接测量网络的激活与真实值之间的差异，用以定义δ（NL）我（在层NL是输出层）。隐藏的单位如何？对于这些，我们将计算δ（L）我基于加权平均的计算误差，采用节点（L）我作为输入。详细地说，这里是反向传播算法
+对一个输出节点而言，我们可以直接计算出网络激活值和真实目标值的差距，并用该值来定义误差项 $\delta^{(n_l)}_i$ （第 $n_l$ 层是输出层）。  
 
 
+How about hidden units? For those, we will compute δ(l)i based on a weighted average of the error terms of the nodes that uses a(l)i as an input. In detail, here is the backpropagation algorithm:  
 
 
 
