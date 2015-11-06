@@ -13,7 +13,7 @@ $$
 上面这个函数就是我们当前问题的“成本函数”或“代价函数”（Cost Function），它测量的是在特定 $\theta$ 值下，预测值（即 $h_{\theta}(x^{(i)})$ ）与 $y^{(i)}$ 相差程度。该函数也被称为“损失函数”（Loss Function），“惩罚函数”（Penalty Function）或“目标函数”（Objective Function）。  
 
 ## 函数最小化（Function Minimization）  
-现在，我们要找到在函数 $J(\theta)$ 最小值时， ${\theta}$ 参数的值。实际上，有很多的算法都可以用来最小化函数，比方说我们这里即将提到的以及后面我们还会讲到一些高效率且易于自己实现的函数优化算法在后面的<a href="http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent">梯度下降</a>（Gradient descent，注：原英文教程中，点击超链接后未跳转，这里给出的是后面讲到的优化方法——随机梯度下降，Stochastic Gradient Descent的链接）小节中。计算函数最小值通常需要准备有关目标函数（Objective Function） $J(\theta)$ 的两个部分：第一部分是写出计算目标函数 $J(\theta)$ 的代码，第二部分是写出目标函数（Objective Function） $J(\theta)$ 的微分项 $\triangledown _{\theta}J(\theta )$ ，以计算参数 $\theta$ 的值。  
+现在，我们要找到在函数 $J(\theta)$ 最小值时， ${\theta}$ 参数的值。实际上，有很多的算法都可以用来最小化函数，比方说我们这里即将提到的以及后面我们还会讲到一些高效率且易于自己实现的函数优化算法，比方在后面的<a href="http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent">梯度下降</a>（Gradient descent，注：原英文教程中，该链接无效，这里给出本教程中的一个函数优化算法——随机梯度下降，Stochastic Gradient Descent的链接）小节中。计算函数最小值通常需要准备有关目标函数（Objective Function） $J(\theta)$ 的两个部分：第一部分是写出计算目标函数 $J(\theta)$ 的代码，第二部分是写出目标函数（Objective Function） $J(\theta)$ 的微分项 $\triangledown _{\theta}J(\theta )$ ，以计算参数 $\theta$ 的值。  
 
 之后，找到参数 $\theta$ 的最优值过程的其余部分将由优化算法来处理（回想一下，可微函数 $J(\theta)$ 的梯度 $\triangledown _{\theta}J(\theta )$ （即微分项），是一个指向函数 $J(\theta)$ 最陡（下降）增量的方向的矢量——所以，很容易看到优化算法如何在参数 $\theta$ 上使用这样的一个小变化量（的方法），来减小（或增加 $J(\theta)$，以求得函数最小或最大值）。  
 
