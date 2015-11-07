@@ -5,19 +5,19 @@
 在之前的练习中，练习问题涉及到的图片其分辨率都偏低，例如小图像修补程序和小图像的手写数字识别。而在本节中，我们将会开发一种方法，它能够扩展先前学到的方法在更实际的大图像数据集上。  
 
 ## 全连接网络（Fully Connected Networks）  
-In the sparse autoencoder, one design choice that we had made was to “fully connect” all the hidden units to all the input units. On the relatively small images that we were working with (e.g., 8x8 patches for the sparse autoencoder assignment, 28x28 images for the MNIST dataset), it was computationally feasible to learn features on the entire image. However, with larger images (e.g., 96x96 images) learning features that span the entire image (fully connected networks) is very computationally expensive–you would have about 104 input units, and assuming you want to learn 100 features, you would have on the order of 106 parameters to learn. The feedforward and backpropagation computations would also be about 102 times slower, compared to 28x28 images.  
 
-
-在稀疏编码，一个设计选择，我们已经是“完全连接”所有的隐藏单元的所有输入单元。在我们的工作与相对较小的图像（例如，8x8的补丁的稀疏编码的任务，28x28图像MNIST数据集），它是学习的特点对整个图像计算是可行的。然而，更大的图像（例如，96x96图像）学习跨越整个图像特征（完全连接网络）的计算是非常昂贵的–你要有104个输入单元，假设你想了解100的功能，你就会对106参数的顺序学习。前向和反向传播计算也会慢了大约102倍，比28x28图像。
+在稀疏编码器中，一种设计选择是我们先前已经实现的“全连接”，即所有的隐含层单元与所有输入单元完全连接起来。在我们先前的练习中，使用的是相对较小的图像（例如，在稀疏编码的任务中8x8像素大小的图像，MNIST数据集中28x28像素大小的图像），这种“全连接”方式的特种学习在对整个图像上计算是可行的。然而，对于更大图像（例如，96x96像素大小的图像）的学习来说，可能会因为特征学习会在整个图像上进行（全连接网络），其计算代价是很大的——您要有104个输入单元，假设您想学习 100 个特征，您就会对 106 个参数按照顺序进行学习。相较于28x28像素大小的图像，在前向和反向传播的计算上也会慢大约102倍。  
 
 ## 局部连接网络（Locally Connected Networks）  
-One simple solution to this problem is to restrict the connections between the hidden units and the input units, allowing each hidden unit to connect to only a small subset of the input units. Specifically, each hidden unit will connect to only a small contiguous region of pixels in the input. (For input modalities different than images, there is often also a natural way to select “contiguous groups” of input units to connect to a single hidden unit as well; for example, for audio, a hidden unit might be connected to only the input units corresponding to a certain time span of the input audio clip.)  
 
-This idea of having locally connected networks also draws inspiration from how the early visual system is wired up in biology. Specifically, neurons in the visual cortex have localized receptive fields (i.e., they respond only to stimuli in a certain location).  
+这个问题的一种简单解决方案是限制隐含单元与输入单元的连接数目，也就是说，只允许隐含单元连接输入单元中的一个小的子集。具体而言，每个隐藏单元将连接到输入像素中的一个小的连续区域。（对于不同于图像的输入形式，也有一种自然的方式来选择从输入单元到一个隐含单元的“连续组”，例如，对于音频，一个隐藏单元可能被连接到一个与之特定时间跨度对应的音频剪辑的输入单元上。）  
+
+局部连接网络的这一想法也借鉴了在生物学上早期视觉系统的观点。具体而言，视觉皮层的神经元有着局部感受区域（即，它们只会对某一位置的刺激做出反应）。  
 
 ## 卷积（Convolutions）  
-Natural images have the property of being ”‘stationary”’, meaning that the statistics of one part of the image are the same as any other part. This suggests that the features that we learn at one part of the image can also be applied to other parts of the image, and we can use the same features at all locations.  
 
-More precisely, having learned features over small (say 8x8) patches sampled randomly from the larger image, we can then apply this learned 8x8 feature detector anywhere in the image. Specifically, we can take the learned 8x8 features and ”‘convolve”’ them with the larger image, thus obtaining a different feature activation value at each location in the image.  
+自然世界中的图像有着“固定不变”的属性，这也意味这图像的某一部分的数据和另一部分的数据是一样的。这表明，我们在一张图片上某部分的特征也可应用到该图片的其它部分，并且我们可以基于这一观点——使用不同的特征，应用到局部数据一样但不同的位置上。  
 
-To give a concrete example, suppose you have learned features on 8x8 patches sampled from a 96x96 image. Suppose further this was done with an autoencoder that has 100 hidden units. To get the convolved features, for every 8x8 region of the 96x96 image, that is, the 8x8 regions starting at (1,1),(1,2),…(89,89), you would extract the 8x8 patch, and run it through your trained sparse autoencoder to get the feature activations. This would result in 100 sets 89x89 convolved features.  
+更确切地说，从大的图像上随机地抽样小图片（比方说8x8大小的图片）做特征学习，我们可以将这个8x8大小的特征检测器应用到这幅图片的任何地方。具体而言，我们可以把学到的8x8特征，通过将它们与更大图片“卷”起来的方式，在同一张图片上获得在每个位置处不同的特征激活值。  
+
+讲个具体的例子，假设您已经从96x96大小的图片上做了8x8大小的抽样的特征学习。再进一步假设，这一过程是通过有着100个隐含单元的自动编码器完成的。为了获得卷积特征（即96x96大小的图片上每8x8大小范围的特征，这个8x8区域是从$(1,1), (2,2), ...(89,89)$ ），您将会提取8x8大小的图片，通过您训练的稀疏自动编码器来获取特征激活。这将会产生100组的89x89大小的卷积特征。
