@@ -23,15 +23,54 @@
 <center><img src="./images/Cnn_layer.png"></center>
 <center>图1：一个卷积神经网络的第一层的池化过程。
 相同颜色的神经单元有连接权重，不同颜色的神经元表示不同的滤波器（图）  
-（译者注：这里不同颜色的神经元代表着不同的滤波器或核，  
+（译者注：这里不同颜色的神经元代表着不同的滤波器或核。  
+对于“RF”，个人理解为感受野（ $Receptive\ Field$ ）的缩写，  
+感受野是视觉系统信息处理的基本结构和功能单元。  
 <font color=red>注意：滤波器和核是一个意思，滤波器和通道不是一个意思</font>）。
 </center>  
 
 在卷积层后可能有任意个全连接层。在一个标准的<a href="../监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络</a>中，被密集连接（译者注：即全连接）的这些层是一样的。  
 
 ## 反向传播（Back Propagation）  
-Let δ(l+1)
-be the error term for the (l+1)-st layer in the network with a cost function J(W,b;x,y) where (W,b) are the parameters and (x,y) are the training data and label pairs. If the l-th layer is densely connected to the (l+1)-st layer, then the error for the l-th layer is computed as
 
+对于网络中的成本函数 $J(W,b ; x,y)$ ， $\delta^{(l+1)}$ 是第 $(l+1)$ 层的误差项，其中 $(W, b)$ 是（译者注：成本函数的）参数， $(x,y)$ 是带有标签的训练数据。如果第 $l$ 层与第 $(l+1)$ 层是密集连接（译者注：即全连接）的，那么可计算第 $l$ 层的误差项为：  
 
+$$
+\begin{align}
+   \delta^{(l)} = \left((W^{(l)})^T \delta^{(l+1)}\right) \bullet f'(z^{(l)})
+   \end{align}
+$$  
 
+计算第 $l$ 层梯度为：  
+
+$$
+\begin{align}
+   \nabla_{W^{(l)}} J(W,b;x,y) &= \delta^{(l+1)} (a^{(l)})^T, \\
+   \nabla_{b^{(l)}} J(W,b;x,y) &= \delta^{(l+1)}.
+\end{align}
+$$  
+
+如果第 $l$ 层是一个卷积和下采样（译者注：即池化）层，那么误差被传播（的过程，可通过如下公式）表示为：  
+
+$$
+\begin{align}
+   \delta_k^{(l)} = \text{upsample}\left((W_k^{(l)})^T \delta_k^{(l+1)}\right) \bullet f'(z_k^{(l)})
+   \end{align}
+$$  
+
+其中， $k$ 是滤波器（译者注：或称为核，同义）的索引编号， $f'(z_k^{(l)})$ 是激活函数的导数。<font color=red>`上采样`</font>操作的误差传播是通过池化层（译者注：即下采样层）与进到池化层的各神经元（译者注：“进到池化层的各神经元”，即池化层前一层的神经元）计算误差。  
+
+举个例子，若做完了平均值池化，然后对（前一层的）池化（神经）单元进行简单的均匀分布（译者注：均匀分布，即 $P(X=k)=\frac{1}{m},k=1,...,m$ ）<font color=red>`上采样`</font>。在最大值池化中，即使（上层）输入（译者注：在池化的相邻区域内）的变化很小，（池化）单元会对结果产生扰动（译者注：本句翻译不确定，"In max pooling the unit which was chosen as the max receives all the error since very small changes in input would perturb the result only through that unit. "）。  
+
+Finally, to calculate the gradient w.r.t to the filter maps, we rely on the border handling convolution operation again and flip the error matrix δ(l)k the same way we flip the filters in the convolutional layer.  
+
+最后，为了计算特征图（即 $feature\ map$）的梯度，我们再次借助边界来处理卷积运算，并翻转误差矩阵 $\delta_k^{(l)}$ （译者注：这里的“翻转”，即逆时针旋转 $180°$ 。逆时针旋转 $90°$ ，对应 $MATLAB$ 中的函数 $rot90$ ，$\text{rot90}(\delta_k^{(l+1)},2)$ 表示对二维矩阵 $\delta_k^{(l+1)}$ 逆时针旋转 $90°\ 2$ 次），这个过程与在卷基层翻转（译者注：即逆时针旋转 $180°$ ）滤波器是一样的。
+
+$$
+\begin{align}
+     \nabla_{W_k^{(l)}} J(W,b;x,y) &= \sum_{i=1}^m (a_i^{(l)}) \ast \text{rot90}(\delta_k^{(l+1)},2), \\
+     \nabla_{b_k^{(l)}} J(W,b;x,y) &=  \sum_{a,b} (\delta_k^{(l+1)})_{a,b}.
+   \end{align}
+$$  
+
+其中，$a^{(l)}$是第 $l$ 层的输入，并且有 $a^{(1)}$ 是输入的图像。操作 $(a_i^{(l)}) \ast \delta_k^{(l+1)}$ 是第 $l$ 层的第 $i$ 个输入关于第 $k$ 个滤波器（或称为核）的“有效的”卷积（操作，译者注： $\delta_k^{(l+1)}$ 是误差矩阵）。
