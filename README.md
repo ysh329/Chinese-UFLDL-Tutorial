@@ -62,21 +62,21 @@
 
 * 监督神经网络（Supervised Neural Networks）
 
-  * <a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md">多层神经网络（Multi-Layer Neural Networks）</a>
+  * <a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络（Multi-Layer Neural Networks）</a>
 
-  * <a href="./监督神经网络（Ssssupervised Neural Networks）/练习： 监督神经网络（Exercise: Supervised Neural Networks）.md">练习：监督神经网络（Exercise: Supervised Neural Network）</a>
+  * <a href="./监督神经网络（Ssssupervised Neural Networks）/练习： 监督神经网络（Exercise: Supervised Neural Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>
 
 * 监督卷积网络（Supervised Convolutional Neural Network）
 
-  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/使用卷积进行特征提取（Feature Extraction Using Convolution）.md">使用卷积进行特征提取（Feature Extraction Using Convolution）</a>
+  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/使用卷积进行特征提取（Feature Extraction Using Convolution）.md" target="_blank">使用卷积进行特征提取（Feature Extraction Using Convolution）</a>
 
-  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/池化（Pooling）.md">池化（Pooling）</a>
+  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/池化（Pooling）.md" target="_blank">池化（Pooling）</a>
 
   * 练习：卷积和池化（Exercise: Convolution and Pooling）
 
-  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）.md">优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）</a>
+  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）.md" target="_blank">优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）</a>
 
-  * 卷积神经网络（Convolutional Neural Network）
+  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/卷积神经网络（Convolutional Neural Network）.md" target="_blank">卷积神经网络（Convolutional Neural Network）</a>
 
   * 练习：卷积神经网络（Excercise: Convolutional Neural Network）
 
