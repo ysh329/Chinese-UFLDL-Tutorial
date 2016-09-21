@@ -16,13 +16,13 @@
 
 若有翻译错误，请发邮件至ysh329@sina.com，感谢！  
 
-更多详细参考资料，见<a href="https://github.com/bayandin/awesome-awesomeness" target="_blank">计算机科学</a>，<a href="https://github.com/owainlewis/awesome-artificial-intelligence" target="_blank">人工智能</a>，<a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank">机器学习</a>，<a href="https://github.com/ChristosChristofidis/awesome-deep-learning" target="_blank">深度学习</a>。
+更多详细参考资料，见<a href="https://github.com/bayandin/awesome-awesomeness" target="_blank">计算机科学</a>，<a href="https://github.com/owainlewis/awesome-artificial-intelligence" target="_blank">人工智能</a>，<a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank">机器学习</a>，<a href="https://github.com/ChristosChristofidis/awesome-deep-learning" target="_blank">深度学习</a>，<a href="https://github.com/ChristosChristofidis/awesome-public-datasets" target="_blank">公开数据集</a>。
 
 
 
 # 欢迎来到UFLDL教程！
 
-说明：本教程将会教给您非监督特征学习以及深度学习的主要思想。通过它，您将会实现几个特征学习或深度学习的算法，看到这些算法为您（的工作）带来的作用，以及学习如何将这些思想应用到适用的新问题上。
+说明：本教程将会教给您非监督特征学习以及深度学习的主要思想。通过它，您将会实现几个特征学习或深度学习的算法，看到这些算法为您（的工作）带来作用，以及学习如何将这些思想应用到适用的新问题上。
 
 
 
