@@ -1,6 +1,6 @@
 # Chinese-UFLDL-Tutorial
 
-中文版的新版UFLDL教程（项目地址：www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自<a href="http://deeplearning.stanford.edu/tutorial/" target="_blank">UFLDL Tutorial</a>，是新版教程的翻译。也可参考<a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial" target="_blank">老版本的UFLDL中文教程</a>。  
+中文版的新版UFLDL教程（项目地址：www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自<a href="http://deeplearning.stanford.edu/tutorial/" target="_blank">UFLDL Tutorial</a>，是新版教程的翻译。也可参考<a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial" target="_blank">老版本的UFLDL中文教程</a>。翻译过程中有一些公司，使用 <a href="http://pad.haroopress.com/user.html#download" target="_blank">Haroopad</a> 编辑和排版， Hadroop 是一个很不错的离线 MarkDown 编辑器，支持多平台（Win/Mac/Linux）。  
 
 
 
