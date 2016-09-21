@@ -25,12 +25,12 @@ y^{(1)} & y^{(2)} & \cdots & y^{(m)}\\
 | & |  &  | & |\end{array}\right] = Y = W X
 $$  
 
-所以，当执行线性回归（Linear Regression）时，我们可以通过计算 $\theta^{\top}X$ 求得（预测值） $y^{(i)} = \theta^{\top}X^{(i)}$ ，以避免循环全部的样本。  
+所以，当执行线性回归（Linear Regression）时，我们可以通过计算 $\theta^{\top}X$ 求得所有的 $y^{(i)} = \theta^{\top}X^{(i)}$ ，以避免 for 循环对所有样本的遍历。  
 
 
 ## 案例：标准化向量（Example: normalizing many vectors）  
 
-假设我们有前文说到的由众多向量 $x^{(i)}$ 连接形成的矩阵 $X$，同时我们想对所有的 $x^{(i)}$ 计算 $y^{(i)} = x^{(i)}/||x^{(i)}||_2$， 我们可以用几个 MATLAB 的阵列（矩阵）操作来完成。  
+假设我们有前文说到的由众多向量 $x^{(i)}$ 连接形成的矩阵 $X$，同时我们想对所有的 $x^{(i)}$ 计算 $y^{(i)} = x^{(i)}/||x^{(i)}||_2$， 我们可以用几个 MATLAB 的矩阵操作来完成。  
 
 ```
   X_norm = sqrt( sum(X.^2,1) );
@@ -38,16 +38,16 @@ $$
 ```  
 
 
-该代码将先对 $X$ 中的所有元素做平方操作，再对其中的所有元素按相加，最终再对每个元素做开平方根操作。最后得到的是一个 $1$ 行 $m$ 列，包含了 $||x(i)||_{2}$ 元素的矩阵。<font color=red>`bsxfun`</font>函数的作用可以看成是对变量 <font color=red>`Xnorm`</font> 的扩展或者复制，我们便会得到与矩阵 $X$ 维度相同的变量，再对其逐个元素使用二元操作函数（匿名函数 <font color=red>`@rdivide`</font> 对同维矩阵的同位置的所有元素，实现右除操作）。在上面的例子中，实现了用二元操作函数对每个元素 $X_{ji} = x^{(i)}_{j}$ 除以在向量 $X\text{norm}$中与其列位置对应的元素，最后得到 $Y_{ji} = X_{ji} / {X\text{norm}}_i = x_j^{(i)}/||x^{(i)}||_2$。<font color=red>`bsxfun`</font> 可以与几乎所有的二元操作函数使用（例如，@plus，@ge或@eq），更多详情可以查看有关 <font color=red>`bsxfun`</font> 的文档。  
+第一行代码，先对 $X$ 中的所有元素做平方操作，所有元素再按列相加得到行向量，最终对行向量中的每个元素做开平方根操作。最后得到的是一个 $1$ 行 $m$ 列，包含了 $||x(i)||_{2}$ 元素的行向量。<font color=red>`bsxfun`</font>函数的作用可以看成是对变量 <font color=red>`Xnorm`</font> 的扩展或者复制，我们便会得到与矩阵 $X$ 维度相同的矩阵，然后对该矩阵中逐个元素应用二元操作函数（匿名函数 <font color=red>`@rdivide`</font> 对同维矩阵的同位置的所有元素，实现右除操作）。上述例子中，实现了用二元操作函数对每个元素 $X_{ji} = x^{(i)}_{j}$ 除以在向量 $X\text{norm}$ 中与其列位置相同的元素，最后得到 $Y_{ji} = X_{ji} / {X\text{norm}}_i = x_j^{(i)}/||x^{(i)}||_2$。<font color=red>`bsxfun`</font> 可以与几乎所有的二元操作函数使用（例如，@plus，@ge或@eq），更多详情可以查看 <font color=red>`bsxfun`</font> 的 MATLAB 文档。  
 
 ## 案例：梯度计算的矩阵乘法（Example: matrix multiplication in gradient computations）  
-在线性回归的梯度计算中，我们有以下形式的概括：  
+在线性回归的梯度计算中，其形式可概括为：  
 
 $$
 \frac{\partial J(\theta; X,y)}{\partial \theta_j} = \sum_i x_j^{(i)} (\hat{y}^{(i)} - y^{(i)}).
 $$  
 
-每当我们有通过单个索引（公式中的 $i$ ）与其他几个固定索引（公式中的 $j$ ）的求和操作时，我们经常将这个计算改写成矩阵乘法 $[A B]_{jk} = \sum_i A_{ji} B_{ik}$ （的形式）。即，如果 $y$ 和 $\hat{y}$ 是列向量（有 $y_i \equiv y^{(i)}$），那么可将上面这样的求和模式重新写成下面这样：  
+当有通过单个索引（公式中的 $i$ ）与其它几个固定索引（公式中的 $j$ ）的求和操作时，经常将这个计算改写成矩阵乘法 $[A B]_{jk} = \sum_i A_{ji} B_{ik}$ 的形式。即，如果 $y$ 和 $\hat{y}$ 是列向量（有 $y_i \equiv y^{(i)}$），那么可将上面这样的求和模式重新写成下面这样：  
 
 $$
 \frac{\partial J(\theta; X,y)}{\partial \theta_j} = \sum_i X_{ji} (\hat{y}_i - y_i) = [X (\hat{y} - y)]_j.
