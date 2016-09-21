@@ -5,9 +5,9 @@
 
 >译者注：`解析解`指能够根据题意，得出在一定条件下的能够以数学表达式直接表达出来的的解。而`数值解`指在题中所给出的条件下难以用数学表达式表达出来，或者能够表达出来但需要每个给定自变量值下的数字结果，而通过计算（手算或计算机计算）的出来的以表格或图形表示的结果。`数值解`一般是近似结果，它与微分方程的真实结果有偏差（参考： <a href="http://www.zybang.com/question/c84bf6ec2427e4dbe662cec27d31c8b3.html" target="_blank">百度知道</a> ）。  
 
-假设我们想要最小化带有参数 $\theta$ 的函数 $J(\theta)$ 。在这个例子中，假设有 $\textstyle J : \Re \mapsto \Re$ ，以便 $\textstyle \theta \in \Re$ 。如果我们使用 <font color=red>`minFunc`</font> 或一些其它的优化算法，在此之前已实现了某个 $g(\theta)$ 函数，该函数是根据（计算 $J(\theta)$ 的导数） $\textstyle \frac{d}{d\theta}J(\theta)$ 得到的（解析解）。  
+假设我们想要最小化带有参数 $\theta$ 的函数 $J(\theta)$ 。在这个例子中，假设有 $\textstyle J : \Re \mapsto \Re$ ， $\textstyle \theta \in \Re$ 。如果使用 <font color=red>`minFunc`</font> 或其它优化算法，在此之前已实现了某个 $g(\theta)$ 函数的代码，函数 $g(\theta)$ 是计算 $J(\theta)$ 的导数，即 $\textstyle \frac{d}{d\theta}J(\theta)$ （解析解）。  
 
-我们怎样检查我们的 $g$ 实现的是正确的呢？  
+我们怎样检查 $g$ 的代码实现是正确的呢？  
 让我们再来回顾一下导数的数学定义：  
 
 $$
@@ -17,7 +17,7 @@ $$
 \end{align}
 $$  
 
-因此，对任何特定的 $\theta$ 参数值，我们可以用下面这个方法在数值上近似这个导数值:  
+因此，对任何特定的 $\theta$ 参数值，我们可以用下面这个方法（数值解）检查与导数值（解析解）是否接近:  
 
 $$
 \begin{align}
@@ -25,9 +25,11 @@ $$
 \end{align}
 $$  
 
-在实践中，我们设置 ${\rm EPSILON}$ 为一小常量，通常设置为 $10^{-4}$ 。 （ ${\rm EPSILON}$ 的值域范围尽管很大，但我们不设置 ${\rm EPSILON}$ “非常”小，比如 $10^{-20}$ ，因为这会导致数值舍入误差。）  
+在实践中，我们设置 ${\rm EPSILON}$ 为一小常量，通常设置为 $10^{-4}$ 。 （ ${\rm EPSILON}$ 的值域范围尽管很大，但我们不设置 ${\rm EPSILON}$ “非常”小，比如 $10^{-20}$ ，因为这会产生计算机的舍入误差。）  
 
-因此，对给定函数 $g(\theta)$ ，它应计算 $\textstyle \frac{d}{d\theta}J(\theta)$ ，我们现在就通过下面这个式子从数值角度上来验证其正确性  
+>译者注：`舍入误差`，由于计算机的字长有限，进行数值计算的过程中，对计算得到的中间结果数据要使用“四舍五入”或其他规则取近似值，因而使计算过程有误差。这种误差称为舍入误差（参考： <a href="http://baike.baidu.com/link?url=2vnU5YEAPZ5Te7VlIaRabbpMeLbYyQMTAPKhfocm_lBYA_9VF8FE1P2ZiRjXHk2Ze4Dloe6JCZH5f4KCPyQU5_" target="_blank">百度百科</a> ）。  
+
+因此，对给定目标函数的导数 $g(\theta)$ ，它计算的是 $\textstyle \frac{d}{d\theta}J(\theta)$ （即解析解），我们现在就通过下面这个式子从数值角度（即数值解）上来验证其正确性  
 
 $$
 \begin{align}
