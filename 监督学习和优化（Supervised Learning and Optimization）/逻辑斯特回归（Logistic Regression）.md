@@ -39,7 +39,7 @@ $$
 
 在本次练习中，您将会实现逻辑斯特回归（Logistic Regression）的目标函数（Objective Function）以及梯度计算（Gradient Computation），并使用您的代码从 <a href="http://yann.lecun.com/exdb/mnist/">MNIST 数据集</a> 中，学习分类数字（“0”或“1”的）图像。如下是列举的一些数字图片样本：  
 
-<img src="./images/Mnist_01.png" />  
+<center><img src="./images/Mnist_01.png" /></center>  
 
 
 我们使用 $28*28$ 像素规格来表示每个数字图像，我们将每张数字图像的格式变成有着 $28*28 = 784 $ 个元素的向量 $x^{(i)}$ 的形式。其类标记是 $y^{(i)}\in \{0,1\}$ 两种值中的一种。  
