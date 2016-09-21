@@ -16,7 +16,7 @@
 
 若有翻译错误，请发邮件至ysh329@sina.com，感谢！  
 
-更多详细参考资料，见<a href="https://github.com/bayandin/awesome-awesomeness" target="_blank">计算机科学</a>，<a href="https://github.com/owainlewis/awesome-artificial-intelligence" target="_blank">人工智能</a>，<a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank">机器学习</a>，<a href="https://github.com/ChristosChristofidis/awesome-deep-learning" target="_blank">深度学习</a>，<a href="https://github.com/ChristosChristofidis/awesome-public-datasets" target="_blank">公开数据集</a>。
+更多详细参考资料，见 <a href="https://github.com/bayandin/awesome-awesomeness" target="_blank">计算机科学</a> ， <a href="https://github.com/owainlewis/awesome-artificial-intelligence" target="_blank">人工智能</a> ， <a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank">机器学习</a> ， <a href="https://github.com/ChristosChristofidis/awesome-deep-learning" target="_blank">深度学习</a> ， <a href="https://github.com/ChristosChristofidis/awesome-public-datasets" target="_blank">公开数据集</a> 。
 
 
 
@@ -26,7 +26,7 @@
 
 
 
-本教程假定您已经有了基本的机器学习知识（具体而言，熟悉监督学习，逻辑斯特回归以及梯度下降法的思想）。如果您不熟悉这些，我们建议您先去<a href="http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=MachineLearning" target="_blank">机器学习课程</a>中去学习，并完成其中的第II，III，IV章节（即到逻辑斯特回归）。
+本教程假定您已经有了基本的机器学习知识（具体而言，熟悉监督学习，逻辑斯特回归以及梯度下降法的思想）。如果您不熟悉这些，我们建议您先去 <a href="http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=MachineLearning" target="_blank">机器学习课程</a> 中去学习，并完成其中的第II，III，IV章节（即到逻辑斯特回归）。
 
 
 
@@ -36,9 +36,9 @@
 
 ### 初学者代码
 
-您可以获得初学者所有练习的代码从<a href="https://github.com/amaas/stanford_dl_ex" target="_blank">该Github的代码仓库</a>。  
+您可以获得初学者所有练习的代码从 <a href="https://github.com/amaas/stanford_dl_ex" target="_blank">该Github的代码仓库</a> 。  
 
-有关的数据文件可以从<a href="http://ai.stanford.edu/~amaas/data/data.zip" target="_blank">这里</a>下载。 下载到的数据需要解压到名为<font color=red>`“common”`</font>的文件夹中（以便初学者代码的使用）。
+有关的数据文件可以从 <a href="http://ai.stanford.edu/~amaas/data/data.zip" target="_blank">这里</a> 下载。 下载到的数据需要解压到名为<font color=red>`“common”`</font>的文件夹中（以便初学者代码的使用）。
 
 
 
