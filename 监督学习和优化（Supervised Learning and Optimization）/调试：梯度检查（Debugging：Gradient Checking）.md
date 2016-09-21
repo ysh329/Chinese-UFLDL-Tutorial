@@ -29,7 +29,7 @@ $$
 
 >译者注：`舍入误差`，由于计算机的字长有限，进行数值计算的过程中，对计算得到的中间结果数据要使用“四舍五入”或其他规则取近似值，因而使计算过程有误差。这种误差称为舍入误差（参考： <a href="http://baike.baidu.com/link?url=2vnU5YEAPZ5Te7VlIaRabbpMeLbYyQMTAPKhfocm_lBYA_9VF8FE1P2ZiRjXHk2Ze4Dloe6JCZH5f4KCPyQU5_" target="_blank">百度百科</a> ）。  
 
-因此，对给定目标函数的导数 $g(\theta)$ ，它计算的是 $\textstyle \frac{d}{d\theta}J(\theta)$ （即解析解），我们现在就通过下面这个式子从数值角度（即数值解）上来验证其正确性  
+因此，对给定目标函数的导数 $g(\theta)$ ，它计算的是 $\textstyle \frac{d}{d\theta}J(\theta)$ （即解析解），可以通过下面这个式子从数值角度（即数值解）来验证导数求得的解（即解析解）的正确性  
 
 $$
 \begin{align}
@@ -38,11 +38,11 @@ g(\theta) \approx
 \end{align}
 $$  
 
-以这两个值彼此的接近程度将取决于 $J$。假设 $\textstyle {\rm EPSILON} = 10^{-4}$。通常，你会发现的上式中左手边和右手边（算下来的结果中）一致的位数至少4位（但也经常更多）。  
+以这两个值彼此的接近程度将取决于 $J$ 。假设 $\textstyle {\rm EPSILON} = 10^{-4}$。通常，你会发现的上面这个约等式中的左手边和右手边两个计算出的结果，一致的位数至少4位（但也经常更多）。  
 
 现在，考虑一下参数 $\theta$ 是一个向量，而非单个实数的情况（为了我们想要学到的 $n$ 个参数），并且有 $\textstyle J: \Re^n \mapsto \Re$ 。现在，我们概括了导数检查过程，其中参数 $\theta$ 可能是一个向量（如在线性回归和逻辑回归的例子中的）。如果我们正在通过几个向量或者矩阵来做优化，我们总能将这些参数“打包”进一个“长”的向量中去。在这里，我们可以用同样的方法来检查我们的导数。（这也可以使用现成的优化包来完成）。  
 
-假设我们有了根据计算导数 $\textstyle \frac{\partial}{\partial \theta_i} J(\theta)$ 结果的函数 $\textstyle g_i(\theta)$；我们想要检查 $g_{i}$ 是否输出了正确的导数值。我们有 $\textstyle \theta^{(i+)} = \theta + {\rm EPSILON} \times \vec{e}_i$，其中  
+假设我们有目标函数 $J(\theta)$ 的导数 $\textstyle \frac{\partial}{\partial \theta_i} J(\theta)$ 的计算并化简出的结果： $\textstyle g_i(\theta)$ ；我们想要检查通过导数算出的梯度 $g_{i}$ 是否输出了正确的导数值（即梯度值）。我们有 $\textstyle \theta^{(i+)} = \theta + {\rm EPSILON} \times \vec{e}_i$，其中  
 
 $$
 \begin{align}
@@ -50,10 +50,10 @@ $$
 \end{align}
 $$  
 
-是第 $i$ 个基向量（是与 $\theta$ 参数同维度的向量，在该向量中第 $i$ 个位置元素值为 $“1”$ ，其余全部为 $“0”$）。所以，除了其第 $i$ 个元素被 ${\rm EPSILON}$ 增加外，参数 $\textstyle \theta^{(i+)}$ 与 $\theta$ 是相同的。同理， $\textstyle \theta^{(i-)} = \theta - {\rm EPSILON} \times \vec{e}_i$ 是参数 $\theta$ 向量在第 $i$ 个元素的位置被 ${\rm EPSILON}$ 相减的向量。  
+$\vec{e}_i$ 是第 $i$ 个基向量（ $\vec{e}_i$ 是与 $\theta$ 参数同维度的向量，在 $\vec{e}_i$ 向量中第 $i$ 个位置的元素值为 $“1”$ ，其余全部为 $“0”$）。所以，除了其第 $i$ 个元素被 ${\rm EPSILON}$ 增加外，参数 $\textstyle \theta^{(i+)}$ 与 $\theta$ 是相同的。同理， $\textstyle \theta^{(i-)} = \theta - {\rm EPSILON} \times \vec{e}_i$ 是参数 $\theta$ 向量在第 $i$ 个位置的元素被 ${\rm EPSILON}$ 相减得到的向量。  
 
 
-现在，我们可以从数值上，对每个 $i$ 检查以验证 $\textstyle g_i(\theta)$ 的正确性：  
+现在，我们可以从数值上（数值解的角度），对第 $i$ 个参数的梯度 $\textstyle g_i(\theta)$ 进行检查（译者注：检查的是模型参数向量中每一个参数的梯度，从数值解的角度来验证解析解），以验证解析解的正确性：  
 
 $$
 \begin{align}
