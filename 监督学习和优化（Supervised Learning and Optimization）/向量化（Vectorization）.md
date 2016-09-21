@@ -53,7 +53,7 @@ $$
 \frac{\partial J(\theta; X,y)}{\partial \theta_j} = \sum_i X_{ji} (\hat{y}_i - y_i) = [X (\hat{y} - y)]_j.
 $$  
 
-因此，为了（对所有元素）全部计算，我们要计算每个 $j$ ，（由于矩阵计算的思想，不需要单个索引依次计算）我们实际只需计算 $X (\hat{y} - y)$ 就可以了。在 MATLAB 中的实现如下：  
+因此，由于矩阵的整体计算思想，不需要逐个 $j$ 索引依次计算，实际只需计算 $X (\hat{y} - y)$ 就可以了。在 MATLAB 中的实现如下：  
 
 ```
 % X(j,i) = j'th coordinate of i'th example.
