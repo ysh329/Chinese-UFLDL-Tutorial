@@ -59,7 +59,7 @@
 
   * <a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络（Multi-Layer Neural Networks）</a>
 
-  * <a href="./监督神经网络（Ssssupervised Neural Networks）/练习： 监督神经网络（Exercise: Supervised Neural Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>
+  * <a href="./监督神经网络（Supervised%20Neural%20Networks）/练习：%20监督神经网络（Exercise:%20Supervised%20Neural%20Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>
 
 * 监督卷积网络（Supervised Convolutional Neural Network）
 
