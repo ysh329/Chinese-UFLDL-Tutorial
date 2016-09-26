@@ -41,58 +41,58 @@
 
 * 监督学习与优化（Supervised Learning and Optimization）
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md" target="_blank">线性回归（Linear Regression）</a>
+  *  \[old\]\[new]\[旧\]<a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md" target="_blank">线性回归（Linear Regression）</a>
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/逻辑斯特回归（Logistic Regression）.md" target="_blank">逻辑斯特回归（Logistic Regression）</a>
+  *  \[old\]\[new]\[旧\]<a href="./监督学习和优化（Supervised Learning and Optimization）/逻辑斯特回归（Logistic Regression）.md" target="_blank">逻辑斯特回归（Logistic Regression）</a>
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/向量化（Vectorization）.md" target="_blank">向量化（Vectorization）</a>
+  *  \[old\]\[new]\[旧\]<a href="./监督学习和优化（Supervised Learning and Optimization）/向量化（Vectorization）.md" target="_blank">向量化（Vectorization）</a>
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：梯度检查（Debugging：Gradient Checking）.md" target="_blank">调试：梯度检查（Debugging: Gradient Checking）</a>
+  *  \[old\]\[new]\[旧\]<a href="./监督学习和优化（Supervised Learning and Optimization）/调试：梯度检查（Debugging：Gradient Checking）.md" target="_blank">调试：梯度检查（Debugging: Gradient Checking）</a>
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/Softmax回归（Softmax Regression）.md" target="_blank">Softmax回归（Softmax Regression）</a>
+  *  \[old\]\[new]\[旧\]<a href="./监督学习和优化（Supervised Learning and Optimization）/Softmax回归（Softmax Regression）.md" target="_blank">Softmax回归（Softmax Regression）</a>
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/检查：偏差和方差（Debugging：Bias and Variance）.md" target="_blank">调试：偏差和方差（Debugging: Bias and Variance）</a>
+  *  \[old\]\[new]\[旧\]<a href="./监督学习和优化（Supervised Learning and Optimization）/检查：偏差和方差（Debugging：Bias and Variance）.md" target="_blank">调试：偏差和方差（Debugging: Bias and Variance）</a>
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：优化器和目标（Debugging：Optimizers and Objectives）.md" target="_blank">调试：优化器和目标（Debugging: Optimizers and Objectives）</a>
+  *  \[old\]\[new]\[旧\]<a href="./监督学习和优化（Supervised Learning and Optimization）/调试：优化器和目标（Debugging：Optimizers and Objectives）.md" target="_blank">调试：优化器和目标（Debugging: Optimizers and Objectives）</a>
 
 * 监督神经网络（Supervised Neural Networks）
 
-  * <a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络（Multi-Layer Neural Networks）</a>
+  * \[old\]\[new]\[旧\]<a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络（Multi-Layer Neural Networks）</a>
 
-  * <a href="./监督神经网络（Supervised%20Neural%20Networks）/练习：%20监督神经网络（Exercise:%20Supervised%20Neural%20Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>
+  * \[old\]\[new]\[旧\]<a href="./监督神经网络（Supervised%20Neural%20Networks）/练习：%20监督神经网络（Exercise:%20Supervised%20Neural%20Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>
 
 * 监督卷积网络（Supervised Convolutional Neural Network）
 
-  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/使用卷积进行特征提取（Feature Extraction Using Convolution）.md" target="_blank">使用卷积进行特征提取（Feature Extraction Using Convolution）</a>
+  * \[old\]\[new]\[旧\]<a href="./监督卷积网络（Supervised Convolutional Neural Network）/使用卷积进行特征提取（Feature Extraction Using Convolution）.md" target="_blank">使用卷积进行特征提取（Feature Extraction Using Convolution）</a>
 
-  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/池化（Pooling）.md" target="_blank">池化（Pooling）</a>
+  * \[old\]\[new]\[旧\]<a href="./监督卷积网络（Supervised Convolutional Neural Network）/池化（Pooling）.md" target="_blank">池化（Pooling）</a>
 
-  * 练习：卷积和池化（Exercise: Convolution and Pooling）
+  * \[old\]\[new]\[旧\]练习：卷积和池化（Exercise: Convolution and Pooling）
 
-  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）.md" target="_blank">优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）</a>
+  * \[old\]\[new]\[旧\]<a href="./监督卷积网络（Supervised Convolutional Neural Network）/优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）.md" target="_blank">优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）</a>
 
-  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/卷积神经网络（Convolutional Neural Network）.md" target="_blank">卷积神经网络（Convolutional Neural Network）</a>
+  * \[old\]\[new]\[旧\]<a href="./监督卷积网络（Supervised Convolutional Neural Network）/卷积神经网络（Convolutional Neural Network）.md" target="_blank">卷积神经网络（Convolutional Neural Network）</a>
 
-  * 练习：卷积神经网络（Excercise: Convolutional Neural Network）
+  * \[old\]\[new]\[旧\]练习：卷积神经网络（Excercise: Convolutional Neural Network）
 
 * 无监督学习（Unsupervised Learning）
 
-  * 自动编码器（Autoencoders）
+  * \[old\]\[new]\[旧\]自动编码器（Autoencoders）
 
-  * PCA Whitening（PCA Whitening）
+  * \[old\]\[new]\[旧\]PCA Whitening（PCA Whitening）
 
-  * 练习：PCA Whitening（Exercise: PCA Whitening）
+  * \[old\]\[new]\[旧\]练习：PCA Whitening（Exercise: PCA Whitening）
 
-  * 稀疏编码（Sparse Coding）
+  * \[old\]\[new]\[旧\]稀疏编码（Sparse Coding）
 
-  * ICA（ICA）
+  * \[old\]\[new]\[旧\]ICA（ICA）
 
-  * RICA（RICA）
+  * \[old\]\[new]\[旧\]RICA（RICA）
 
-  * 练习：RICA（Exercise: RICA）
+  * \[old\]\[new]\[旧\]练习：RICA（Exercise: RICA）
 
 * 自学学习（Self-Taught Learning）
 
-  * 自学学习（Self-Taught Learning）
+  * \[old\]\[new]\[旧\]自学学习（Self-Taught Learning）
 
-  * 练习：自学学习（Exercise: Self-Taught Learning）
+  * \[old\]\[new]\[旧\]练习：自学学习（Exercise: Self-Taught Learning）
