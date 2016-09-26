@@ -1,23 +1,23 @@
 # 线性回归（Linear Regression）  
 ## 问题描述（Problem Formulation）  
-我们（不妨）回顾一下（这些知识点），我们将从如何实现线性回归（Linear Regression）开始。这一节的主要思想是知道什么是目标函数（Objective Functions），计算其梯度（Gradients）以及通过一组参数来优化目标（函数）。这些基本的工具将会构建（在稍后教程中我们要讲到的）复杂的算法。想要更多学习资料的读者可以在参考 <a href="http://cs229.stanford.edu/notes/cs229-notes1.pdf">监督学习讲座笔记</a>。  
+不妨回顾一下知识点，从如何实现线性回归（Linear Regression）开始。这一节的主要思想是知道什么是目标函数（Objective Functions），计算其梯度（Gradients）以及通过一组参数来优化目标（函数）。这些基本的工具将会构建（在之后的教程中会讲到）复杂的算法。想要更多学习资料的读者可以在参考 <a href="http://cs229.stanford.edu/notes/cs229-notes1.pdf">监督学习讲座笔记</a>。  
 
-在线性回归中，我们的目标是从一个 $n$ 维度输入向量 $x\in \Re^{n}$，去预测目标值 $y$ 。例如，我们要预测房价，其中 $y$ 表示房子的（美元）价格， $x_{j}$ （ $j$ 是下角标，表示向量 $x$ 中第 $j$ 个元素）表示房子的第 $j$ 个特征的值，我们用特征来描述一个房子（如房子的面积，卧室的数目等）。假设我们现有很多房屋的数据（特征），其中比方说要表示第 $i$ 个房子的特征，表示为 $x^{(i)}$ （ $i$ 是上角标，表示该房屋样本是数据集里的第 $i$ 个样本），该第 $i$ 个样本的房价表示为 $y^{(i)}$。简而言之，我们的目标是找到一个表示为 $y = h\left ( x \right )$ 的函数（ $h$ 是 $hypothesis$ 的缩写，在这里表示“假说”或“假设函数”），使训练集上的每个样本 $i$ 满足 $y^{(i)} \approx h( x^{(i)})$ 。如果我们成功找到了像 $h(x)$ 这样的函数，并且使其“看”过了足够多的房屋样本特征和房价，我们相信函数 $h(x)$ 将会是一个很好的房价预测器，即使是在那些它没有“见过”的房屋特征数据上（也会有好的预测结果）。  
+在线性回归中，目标是从一个 $n$ 维度输入向量 $x\in \Re^{n}$，去预测目标值 $y$ 。例如，预测房价中 $y$ 表示房子的（美元）价格， $x_{j}$ （ $j$ 是下角标，表示向量 $x$ 中第 $j$ 个元素）表示房子的第 $j$ 个特征的值，用特征来描述一个房子（如房子的面积，卧室的数目等）。假设现有很多房屋的数据（特征），其中比方说要表示第 $i$ 个房子的特征，表示为 $x^{(i)}$ （ $i$ 是上角标，表示该房屋样本是数据集里的第 $i$ 个样本），该第 $i$ 个样本的房价表示为 $y^{(i)}$。简而言之，我们的目标是找到一个表示为 $y = h\left ( x \right )$ 的函数（ $h$ 是 $hypothesis$ 的缩写，在这里表示“假说”或“假设函数”），使训练集上的每个样本 $i$ 满足 $y^{(i)} \approx h( x^{(i)})$ 。如果成功找到了像 $h(x)$ 这样的函数，并且使其“看”过了足够多的房屋样本特征和房价，函数 $h(x)$ 将会是一个很好的房价预测器，即使是在那些它没有“见过”的房屋特征数据上（也会有好的预测结果）。  
 
-为了能找到满足 $y^{(i)} \approx h( x^{(i)})$ 条件的函数 $h(x)$ ，我们首先需要做的是如何表示函数 $h(x)$。在表示该函数形式之初，我们先选择形如 $ h_{\theta}(x) = \sum _{j}\theta _{j}x_{j} = \theta^{\top}x $ 的线性函数。这里， $ h_{\theta}(x) $ 表示一组不同 $\theta$ 参数的函数家族（我们称该函数家族为“假设空间”或“假说空间”）。在表示完 $h$ 函数后，我们的任务是找到满足条件： $ h( x^{(i)})$ 尽可能接近 $y^{(i)} $ 下的 $\theta $ 参数值。特别地，我们要找的参数 $ \theta $ 是在下面这个函数值最小时的 $ \theta $ 值：  
+为了能找到满足 $y^{(i)} \approx h( x^{(i)})$ 条件的函数 $h(x)$ ，首先需要做的是如何表示函数 $h(x)$。在表示该函数形式之初，先选择形如 $ h_{\theta}(x) = \sum _{j}\theta _{j}x_{j} = \theta^{\top}x $ 的线性函数。这里， $ h_{\theta}(x) $ 表示一组不同 $\theta$ 参数的函数家族（称该函数家族为“假设空间”或“假说空间”）。在表示完 $h$ 函数后的任务是找到满足条件： $ h( x^{(i)})$ 尽可能接近 $y^{(i)} $ 下的 $\theta $ 参数值。特别地，要找的参数 $ \theta $ 是在下面这个函数值最小时的 $ \theta $ 值：  
 
 $$
 J( \theta ) = \frac{1}{2} {\sum_{}^{i}}\left ( h_{\theta}(x^{(i)}) - y^{(i)} \right )^{2} = \frac{1}{2} {\sum_{}^{i}}\left ( {\theta}^{\top}x^{(i)} - y^{(i)} \right )^{2}
 $$  
 
-上面这个函数就是我们当前问题的“成本函数”或“代价函数”（Cost Function），它测量的是在特定 $\theta$ 值下，预测值（即 $h_{\theta}(x^{(i)})$ ）与 $y^{(i)}$ 的相差程度。该函数也被称为“损失函数”（Loss Function），“惩罚函数”（Penalty Function）或“目标函数”（Objective Function）。  
+上面这个函数就是当前问题的“成本函数”或“代价函数”（Cost Function），它测量的是在特定 $\theta$ 值下，预测值（即 $h_{\theta}(x^{(i)})$ ）与 $y^{(i)}$ 的相差程度。该函数也被称为“损失函数”（Loss Function），“惩罚函数”（Penalty Function）或“目标函数”（Objective Function）。  
 
 ## 函数最小化（Function Minimization）  
-现在，我们要找到在函数 $J(\theta)$ 处在最小值时， ${\theta}$ 参数的值。实际上，有很多的算法都可以用来找函数的最小值，比方说我们这里即将提到的以及后面我们还会讲到一些高效率且易于自己实现的函数优化算法，比方在后面即将讲到的 <a href="http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent">梯度下降</a> （Gradient descent，注：原英文教程中，该链接无效，这里给出本教程中的一个函数优化算法——随机梯度下降，Stochastic Gradient Descent的链接）小节中。计算函数最小值通常需要目标函数（Objective Function） $J(\theta)$ 的两个部分：第一部分是写出计算目标函数 $J(\theta)$ 的代码，第二部分是写出目标函数（Objective Function） $J(\theta)$ 的微分项 $\triangledown _{\theta}J(\theta )$ ，以计算参数 $\theta$ 的值。  
+现在，要找到函数 $J(\theta)$ 处在最小值时， ${\theta}$ 参数的值。实际上，有很多的算法都可以用来找函数的最小值，比方说这里即将提到的以及后面还会讲到一些高效率且易于自己实现的函数优化算法，比方在后面即将讲到的 <a href="http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent">梯度下降</a> （Gradient descent，注：原英文教程中，该链接无效，这里给出本教程中的一个函数优化算法——随机梯度下降，Stochastic Gradient Descent的链接）小节中。计算函数最小值通常需要目标函数（Objective Function） $J(\theta)$ 的两个部分：第一部分是写出计算目标函数 $J(\theta)$ 的代码，第二部分是写出目标函数（Objective Function） $J(\theta)$ 的微分项 $\triangledown _{\theta}J(\theta )$ ，以计算参数 $\theta$ 的值。  
 
 之后，找到参数 $\theta$ 的最优值过程的其余部分将由优化算法来处理（回想一下，可微函数 $J(\theta)$ 的梯度 $\triangledown _{\theta}J(\theta )$ （即微分项），是一个指向函数 $J(\theta)$ 最陡（下降）增量的方向的矢量——所以，很容易看到优化算法如何在参数 $\theta$ 上使用这样的一个小变化量（的方法），来减小（或增加 $J(\theta)$，以求得函数最小或最大值）。  
 
-对于上述 $J(\theta)$ 表达式，我们可通过 $x^{(i)}$ 和 $y^{(i)}$ 构成的训练数据集，较容易地在MATLAB里实现计算 $J(\theta)$ 来得到参数 $\theta$ 的值。但我们还需要计算另一部分，那就是梯度（项）：  
+对于上述 $J(\theta)$ 表达式，可通过 $x^{(i)}$ 和 $y^{(i)}$ 构成的训练数据集，较容易地在MATLAB里实现计算 $J(\theta)$ 来得到参数 $\theta$ 的值。但还需要计算另一部分，那就是梯度（项）：  
 
 $$
 \begin{bmatrix}
@@ -54,7 +54,7 @@ $$
 
 完成本练习的步骤如下：  
 
-1. 完成 <font color=red>`linear_regression.m`</font> 文件中的代码，使其可以针对线性回归问题计算早先定义的目标函数 $J(\theta)$ ，将计算结果保存至名为 $f$ 的变量中。您完成这两个步骤可通过循环训练集（数据矩阵 $X$ 中的列数据）上的样本进行，并且对于每个样本，将其贡献值增加给 <font color=red>$f$</font> 和 <font color=red>$g$</font>。我们将在下一个练习中创建一个比当前更快的版本。  
+1. 完成 <font color=red>`linear_regression.m`</font> 文件中的代码，使其可以针对线性回归问题计算早先定义的目标函数 $J(\theta)$ ，将计算结果保存至名为 $f$ 的变量中。您完成这两个步骤可通过循环训练集（数据矩阵 $X$ 中的列数据）上的样本进行，并且对于每个样本，将其贡献值增加给 <font color=red>$f$</font> 和 <font color=red>$g$</font>。将在下一个练习中创建一个比当前更快的版本。  
 
 当您成功地完成了练习，绘制的结果图看起来应该像下面这样：  
 <img src="./images/House_results.png">  
