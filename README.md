@@ -38,33 +38,35 @@
 
 # 目录
 
+每个小节后面的\[old\]\[new]\[旧\]分别代表：旧版英文、新版英文、旧版中文。由于目录是根据新版翻译而来，部分小节在旧版里没有会用\[无\]代替。
+
 * 监督学习与优化（Supervised Learning and Optimization）
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md" target="_blank">线性回归（Linear Regression）</a>\[无\]\[new]\[无\]
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md" target="_blank">线性回归（Linear Regression）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/LinearRegression" target="_blank">new</a>\]\[无\]
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/逻辑斯特回归（Logistic Regression）.md" target="_blank">逻辑斯特回归（Logistic Regression）</a>\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E7%9A%84%E5%90%91%E9%87%8F%E5%8C%96%E5%AE%9E%E7%8E%B0%E6%A0%B7%E4%BE%8B" target="_blank">旧</a>\]
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/逻辑斯特回归（Logistic Regression）.md" target="_blank">逻辑斯特回归（Logistic Regression）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E7%9A%84%E5%90%91%E9%87%8F%E5%8C%96%E5%AE%9E%E7%8E%B0%E6%A0%B7%E4%BE%8B" target="_blank">旧</a>\]
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/向量化（Vectorization）.md" target="_blank">向量化（Vectorization）</a>\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%9F%A2%E9%87%8F%E5%8C%96%E7%BC%96%E7%A8%8B" target="_blank">旧</a>\]
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/向量化（Vectorization）.md" target="_blank">向量化（Vectorization）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/Vectorization" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%9F%A2%E9%87%8F%E5%8C%96%E7%BC%96%E7%A8%8B" target="_blank">旧</a>\]
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：梯度检查（Debugging：Gradient Checking）.md" target="_blank">调试：梯度检查（Debugging: Gradient Checking）</a>\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E6%A2%AF%E5%BA%A6%E6%A3%80%E9%AA%8C%E4%B8%8E%E9%AB%98%E7%BA%A7%E4%BC%98%E5%8C%96" target="_blank">旧</a>\]
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：梯度检查（Debugging：Gradient Checking）.md" target="_blank">调试：梯度检查（Debugging: Gradient Checking）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/DebuggingGradientChecking" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E6%A2%AF%E5%BA%A6%E6%A3%80%E9%AA%8C%E4%B8%8E%E9%AB%98%E7%BA%A7%E4%BC%98%E5%8C%96" target="_blank">旧</a>\]
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/Softmax回归（Softmax Regression）.md" target="_blank">Softmax回归（Softmax Regression）</a>\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/Softmax%E5%9B%9E%E5%BD%92" target="_blank">旧</a>\]
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/Softmax回归（Softmax Regression）.md" target="_blank">Softmax回归（Softmax Regression）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/Softmax%E5%9B%9E%E5%BD%92" target="_blank">旧</a>\]
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/检查：偏差和方差（Debugging：Bias and Variance）.md" target="_blank">调试：偏差和方差（Debugging: Bias and Variance）</a>\[old\]\[new]\[无\]
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/检查：偏差和方差（Debugging：Bias and Variance）.md" target="_blank">调试：偏差和方差（Debugging: Bias and Variance）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/DebuggingBiasAndVariance" target="_blank">new</a>\]\[无\]
 
-  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：优化器和目标（Debugging：Optimizers and Objectives）.md" target="_blank">调试：优化器和目标（Debugging: Optimizers and Objectives）</a>\[old\]\[new]\[无\]
+  *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：优化器和目标（Debugging：Optimizers and Objectives）.md" target="_blank">调试：优化器和目标（Debugging: Optimizers and Objectives）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/DebuggingOptimizersAndObjectives" target="_blank">new</a>\]\[无\]
 
 * 监督神经网络（Supervised Neural Networks）
 
-  *  <a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络（Multi-Layer Neural Networks）</a>\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" target="_blank">旧</a>\]
+  *  <a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络（Multi-Layer Neural Networks）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/MultiLayerNeuralNetworks" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" target="_blank">旧</a>\]
 
-  *  <a href="./监督神经网络（Supervised%20Neural%20Networks）/练习：%20监督神经网络（Exercise:%20Supervised%20Neural%20Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>\[old\]\[new]\[旧\]
+  *  <a href="./监督神经网络（Supervised%20Neural%20Networks）/练习：%20监督神经网络（Exercise:%20Supervised%20Neural%20Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseSupervisedNeuralNetwork" target="_blank">new</a>\]\[旧\]
 
 * 监督卷积网络（Supervised Convolutional Neural Network）
 
-  *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/使用卷积进行特征提取（Feature Extraction Using Convolution）.md" target="_blank">使用卷积进行特征提取（Feature Extraction Using Convolution）</a>\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E5%8D%B7%E7%A7%AF%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96" target="_blank">旧</a>\]
+  *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/使用卷积进行特征提取（Feature Extraction Using Convolution）.md" target="_blank">使用卷积进行特征提取（Feature Extraction Using Convolution）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E5%8D%B7%E7%A7%AF%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96" target="_blank">旧</a>\]
 
-  *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/池化（Pooling）.md" target="_blank">池化（Pooling）</a>\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E6%B1%A0%E5%8C%96" target="_blank">旧</a>\]
+  *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/池化（Pooling）.md" target="_blank">池化（Pooling）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/Pooling" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E6%B1%A0%E5%8C%96" target="_blank">旧</a>\]
 
   * 练习：卷积和池化（Exercise: Convolution and Pooling）\[old\]\[new]\[旧\]
 
