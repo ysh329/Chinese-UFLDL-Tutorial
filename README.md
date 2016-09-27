@@ -1,4 +1,4 @@
-# Chinese-UFLDL-Tutorial
+# 非监督特征学习与深度学习中文教程
 
 中文版的新版UFLDL教程（项目地址： www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自 <a href="http://deeplearning.stanford.edu/tutorial/" target="_blank">UFLDL Tutorial</a> ，是新版教程的翻译。也可参考 <a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL教程" target="_blank">老版本的UFLDL中文教程</a> 。翻译过程中有一些数学公式，使用 <a href="http://pad.haroopress.com/user.html#download" target="_blank">Haroopad</a> 编辑和排版， Haroopad 是一个很不错的离线 MarkDown 编辑器，支持 <a href="https://en.wikipedia.org/wiki/TeX" target="_blank">Tex</a> 公式编辑，支持多平台（Win/Mac/Linux），目前还在翻译中，翻译完成后会考虑使用 Tex 重新排版。  
 
@@ -68,32 +68,32 @@
 
   *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/池化（Pooling）.md" target="_blank">池化（Pooling）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/Pooling" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E6%B1%A0%E5%8C%96" target="_blank">旧</a>\]
 
-  * 练习：卷积和池化（Exercise: Convolution and Pooling）\[old\]\[new]\[旧\]
+  * 练习：卷积和池化（Exercise: Convolution and Pooling）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseConvolutionAndPooling" target="_blank">new</a>\]\[旧\]
 
-  *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）.md" target="_blank">优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）</a>\[old\]\[new]\[旧\]
+  *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）.md" target="_blank">优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent" target="_blank">new</a>\]\[旧\]
 
-  *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/卷积神经网络（Convolutional Neural Network）.md" target="_blank">卷积神经网络（Convolutional Neural Network）</a>\[old\]\[new]\[旧\]
+  *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/卷积神经网络（Convolutional Neural Network）.md" target="_blank">卷积神经网络（Convolutional Neural Network）</a>\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ConvolutionalNeuralNetwork" target="_blank">new</a>\]\[旧\]
 
-  * 练习：卷积神经网络（Excercise: Convolutional Neural Network）\[old\]\[new]\[旧\]
+  * 练习：卷积神经网络（Excercise: Convolutional Neural Network）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseConvolutionalNeuralNetwork" target="_blank">new</a>\]\[旧\]
 
 * 无监督学习（Unsupervised Learning）
 
-  * 自动编码器（Autoencoders）\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E6%80%A7" target="_blank">旧</a>\]
+  * 自动编码器（Autoencoders）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E6%80%A7" target="_blank">旧</a>\]
 
-  * PCA Whitening（PCA Whitening）\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E5%AE%9E%E7%8E%B0%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E5%92%8C%E7%99%BD%E5%8C%96" target="_blank">旧</a>\]
+  * PCA Whitening（PCA Whitening）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E5%AE%9E%E7%8E%B0%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E5%92%8C%E7%99%BD%E5%8C%96" target="_blank">旧</a>\]
 
-  * 练习：PCA Whitening（Exercise: PCA Whitening）\[old\]\[new]\[旧\]
+  * 练习：PCA Whitening（Exercise: PCA Whitening）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ExercisePCAWhitening" target="_blank">new</a>\]\[旧\]
 
-  * 稀疏编码（Sparse Coding）\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E7%BC%96%E7%A0%81" target="_blank">旧</a>\]
+  * 稀疏编码（Sparse Coding）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/SparseCoding" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E7%BC%96%E7%A0%81" target="_blank">旧</a>\]
 
-  * ICA（ICA）\[old\]\[new]\[无\]
+  * ICA（ICA）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ICA" target="_blank">new</a>\]\[无\]
 
-  * RICA（RICA）\[old\]\[new]\[无\]
+  * RICA（RICA）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/RICA" target="_blank">new</a>\]\[无\]
 
-  * 练习：RICA（Exercise: RICA）\[old\]\[new]\[无\]
+  * 练习：RICA（Exercise: RICA）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ExerciseRICA" target="_blank">new</a>\]\[无\]
 
 * 自学学习（Self-Taught Learning）
 
-  * 自我学习（Self-Taught Learning）\[old\]\[new]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0" target="_blank">旧</a>\]
+  * 自我学习（Self-Taught Learning）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/selftaughtlearning/SelfTaughtLearning" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0" target="_blank">旧</a>\]
 
-  * 练习：自我学习（Exercise: Self-Taught Learning）\[old\]\[new]\[无\]
+  * 练习：自我学习（Exercise: Self-Taught Learning）\[old\]\[<a href="http://ufldl.stanford.edu/tutorial/selftaughtlearning/ExerciseSelfTaughtLearning" target="_blank">new</a>\]\[无\]
