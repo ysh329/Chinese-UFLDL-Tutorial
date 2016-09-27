@@ -40,7 +40,7 @@
 
 <b>每个小节后面的<font color=red>\[old\]\[new]\[旧\]</font>分别代表：旧版英文、新版英文、旧版中文。由新版翻译而来，可能没有对应的旧版章节用<font color=red>\[无\]</font>代替。</b>
 
-* 监督学习与优化（Supervised Learning and Optimization）
+* **监督学习与优化（Supervised Learning and Optimization）**
 
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md" target="_blank">线性回归（Linear Regression）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/LinearRegression" target="_blank">new</a>\]\[无\]
 
@@ -56,13 +56,13 @@
 
   *  <a href="./监督学习和优化（Supervised Learning and Optimization）/调试：优化器和目标（Debugging：Optimizers and Objectives）.md" target="_blank">调试：优化器和目标（Debugging: Optimizers and Objectives）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/DebuggingOptimizersAndObjectives" target="_blank">new</a>\]\[无\]
 
-* 监督神经网络（Supervised Neural Networks）
+* **监督神经网络（Supervised Neural Networks）**
 
   *  <a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络（Multi-Layer Neural Networks）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Neural_Networks" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/MultiLayerNeuralNetworks" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" target="_blank">旧</a>\]
 
   *  <a href="./监督神经网络（Supervised%20Neural%20Networks）/练习：%20监督神经网络（Exercise:%20Supervised%20Neural%20Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseSupervisedNeuralNetwork" target="_blank">new</a>\]\[无\]
 
-* 监督卷积网络（Supervised Convolutional Neural Network）
+* **监督卷积网络（Supervised Convolutional Neural Network）**
 
   *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/使用卷积进行特征提取（Feature Extraction Using Convolution）.md" target="_blank">使用卷积进行特征提取（Feature Extraction Using Convolution）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/FeatureExtractionUsingConvolution" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E5%8D%B7%E7%A7%AF%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96" target="_blank">旧</a>\]
 
@@ -76,7 +76,7 @@
 
   * 练习：卷积神经网络（Excercise: Convolutional Neural Network）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseConvolutionalNeuralNetwork" target="_blank">new</a>\]\[无\]
 
-* 无监督学习（Unsupervised Learning）
+* **无监督学习（Unsupervised Learning）**
 
   * 自动编码器（Autoencoders）\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Autoencoders_and_Sparsity" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E6%80%A7" target="_blank">旧</a>\]
 
@@ -92,7 +92,7 @@
 
   * 练习：RICA（Exercise: RICA）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ExerciseRICA" target="_blank">new</a>\]\[无\]
 
-* 自我学习（Self-Taught Learning）
+* **自我学习（Self-Taught Learning）**
 
   * 自我学习（Self-Taught Learning）\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Self-Taught_Learning" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/selftaughtlearning/SelfTaughtLearning" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0" target="_blank">旧</a>\]
 
