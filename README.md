@@ -1,4 +1,4 @@
-# 非监督特征学习与深度学习中文教程
+# 非监督特征学习与深度学习 中文教程
 
 中文版的新版UFLDL教程（项目地址： www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自 <a href="http://deeplearning.stanford.edu/tutorial/" target="_blank">UFLDL Tutorial</a> ，是新版教程的翻译。也可参考 <a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL教程" target="_blank">老版本的UFLDL中文教程</a> 。翻译过程中有一些数学公式，使用 <a href="http://pad.haroopress.com/user.html#download" target="_blank">Haroopad</a> 编辑和排版， Haroopad 是一个很不错的离线 MarkDown 编辑器，支持 <a href="https://en.wikipedia.org/wiki/TeX" target="_blank">Tex</a> 公式编辑，支持多平台（Win/Mac/Linux），目前还在翻译中，翻译完成后会考虑使用 Tex 重新排版。  
 
@@ -38,7 +38,7 @@
 
 # 目录
 
-每个小节后面的\[old\]\[new]\[旧\]分别代表：旧版英文、新版英文、旧版中文。由于目录是根据新版翻译而来，部分小节在旧版里没有会用\[无\]代替。
+>每个小节后面的<font color=red>\[old\]\[new]\[旧\]</font>分别代表：旧版英文、新版英文、旧版中文。由于目录是根据新版翻译而来，部分小节在旧版里没有会用<font color=red>\[无\]</font>代替。
 
 * 监督学习与优化（Supervised Learning and Optimization）
 
