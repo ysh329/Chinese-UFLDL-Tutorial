@@ -38,7 +38,7 @@
 
 # 目录
 
-<b>每个小节后面的<font color=red>\[old\]\[new]\[旧\]</font>分别代表：旧版英文、新版英文、旧版中文。由于目录是根据新版翻译而来，部分小节在旧版里没有会用<font color=red>\[无\]</font>代替。</b>
+<b>每个小节后面的<font color=red>\[old\]\[new]\[旧\]</font>分别代表：旧版英文、新版英文、旧版中文。由新版翻译而来，可能没有对应的旧版章节用<font color=red>\[无\]</font>代替。</b>
 
 * 监督学习与优化（Supervised Learning and Optimization）
 
