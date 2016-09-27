@@ -15,7 +15,7 @@
 
 
 
-# 欢迎来到UFLDL教程！
+# 欢迎来到新版 UFLDL 中文教程！
 
 说明：本教程将会教给您非监督特征学习以及深度学习的主要思想。通过它，您将会实现几个特征学习或深度学习的算法，看到这些算法为您（的工作）带来作用，以及学习如何将这些思想应用到适用的新问题上。
 
@@ -68,17 +68,17 @@
 
   *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/池化（Pooling）.md" target="_blank">池化（Pooling）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Pooling" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/Pooling" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E6%B1%A0%E5%8C%96" target="_blank">旧</a>\]
 
-  * 练习：卷积和池化（Exercise: Convolution and Pooling）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseConvolutionAndPooling" target="_blank">new</a>\]\[无\]
+  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/练习：卷积和池化（Exercise: Convolution and Pooling）.md" target="_blank">练习：卷积和池化（Exercise: Convolution and Pooling）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseConvolutionAndPooling" target="_blank">new</a>\]\[无\]
 
   *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）.md" target="_blank">优化方法：随机梯度下降（Optimization: Stochastic Gradient Descent）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent" target="_blank">new</a>\]\[无\]
 
   *  <a href="./监督卷积网络（Supervised Convolutional Neural Network）/卷积神经网络（Convolutional Neural Network）.md" target="_blank">卷积神经网络（Convolutional Neural Network）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ConvolutionalNeuralNetwork" target="_blank">new</a>\]\[无\]
 
-  * 练习：卷积神经网络（Excercise: Convolutional Neural Network）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseConvolutionalNeuralNetwork" target="_blank">new</a>\]\[无\]
+  * <a href="./监督卷积网络（Supervised Convolutional Neural Network）/练习：卷积神经网络（Excercise: Convolutional Neural Network）.md" target="_blank">练习：卷积神经网络（Excercise: Convolutional Neural Network）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseConvolutionalNeuralNetwork" target="_blank">new</a>\]\[无\]
 
 * **无监督学习（Unsupervised Learning）**
 
-  * 自动编码器（Autoencoders）\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Autoencoders_and_Sparsity" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E6%80%A7" target="_blank">旧</a>\]
+  * <a href="./无监督学习（Unsupervised Learning）/自动编码器（Autoencoders）.md" target="_blank">自动编码器（Autoencoders）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Autoencoders_and_Sparsity" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E6%80%A7" target="_blank">旧</a>\]
 
   * PCA Whitening（PCA Whitening）\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Implementing_PCA/Whitening" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E5%AE%9E%E7%8E%B0%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E5%92%8C%E7%99%BD%E5%8C%96" target="_blank">旧</a>\]
 
