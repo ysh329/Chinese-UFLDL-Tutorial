@@ -2,13 +2,11 @@
 
 中文版的新版UFLDL教程（项目地址： www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自 <a href="http://deeplearning.stanford.edu/tutorial/" target="_blank">UFLDL Tutorial</a> ，是新版教程的翻译。也可参考 <a href="http://ufldl.stanford.edu/wiki/index.php/UFLDL教程" target="_blank">老版本的UFLDL中文教程</a> 。翻译过程中有一些数学公式，使用 <a href="http://pad.haroopress.com/user.html#download" target="_blank">Haroopad</a> 编辑和排版， Haroopad 是一个很不错的离线 MarkDown 编辑器，支持 <a href="https://en.wikipedia.org/wiki/TeX" target="_blank">Tex</a> 公式编辑，支持多平台（Win/Mac/Linux），目前还在翻译中，翻译完成后会考虑使用 Tex 重新排版。  
 
-
-
 自己对新版UFLDL教程翻译过程中，发现的英文错误，见 <a href="./新版教程英文原文勘误表.md" target="_blank">新版教程英文原文勘误表</a> 。  
 
 **注：UFLDL是非监督特征学习及深度学习（Unsupervised Feature Learning and Deep Learning）的缩写，而不仅指深度学习（Deep Learning）。**  
 
--  翻译者：Shuai Yuan  
+-  翻译者：Shuai Yuan ，部分小节参考旧版翻译  
 -  若有翻译错误，请发邮件至 <a href="Mailto:ysh329@sina.com" target="_blank">ysh329@sina.com</a> ，感谢！  
 
 >更多详细参考资料，见 <a href="https://github.com/bayandin/awesome-awesomeness" target="_blank">计算机科学</a> ， <a href="https://github.com/owainlewis/awesome-artificial-intelligence" target="_blank">人工智能</a> ， <a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank">机器学习</a> ， <a href="https://github.com/ChristosChristofidis/awesome-deep-learning" target="_blank">深度学习</a> ， <a href="https://github.com/aikorea/awesome-rl" target="_blank">强化学习</a> ， <a href="https://github.com/junhyukoh/deep-reinforcement-learning-papers" target="_blank">深度强化学习</a> ， <a href="https://github.com/ChristosChristofidis/awesome-public-datasets" target="_blank">公开数据集</a> 。
@@ -94,6 +92,6 @@
 
 * **自我学习（Self-Taught Learning）**
 
-  * 自我学习（Self-Taught Learning）\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Self-Taught_Learning" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/selftaughtlearning/SelfTaughtLearning" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0" target="_blank">旧</a>\]
+  * <a href="./自我学习（Self-Taught Learning）/自我学习（Self-Taught Learning）.md" target="_blank">自我学习（Self-Taught Learning）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Self-Taught_Learning" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/selftaughtlearning/SelfTaughtLearning" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0" target="_blank">旧</a>\]
 
   * 练习：自我学习（Exercise: Self-Taught Learning）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/selftaughtlearning/ExerciseSelfTaughtLearning" target="_blank">new</a>\]\[无\]
