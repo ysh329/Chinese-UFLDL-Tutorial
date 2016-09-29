@@ -80,13 +80,13 @@
 
   * <a href="./无监督学习（Unsupervised Learning）/自动编码器（Autoencoders）.md" target="_blank">自动编码器（Autoencoders）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Autoencoders_and_Sparsity" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E6%80%A7" target="_blank">旧</a>\]
 
-  * <a href="./无监督学习（Unsupervised Learning）/主成分分析白化（PCA Whitening）.md" target="_blank">PCA Whitening（PCA Whitening）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Implementing_PCA/Whitening" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E5%AE%9E%E7%8E%B0%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E5%92%8C%E7%99%BD%E5%8C%96" target="_blank">旧</a>\]
+  * <a href="./无监督学习（Unsupervised Learning）/主成分分析白化（PCA Whitening）.md" target="_blank">主成分分析白化（PCA Whitening）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Implementing_PCA/Whitening" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E5%AE%9E%E7%8E%B0%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E5%92%8C%E7%99%BD%E5%8C%96" target="_blank">旧</a>\]
 
-  * 练习：PCA Whitening（Exercise: PCA Whitening）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ExercisePCAWhitening" target="_blank">new</a>\]\[无\]
+  * 练习：主成分分析白化（Exercise: PCA Whitening）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ExercisePCAWhitening" target="_blank">new</a>\]\[无\]
 
-  * 稀疏编码（Sparse Coding）\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Sparse_Coding" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/SparseCoding" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E7%BC%96%E7%A0%81" target="_blank">旧</a>\]
+  * <a href="./无监督学习（Unsupervised Learning）/稀疏编码（Sparse Coding）.md" target="_blank">稀疏编码（Sparse Coding）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Sparse_Coding" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/SparseCoding" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E7%BC%96%E7%A0%81" target="_blank">旧</a>\]
 
-  * ICA（ICA）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ICA" target="_blank">new</a>\]\[无\]
+  * <a href="./无监督学习（Unsupervised Learning）/独立成分分析（ICA）.md" target="_blank">独立成分分析（ICA）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ICA" target="_blank">new</a>\]\[无\]
 
   * RICA（RICA）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/RICA" target="_blank">new</a>\]\[无\]
 
