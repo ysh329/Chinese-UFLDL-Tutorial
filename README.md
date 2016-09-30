@@ -58,6 +58,8 @@
 
   *  <a href="./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md" target="_blank">多层神经网络（Multi-Layer Neural Networks）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Neural_Networks" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/MultiLayerNeuralNetworks" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" target="_blank">旧</a>\]
 
+   *  <a href="./监督神经网络（Supervised Neural Networks）/神经网络向量化（Neural Network Vectorization）.md" target="_blank">神经网络向量化（Neural Network Vectorization）</a>\[<a href="http://ufldl.stanford.edu/wiki/index.php/Neural_Network_Vectorization" target="_blank">old</a>\]\[new\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%90%91%E9%87%8F%E5%8C%96#.E5.8F.8D.E5.90.91.E4.BC.A0.E6.92.AD" target="_blank">旧</a>\]
+
   *  <a href="./监督神经网络（Supervised%20Neural%20Networks）/练习：%20监督神经网络（Exercise:%20Supervised%20Neural%20Networks）.md" target="_blank">练习：监督神经网络（Exercise: Supervised Neural Network）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/supervised/ExerciseSupervisedNeuralNetwork" target="_blank">new</a>\]\[无\]
 
 * **监督卷积网络（Supervised Convolutional Neural Network）**
@@ -83,6 +85,8 @@
   * 练习：主成分分析白化（Exercise: PCA Whitening）\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ExercisePCAWhitening" target="_blank">new</a>\]\[无\]
 
   * <a href="./无监督学习（Unsupervised Learning）/稀疏编码（Sparse Coding）.md" target="_blank">稀疏编码（Sparse Coding）</a>\[<a href="http://deeplearning.stanford.edu/wiki/index.php/Sparse_Coding" target="_blank">old</a>\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/SparseCoding" target="_blank">new</a>\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E7%BC%96%E7%A0%81" target="_blank">旧</a>\]
+
+   * <a href="./无监督学习（Unsupervised Learning）/稀疏自编码符号一览表（Sparse Autoencoder Notation Summary）.md" target="_blank">稀疏自编码符号一览表（Sparse Autoencoder Notation Summary）</a>\[<a href="http://ufldl.stanford.edu/wiki/index.php/Sparse_Autoencoder_Notation_Summary" target="_blank">old</a>\][new\]\[<a href="http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%E7%AC%A6%E5%8F%B7%E4%B8%80%E8%A7%88%E8%A1%A8" target="_blank">旧</a>\]
 
   * <a href="./无监督学习（Unsupervised Learning）/独立成分分析（ICA）.md" target="_blank">独立成分分析（ICA）</a>\[无\]\[<a href="http://ufldl.stanford.edu/tutorial/unsupervised/ICA" target="_blank">new</a>\]\[无\]
 
