@@ -33,7 +33,15 @@
 
 **每个小节后面的<font color=red>\[old\]\[new]\[旧\]</font>分别代表：旧版英文、新版英文、旧版中文。由新版翻译而来，可能没有对应的旧版章节用<font color=red>\[无\]</font>代替。**
 
-* **监督学习与优化（Supervised Learning and Optimization）**
+* ** 预备知识（Miscellaneous） **
+
+  * [MATLAB 文件指引（MATLAB Modules）](./预备知识（Miscellaneous ）/MATLAB　文件指引（MATLAB Modules）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/MATLAB_Modules)\]\[无\]\[无\]
+
+  * [代码风格（Style Guide）](./预备知识（Miscellaneous ）/代码风格（Style Guide）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Style_Guide)\]\[无\]\[无\]
+
+  * [预备知识推荐（Useful Links）](./预备知识（Miscellaneous ）/预备知识推荐（Useful Links）.md)\[[old](http://ufldl.stanford.edu/wiki/index.phssp/Useful_Links)\]\[无\]\[无\]
+
+* ** 监督学习与优化（Supervised Learning and Optimization） **
 
   *  [线性回归（Linear Regression）](./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md)\[无\]\[[new](http://ufldl.stanford.edu/tutorial/supervised/LinearRegression)\]\[无\]
 
@@ -87,7 +95,7 @@
 
   * [稀疏编码（Sparse Coding）](./无监督学习（Unsupervised Learning）/稀疏编码（Sparse Coding）.md)\[[old](http://deeplearning.stanford.edu/wiki/index.php/Sparse_Coding)\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/SparseCoding/)\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E7%BC%96%E7%A0%81)\]
 
-   * [稀疏自编码符号一览表（Sparse Autoencoder Notation Summary）](./无监督学习（Unsupervised Learning）/稀疏自编码符号一览表（Sparse Autoencoder Notation Summary）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Sparse_Autoencoder_Notation_Summary)\]\[new\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%E7%AC%A6%E5%8F%B7%E4%B8%80%E8%A7%88%E8%A1%A8)\]
+   * [稀疏自编码符号一览表（Sparse Autoencoder Notation Summary）](./无监督学习（Unsupervised Learning）/稀疏自编码符号一览表（Sparse Autoencoder Notation Summary）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Sparse_Autoencoder_Notation_Summary)\]\[无\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%E7%AC%A6%E5%8F%B7%E4%B8%80%E8%A7%88%E8%A1%A8)\]
 
    * 稀疏编码：理解自动编码器（Sparse Coding: Autoencoder Interpretation）
 
@@ -118,3 +126,21 @@
   * 微调多层自编码算法（Fine-tuning Stacked AEs）
 
    * 练习：用深度网络实现数字分类（Exercise: Implement deep networks for digit classification）
+
+* ** 其它官方暂未写完的小节（Others） **
+
+  * 卷积训练（Convolutional training）
+
+  * 受限玻尔兹曼机（Restricted Boltzmann Machines）
+
+  * 深度置信网络（Deep Belief Networks）
+
+  * 降噪自编码器（Denoising Autoencoders）
+
+  * K 均值（K-means）
+
+  * 空间金字塔/多尺度（Spatial pyramids / Multiscale）
+
+  * 慢特征分析（Slow Feature Analysis）
+
+  * 平铺卷积网络（Tiled Convolution Networks）
