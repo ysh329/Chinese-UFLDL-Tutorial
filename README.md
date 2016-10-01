@@ -33,7 +33,7 @@
 
 **每个小节后面的<font color=red>\[old\]\[new]\[旧\]</font>分别代表：旧版英文、新版英文、旧版中文。由新版翻译而来，可能没有对应的旧版章节用<font color=red>\[无\]</font>代替。**
 
-* ** 预备知识（Miscellaneous） **
+* **预备知识（Miscellaneous）**
 
   * [MATLAB 文件指引（MATLAB Modules）](./预备知识（Miscellaneous ）/MATLAB　文件指引（MATLAB Modules）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/MATLAB_Modules)\]\[无\]\[无\]
 
@@ -41,7 +41,7 @@
 
   * [预备知识推荐（Useful Links）](./预备知识（Miscellaneous ）/预备知识推荐（Useful Links）.md)\[[old](http://ufldl.stanford.edu/wiki/index.phssp/Useful_Links)\]\[无\]\[无\]
 
-* ** 监督学习与优化（Supervised Learning and Optimization） **
+* **监督学习与优化（Supervised Learning and Optimization）**
 
   *  [线性回归（Linear Regression）](./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md)\[无\]\[[new](http://ufldl.stanford.edu/tutorial/supervised/LinearRegression)\]\[无\]
 
@@ -127,7 +127,7 @@
 
    * 练习：用深度网络实现数字分类（Exercise: Implement deep networks for digit classification）
 
-* ** 其它官方暂未写完的小节（Others） **
+* **其它官方暂未写完的小节（Others）**
 
   * 卷积训练（Convolutional training）
 
