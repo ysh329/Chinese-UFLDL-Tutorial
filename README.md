@@ -1,6 +1,6 @@
 # 非监督特征学习与深度学习 中文教程
 
-中文版的新版 UFLDL 教程（项目地址： www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自 [UFLDL Tutorial](http://deeplearning.stanford.edu/tutorial/) ，是新版教程的翻译。也可参考 [老版本的UFLDL中文教程](http://ufldl.stanford.edu/wiki/index.php/UFLDL教程) 。翻译过程中有一些数学公式，使用 [Haroopad](http://pad.haroopress.com/user.html#download) 编辑和排版， Haroopad 是一个很不错的离线 MarkDown 编辑器，支持 [Tex](https://en.wikipedia.org/wiki/TeX) 公式编辑，支持多平台（Win/Mac/Linux），目前还在翻译中，翻译完成后会考虑使用 Tex 重新排版。  
+中文版的新版 UFLDL 教程（项目地址： www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自 [UFLDL Tutorial](http://deeplearning.stanford.edu/tutorial/) ，是新版教程的翻译。也可参考 [旧版 UFLDL 中文教程](http://ufldl.stanford.edu/wiki/index.php/UFLDL教程) 。翻译过程中有一些数学公式，使用 [Haroopad](http://pad.haroopress.com/user.html#download) 编辑和排版， Haroopad 是一个优秀的离线 [MarkDown](https://en.wikipedia.org/wiki/Markdown) 编辑器，支持 [Tex](https://en.wikipedia.org/wiki/TeX) 公式编辑，支持多平台（Win/Mac/Linux），目前还在翻译中，翻译完成后会考虑使用 Tex 重新排版。  
 
 自己对新版UFLDL教程翻译过程中，发现的英文错误，见 [新版教程英文原文勘误表](./新版教程英文原文勘误表.md) 。  
 
@@ -41,6 +41,8 @@
 
   * [预备知识推荐（Useful Links）](./预备知识（Miscellaneous ）/预备知识推荐（Useful Links）.md)\[[old](http://ufldl.stanford.edu/wiki/index.phssp/Useful_Links)\]\[无\]\[无\]
 
+  * [推荐读物（UFLDL Recommended Readings）](./预备知识（Miscellaneous ）/推荐读物（UFLDL Recommended Readings）.md)\[[old](http://deeplearning.stanford.edu/wiki/index.php/UFLDL_Recommended_Readings)\]\[无\]\[无\]
+
 * **监督学习与优化（Supervised Learning and Optimization）**
 
   *  [线性回归（Linear Regression）](./监督学习和优化（Supervised Learning and Optimization）/线性回归（Linear Regression）.md)\[无\]\[[new](http://ufldl.stanford.edu/tutorial/supervised/LinearRegression)\]\[无\]
@@ -61,7 +63,7 @@
 
   *  [多层神经网络（Multi-Layer Neural Networks）](./监督神经网络（Supervised Neural Networks）/多层神经网络（Multi-Layer Neural Networks）.md)\[[old](http://deeplearning.stanford.edu/wiki/index.php/Neural_Networks)\]\[[new](http://ufldl.stanford.edu/tutorial/supervised/MultiLayerNeuralNetworks)\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)\]
 
-   *  [神经网络向量化（Neural Network Vectorization）](./监督神经网络（Supervised Neural Networks）/神经网络向量化（Neural Network Vectorization）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Neural_Network_Vectorization)\]\[new\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%90%91%E9%87%8F%E5%8C%96#.E5.8F.8D.E5.90.91.E4.BC.A0.E6.92.AD)\]
+   *  [神经网络向量化（Neural Network Vectorization）](./监督神经网络（Supervised Neural Networks）/神经网络向量化（Neural Network Vectorization）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Neural_Network_Vectorization)\]\[无\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%90%91%E9%87%8F%E5%8C%96#.E5.8F.8D.E5.90.91.E4.BC.A0.E6.92.AD)\]
 
    *  [练习：监督神经网络（Exercise: Supervised Neural Network）](./监督神经网络（Supervised%20Neural%20Networks）/练习：%20监督神经网络（Exercise:%20Supervised%20Neural%20Networks）.md)\[无\]\[[new](http://ufldl.stanford.edu/tutorial/supervised/ExerciseSupervisedNeuralNetwork)\]\[无\]
 
@@ -109,9 +111,9 @@
 
    * 练习：RICA（Exercise: RICA）\[无\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/ExerciseRICA)\]\[无\]
 
-  * 附1：数据预处理（Data Preprocessing）
+  * 附1：[数据预处理（Data Preprocessing）](./无监督学习（Unsupervised Learning）/数据预处理（Data Preprocessing）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Data_Preprocessing)\]\[无\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86)\]
 
-  * 附2：用反向传导思想求导（Deriving gradients using the backpropagation idea）
+  * 附2：[用反向传导思想求导（Deriving gradients using the backpropagation idea）](./无监督学习（Unsupervised Learning）/用反向传导思想求导（Deriving gradients using the backpropagation idea）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Deriving_gradients_using_the_backpropagation_idea)\]\[无\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%94%A8%E5%8F%8D%E5%90%91%E4%BC%A0%E5%AF%BC%E6%80%9D%E6%83%B3%E6%B1%82%E5%AF%BC)\]
 
 * **自我学习（Self-Taught Learning）**
 
