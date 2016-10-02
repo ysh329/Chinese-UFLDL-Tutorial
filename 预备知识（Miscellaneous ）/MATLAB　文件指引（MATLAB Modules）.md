@@ -4,7 +4,7 @@
 
 注：本文是旧版的作业文件，新版见初学者代码压缩包，但这里旧版的代码仍然可以用来学习。。
 
-#### 稀疏自编码器 | [sparseae_exercise.zip](http://ufldl.stanford.edu/wiki/resources/sparseae_exercise.zip)
+### 稀疏自编码器 | [sparseae_exercise.zip](http://ufldl.stanford.edu/wiki/resources/sparseae_exercise.zip)
 
 checkNumericalGradient.m - 检查 computeNumericalGradient 的计算结果是否正确
 
