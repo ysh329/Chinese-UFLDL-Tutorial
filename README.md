@@ -85,13 +85,13 @@
 
   * [自动编码器（Autoencoders）](./无监督学习（Unsupervised Learning）/自动编码器（Autoencoders）.md)\[[old](http://deeplearning.stanford.edu/wiki/index.php/Autoencoders_and_Sparsity)\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders)\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%80%E7%96%8F%E6%80%A7)\]
 
-   * 线性解码器（Linear Decoders）
+   * [线性解码器（Linear Decoders）](./无监督学习（Unsupervised Learning）/线性解码器（Linear Decoders）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Linear_Decoders)][无][[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%BA%BF%E6%80%A7%E8%A7%A3%E7%A0%81%E5%99%A8)]
 
-   * 练习：使用稀疏编码器学习颜色特征（Exercise:Learning color features with Sparse Autoencoders）
+   * [练习：使用稀疏编码器学习颜色特征（Exercise:Learning color features with Sparse Autoencoders）](./无监督学习（Unsupervised Learning）/练习：使用稀疏编码器学习颜色特征（Exercise:Learning color features with Sparse Autoencoders）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Exercise:Learning_color_features_with_Sparse_Autoencoders)][无][无]
 
   * [主成分分析白化（PCA Whitening）](./无监督学习（Unsupervised Learning）/主成分分析白化（PCA Whitening）.md)\[[old](http://deeplearning.stanford.edu/wiki/index.php/Implementing_PCA/Whitening)\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening)\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E5%AE%9E%E7%8E%B0%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E5%92%8C%E7%99%BD%E5%8C%96)\]
 
-   * 练习：实现 2D 数据的主成分分析（Exercise:PCA in 2D）
+   * [练习：实现 2D 数据的主成分分析（Exercise:PCA in 2D）](./无监督学习（Unsupervised Learning）/练习：实现 2D 数据的主成分分析（Exercise:PCA in 2D）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Exercise:PCA_in_2D)][无][无]
 
    * [练习：主成分分析白化（Exercise: PCA Whitening）](./无监督学习（Unsupervised Learning）/练习：主成分分析白化（Exercise: PCA Whitening）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Exercise:PCA_and_Whitening)\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/ExercisePCAWhitening)\]\[无\]
 
@@ -99,7 +99,7 @@
 
    * [稀疏自编码符号一览表（Sparse Autoencoder Notation Summary）](./无监督学习（Unsupervised Learning）/稀疏自编码符号一览表（Sparse Autoencoder Notation Summary）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Sparse_Autoencoder_Notation_Summary)\]\[无\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%E7%AC%A6%E5%8F%B7%E4%B8%80%E8%A7%88%E8%A1%A8)\]
 
-   * 稀疏编码：理解自动编码器（Sparse Coding: Autoencoder Interpretation）
+   * [稀疏编码自编码表达（Sparse Coding: Autoencoder Interpretation）](./无监督学习（Unsupervised Learning）/稀疏编码自编码表达（Sparse Coding: Autoencoder Interpretation）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Sparse_Coding:_Autoencoder_Interpretation)][无][[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E7%BC%96%E7%A0%81%E8%87%AA%E7%BC%96%E7%A0%81%E8%A1%A8%E8%BE%BE)]
 
    * 练习：稀疏编码（Exercise:Sparse Coding）
 
