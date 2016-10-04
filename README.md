@@ -1,8 +1,10 @@
+为了极佳的阅读体验，您可点击 [这里](https://github.com/ysh329/Chinese-UFLDL-Tutorial/archive/master.zip) 将本文档下载到本地，并安装 [Haroopad](http://pad.haroopress.com/user.html#download) 进行阅读。
+
 # 非监督特征学习与深度学习 中文教程
 
 中文版的新版 UFLDL 教程（项目地址： www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自 [UFLDL Tutorial](http://deeplearning.stanford.edu/tutorial/) ，是新版教程的翻译。也可参考 [旧版 UFLDL 中文教程](http://ufldl.stanford.edu/wiki/index.php/UFLDL教程) 。翻译过程中有一些数学公式，使用 [Haroopad](http://pad.haroopress.com/user.html#download) 编辑和排版， Haroopad 是一个优秀的离线 [MarkDown](https://en.wikipedia.org/wiki/Markdown) 编辑器，支持 [Tex](https://en.wikipedia.org/wiki/TeX) 公式编辑，支持多平台（Win/Mac/Linux），目前还在翻译中，翻译完成后会考虑使用 Tex 重新排版。  
 
-自己对新版UFLDL教程翻译过程中，发现的英文错误，见 [新版教程英文原文勘误表](./新版教程英文原文勘误表.md) 。  
+自己对新版 UFLDL 教程翻译过程中，发现的英文错误，见 [新版教程英文原文勘误表](./新版教程英文原文勘误表.md) 。  
 
 **注：UFLDL是非监督特征学习及深度学习（Unsupervised Feature Learning and Deep Learning）的缩写，而不仅指深度学习（Deep Learning）。**  
 
@@ -101,7 +103,7 @@
 
    * [稀疏编码自编码表达（Sparse Coding: Autoencoder Interpretation）](./无监督学习（Unsupervised Learning）/稀疏编码自编码表达（Sparse Coding: Autoencoder Interpretation）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Sparse_Coding:_Autoencoder_Interpretation)][无][[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%A8%80%E7%96%8F%E7%BC%96%E7%A0%81%E8%87%AA%E7%BC%96%E7%A0%81%E8%A1%A8%E8%BE%BE)]
 
-   * 练习：稀疏编码（Exercise:Sparse Coding）
+   * [练习：稀疏编码（Exercise:Sparse Coding）](./无监督学习（Unsupervised Learning）/练习：稀疏编码（Exercise:Sparse Coding）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Exercise:Sparse_Coding)][无][无]
 
   * [独立成分分析（ICA）](./无监督学习（Unsupervised Learning）/独立成分分析（ICA）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Independent_Component_Analysis)\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/ICA)\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E7%8B%AC%E7%AB%8B%E6%88%90%E5%88%86%E5%88%86%E6%9E%90)\]
 
@@ -109,7 +111,7 @@
 
   * RICA（RICA）\[无\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/RICA)\]\[无\]
 
-   * 练习：RICA（Exercise: RICA）\[无\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/ExerciseRICA)\]\[无\]
+   * [练习：RICA（Exercise: RICA）](./无监督学习（Unsupervised Learning）/练习：RICA（Exercise: RICA）.md)\[无\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/ExerciseRICA)\]\[无\]
 
   * 附1：[数据预处理（Data Preprocessing）](./无监督学习（Unsupervised Learning）/数据预处理（Data Preprocessing）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Data_Preprocessing)\]\[无\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86)\]
 
@@ -119,7 +121,7 @@
 
   * [自我学习（Self-Taught Learning）](./自我学习（Self-Taught Learning）/自我学习（Self-Taught Learning）.md)\[[old](http://deeplearning.stanford.edu/wiki/index.php/Self-Taught_Learning)\]\[[new](http://ufldl.stanford.edu/tutorial/selftaughtlearning/SelfTaughtLearning)\]\[[旧](http://ufldl.stanford.edu/wiki/index.php/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0)\]
 
-   * 练习：自我学习（Exercise: Self-Taught Learning）\[无\]\[[new](http://ufldl.stanford.edu/tutorial/selftaughtlearning/ExerciseSelfTaughtLearning)\]\[无\]
+   * [练习：自我学习（Exercise: Self-Taught Learning）](./自我学习（Self-Taught Learning）/练习：自我学习（Exercise: Self-Taught Learning）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Exercise:Self-Taught_Learning)][[new](http://ufldl.stanford.edu/tutorial/selftaughtlearning/ExerciseSelfTaughtLearning)][无]
 
   * 深度网络概览（Deep Networks: Overview）
 
