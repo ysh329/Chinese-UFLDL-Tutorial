@@ -6,7 +6,7 @@
 
 自己对新版 UFLDL 教程翻译过程中，发现的英文错误，见 [新版教程英文原文勘误表](./新版教程英文原文勘误表.md) 。  
 
-**注：UFLDL是非监督特征学习及深度学习（Unsupervised Feature Learning and Deep Learning）的缩写，而不仅指深度学习（Deep Learning）。**  
+**注： UFLDL 是非监督特征学习及深度学习（Unsupervised Feature Learning and Deep Learning）的缩写，而不仅指深度学习（Deep Learning）。**  
 
 -  翻译者：Shuai Yuan ，部分小节参考旧版翻译  
 -  若有翻译错误，请直接 [New issue](https://github.com/ysh329/Chinese-UFLDL-Tutorial/issues/new) 或 [发邮件](Mailto:ysh329@sina.com) ，感谢！  
