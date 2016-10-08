@@ -33,7 +33,7 @@
 
 # 目录
 
-**每个小节后面的<font color=red>\[old\]\[new]\[旧\]</font>分别代表：旧版英文、新版英文、旧版中文。由新版翻译而来，可能没有对应的旧版章节用<font color=red>\[无\]</font>代替。**
+**每个小节后面的<font color=red>\[old\]\[new]\[旧\]</font>分别代表：旧版英文、新版英文、旧版中文三个版本。若没有对应的版本则用<font color=red>\[无\]</font>代替。**
 
 * **预备知识（Miscellaneous）**
 
@@ -123,13 +123,13 @@
 
    * [练习：自我学习（Exercise: Self-Taught Learning）](./自我学习（Self-Taught Learning）/练习：自我学习（Exercise: Self-Taught Learning）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Exercise:Self-Taught_Learning)][[new](http://ufldl.stanford.edu/tutorial/selftaughtlearning/ExerciseSelfTaughtLearning)][无]
 
-  * 深度网络概览（Deep Networks: Overview）
+  * [深度网络概览（Deep Networks: Overview）](./自我学习（Self-Taught Learning）/深度网络概览（Deep Networks: Overview）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Deep_Networks:_Overview)][无][[旧](http://ufldl.stanford.edu/wiki/index.php/%E6%B7%B1%E5%BA%A6%E7%BD%91%E7%BB%9C%E6%A6%82%E8%A7%88)]
 
-  * 栈式自编码算法（Stacked Autoencoders）
+  * [栈式自编码算法（Stacked Autoencoders）](./自我学习（Self-Taught Learning）/栈式自编码算法（Stacked Autoencoders）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Stacked_Autoencoders)][无][[旧](http://ufldl.stanford.edu/wiki/index.php/%E6%A0%88%E5%BC%8F%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95)]
 
-  * 微调多层自编码算法（Fine-tuning Stacked AEs）
+  * [微调多层自编码算法（Fine-tuning Stacked AEs）](./自我学习（Self-Taught Learning）/微调多层自编码算法（Fine-tuning Stacked AEs）.md)[[old](http://ufldl.stanford.edu/wiki/index.php/Fine-tuning_Stacked_AEs)][无][[旧](http://ufldl.stanford.edu/wiki/index.php/%E5%BE%AE%E8%B0%83%E5%A4%9A%E5%B1%82%E8%87%AA%E7%BC%96%E7%A0%81%E7%AE%97%E6%B3%95)]
 
-   * 练习：用深度网络实现数字分类（Exercise: Implement deep networks for digit classification）
+   * 练习：用深度网络实现数字分类（Exercise: Implement deep networks for digit classification）[[old](http://ufldl.stanford.edu/wiki/index.php/Exercise:_Implement_deep_networks_for_digit_classification)][无][无]
 
 * **其它官方暂未写完的小节（Others）**
 
