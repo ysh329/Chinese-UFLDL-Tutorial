@@ -1,0 +1,181 @@
+## 用反向传导思想求导（Deriving gradients using the backpropagation idea）
+
+注：本章节翻译参考旧版 UFLDL 中文教程。
+
+### 1. 简介（Introduction）
+
+在 反向传导算法 一节中，我们介绍了在稀疏自编码器中用反向传导算法来求梯度的方法。事实证明，反向传导算法与矩阵运算相结合的方法，对于计算复杂矩阵函数（从矩阵到实数的函数，或用符号表示为：从 $\mathbb{R}^{r \times c} \rightarrow \mathbb{R}$ ）的梯度是十分强大和直观的。
+
+首先，我们回顾一下反向传导的思想，为了更适合我们的目的，将其稍作修改呈现于下：
+
+* 对第 $n_l$ 层（最后一层）中的每一个输出单元 $i$ ，令
+$$
+\delta^{(n_l)}_i = \frac{\partial}{\partial z^{(n_l)}_i} \;\; J(z^{(n_l)})
+$$
+其中 $J(z)$ 是我们的“目标函数”（稍后解释）。
+对 $l = n_l-1, n_l-2, n_l-3, \ldots, 2 $,
+
+* 对第 $l$ 层中的每个节点 $i$ ，令
+
+$$
+\delta^{(l)}_i = \left( \sum_{j=1}^{s_{l+1}} W^{(l)}_{ji} \delta^{(l+1)}_j \right) \bullet \frac{\partial}{\partial z^{(l)}_i} f^{(l)} (z^{(l)}_i)
+$$
+
+* 计算我们要的偏导数
+$$\begin{align}
+\nabla_{W^{(l)}} J(W,b;x,y) &= \delta^{(l+1)} (a^{(l)})^T, \\
+\end{align}$$
+
+符号扼要重述：
+
+|符号 |说明 |
+| :------------: |---------------------------------------|
+| $l$            | 是神经网络的层数|
+| $n_l$          | 第 $l$ 层神经元的个数|
+| $W^{(l)}_{ji}$ |是 $l$ 层第 $i$ 个节点到第 $(l + 1)$ 层第 $j$ 个节点的权重|
+| $z^{(l)}_i$    |是第 $l$ 层第 $i$ 个单元的输入|
+| $a^{(l)}_i$    |是第 $l$ 层第 $i$ 个节点的激励|
+| $A \bullet B$  |是矩阵的 Hadamard 积或逐个元素乘积，对 $r \times c$ 矩阵 $A$ 和 $B$ ，它们的乘积是 $r \times c$ 矩阵 $C = A \bullet B$ ，即 $C_{r, c} = A_{r, c} \cdot B_{r, c}$ |
+| $f(l)$         | 是第 $l$ 层中各单元的激励函数 |
+
+假设我们有一个函数 F ， F 以矩阵 X 为参数生成一个实数。我们希望用反向传导思想计算 F 关于 X 的梯度，即 \nabla_X F 。大致思路是将函数 F 看成一个多层神经网络，并使用反向传导思想求梯度。
+
+为了实现这个想法，我们取目标函数为 J(z) ，当计算最后一层神经元的输出时，会产生值 F(X) 。对于中间层，我们将选择激励函数 f(l) 。
+
+稍后我们会看到，使用这种方法，我们可以很容易计算出对于输入 X 以及网络中任意一个权重的导数。
+
+
+### 2. 示例（Examples）
+
+为了阐述如何使用反向传导思想计算关于输入的导数，我们要在示例1,示例2中用 稀疏编码 章节中的两个函数。在示例3中，我们使用 独立成分分析 一节中的一个函数来说明使用此思想计算关于权重的偏导的方法，以及在这种特殊情况下，如何处理相互捆绑或重复的权重。
+
+
+#### 2.1 示例1：稀疏编码中权重矩阵的目标函数（Example 1: Objective for weight matrix in sparse coding）
+
+回顾一下 稀疏编码 ，当给定特征矩阵 s 时，权重矩阵 A 的目标函数为:
+
+    F(A; s) = \lVert As - x \rVert_2^2 + \gamma \lVert A \rVert_2^2 
+
+
+我们希望求 F 对于 A 的梯度，即 \nabla_A F(A) 。因为目标函数是两个含 A 的式子之和，所以它的梯度是每个式子的梯度之和。第二项的梯度很容易求，因此我们只考虑第一项的梯度。
+
+
+第一项, \lVert As - x \rVert_2^2 ,可以看成一个用 s 做输入的神经网络的实例，通过四步进行计算，文字以及图形描述如下：
+
+    把 A 作为第一层到第二层的权重。
+    将第二层的激励减 x ，第二层使用了单位激励函数。
+    通过单位权重将结果不变地传到第三层。在第三层使用平方函数作为激励函数。
+    将第三层的所有激励相加。 
+
+Backpropagation Method Example 1.png
+
+
+该网络的权重和激励函数如下表所示： 
+
+层	权重	激励函数 f
+1 	A 	f(zi) = zi (单位函数)
+2 	I (单位向量) 	f(zi) = zi − xi
+3 	N/A 	f(z_i) = z_i^2
+
+为了使 J(z(3)) = F(x) ，我们可令 J(z^{(3)}) = \sum_k J(z^{(3)}_k) 。
+
+一旦我们将 F 看成神经网络，梯度 \nabla_X F 就很容易求了——使用反向传导得到：
+层	激励函数的导数f'	Delta	该层输入z
+3 	f'(zi) = 2zi 	f'(zi) = 2zi 	As − x
+2 	f'(zi) = 1 	\left( I^T \delta^{(3)} \right) \bullet 1 	As
+1 	f'(zi) = 1 	\left( A^T \delta^{(2)} \right) \bullet 1 	s
+
+
+因此
+
+    \begin{align} \nabla_X F & = A^T I^T 2(As - x) \\ & = A^T 2(As - x) \end{align} 
+
+
+#### 2.2 示例2：稀疏编码中的平滑地形L1稀疏罚函数（Example 2: Smoothed topographic L1 sparsity penalty in sparse coding）
+
+回顾 稀疏编码 一节中对 s 的平滑地形L1稀疏罚函数：
+
+    \sum{ \sqrt{Vss^T + \epsilon} } 
+
+其中 V 是分组矩阵， s 是特征矩阵， ε 是一个常数。
+
+我们希望求得 \nabla_s \sum{ \sqrt{Vss^T + \epsilon} } 。像上面那样，我们把这一项看做一个神经网络的实例：
+
+Backpropagation Method Example 2.png
+
+
+该网络的权重和激励函数如下表所示：
+层	权重	激励函数 f
+1 	I 	f(z_i) = z_i^2
+2 	V 	f(zi) = zi
+3 	I 	f(zi) = zi + ε
+4 	N/A 	f(z_i) = z_i^{\frac{1}{2}}
+
+
+为使 J(z(4)) = F(x) ，我们可令 J(z^{(4)}) = \sum_k J(z^{(4)}_k) 。
+
+一旦我们把 F 看做一个神经网络，梯度 \nabla_X F 变得很容易计算——使用反向传导得到：
+层	激励函数的导数 f' 	Delta	该层输入z
+4 	f'(z_i) = \frac{1}{2} z_i^{-\frac{1}{2}} 	f'(z_i) = \frac{1}{2} z_i^{-\frac{1}{2}} 	(VssT + ε)
+3 	f'(zi) = 1 	\left( I^T \delta^{(4)} \right) \bullet 1 	VssT
+2 	f'(zi) = 1 	\left( V^T \delta^{(3)} \right) \bullet 1 	ssT
+1 	f'(zi) = 2zi 	\left( I^T \delta^{(2)} \right) \bullet 2s 	s
+
+
+因此
+
+    \begin{align} \nabla_X F & = I^T V^T I^T \frac{1}{2}(Vss^T + \epsilon)^{-\frac{1}{2}} \bullet 2s \\ & = V^T \frac{1}{2}(Vss^T + \epsilon)^{-\frac{1}{2}} \bullet 2s \\ & = V^T (Vss^T + \epsilon)^{-\frac{1}{2}} \bullet s \end{align} 
+
+
+#### 2.3 示例3：ICA重建代价（Example 3: ICA reconstruction cost）
+
+回顾 独立成分分析(ICA) 一节重建代价一项： \lVert W^TWx - x \rVert_2^2 ，其中 W 是权重矩阵， x 是输入。
+
+我们希望计算 \nabla_W \lVert W^TWx - x \rVert_2^2 ——对于权重矩阵的导数，而不是像前两例中对于输入的导数。不过我们仍然用类似的方法处理，把该项看做一个神经网络的实例：
+
+Backpropagation Method Example 3.png
+
+
+该网络的权重和激励函数如下表所示：
+层	权重	激励函数 f
+1 	W 	f(zi) = zi
+2 	WT 	f(zi) = zi
+3 	I 	f(zi) = zi − xi
+4 	N/A 	f(z_i) = z_i^2
+
+为使 J(z(4)) = F(x) ，我们可令 J(z^{(4)}) = \sum_k J(z^{(4)}_k) 。
+
+既然我们可将 F 看做神经网络，我们就能计算出梯度 \nabla_W F 。然而，我们现在面临的难题是 W 在网络中出现了两次。幸运的是，可以证明如果 W 在网络中出现多次，那么对于 W 的梯度是对网络中每个 W 实例的梯度的简单相加（你需要自己给出对这一事实的严格证明来说服自己）。知道这一点后，我们将首先计算delta：
+层	激励函数的导数 $f'$ 	$Delta$	该层输入 $z$
+4 	$f'(zi) = 2zi$ 	$f'(zi) = 2zi$ 	$(WTWx − x)$
+3 	$f'(zi) = 1$ 	$\left( I^T \delta^{(4)} \right) \bullet 1$ 	$WTWx$
+2 	$f'(zi) = 1$ 	$\left( (W^T)^T \delta^{(3)} \right) \bullet 1$ 	$Wx$
+1 	$f'(zi) = 1$ 	$\left( W^T \delta^{(2)} \right) \bullet 1$ 	$x$
+
+为计算对于 $W$ 的梯度，首先计算对网络中每个 $W$ 实例的梯度。
+
+对于 $W^T$ ：
+
+$$
+\begin{align}
+\nabla_{W^T} F & = \delta^{(3)} a^{(2)T} \\
+& = 2(W^TWx - x) (Wx)^T
+\end{align}
+$$
+
+对于 $W$ ：
+
+$$
+\begin{align}
+\nabla_{W} F & = \delta^{(2)} a^{(1)T} \\
+& = (W^T)(2(W^TWx -x)) x^T
+\end{align}
+$$
+
+最后进行求和，得到对于 $W$ 的最终梯度，注意我们需要对 $W^T$ 梯度进行转置，来得到关于 $W$ 的梯度（原谅我在这里稍稍滥用了符号）：
+
+$$
+\begin{align}
+\nabla_{W} F & = \nabla_{W} F + (\nabla_{W^T} F)^T \\ & = (W^T)(2(W^TWx -x)) x^T + 2(Wx)(W^TWx - x)^T
+\end{align}
+$$
