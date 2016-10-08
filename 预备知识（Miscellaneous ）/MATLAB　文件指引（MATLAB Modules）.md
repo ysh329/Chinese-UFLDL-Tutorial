@@ -2,20 +2,20 @@
 
 ### MATLAB 文件指引（MATLAB Modules）
 
-注：本文是旧版的作业文件，新版见初学者代码压缩包，但这里旧版的代码仍然可以用来学习。。
+注：本文是旧版的作业文件，新版见 [初学者代码](https://github.com/amaas/stanford_dl_ex) 压缩包，但这里旧版的代码仍然可以用来学习。
 
 ### 稀疏自编码器 | [sparseae_exercise.zip](http://ufldl.stanford.edu/wiki/resources/sparseae_exercise.zip)
 
 checkNumericalGradient.m - 检查 computeNumericalGradient 的计算结果是否正确
 
-computeNumericalGradient.m - 计算函数的数值梯度(待实现)
+computeNumericalGradient.m - 计算函数的数值梯度（待实现）
 
 display_network.m - 可视化自动编码器的图像或滤波器的结果
 
 initializeParameters.m - 随机初始化稀疏自动编码器的权重值
 
 sampleIMAGES.m - 从图像矩阵中采样大小为 $8
-\times 8$ 的小图(待实现)
+\times 8$ 的小图（待实现）
 
 sparseAutoencoderCost.m - 计算稀疏自动编码器中代价函数的函数值（即代价）和梯度
 
