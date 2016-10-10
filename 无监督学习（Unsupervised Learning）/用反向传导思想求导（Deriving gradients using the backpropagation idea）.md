@@ -93,13 +93,15 @@ Backpropagation Method Example 1.png
 
 #### 2.2 示例2：稀疏编码中的平滑地形L1稀疏罚函数（Example 2: Smoothed topographic L1 sparsity penalty in sparse coding）
 
-回顾 稀疏编码 一节中对 s 的平滑地形L1稀疏罚函数：
+回顾 稀疏编码 一节中对 $s$ 的平滑地形 $L1$ 稀疏罚函数：
 
-    \sum{ \sqrt{Vss^T + \epsilon} } 
+$$
+\sum{ \sqrt{Vss^T + \epsilon} }
+$$
 
 其中 V 是分组矩阵， s 是特征矩阵， ε 是一个常数。
 
-我们希望求得 \nabla_s \sum{ \sqrt{Vss^T + \epsilon} } 。像上面那样，我们把这一项看做一个神经网络的实例：
+我们希望求得 $\nabla_s \sum{ \sqrt{Vss^T + \epsilon} }$ 。像上面那样，我们把这一项看做一个神经网络的实例：
 
 Backpropagation Method Example 2.png
 
@@ -124,7 +126,14 @@ Backpropagation Method Example 2.png
 
 因此
 
-    \begin{align} \nabla_X F & = I^T V^T I^T \frac{1}{2}(Vss^T + \epsilon)^{-\frac{1}{2}} \bullet 2s \\ & = V^T \frac{1}{2}(Vss^T + \epsilon)^{-\frac{1}{2}} \bullet 2s \\ & = V^T (Vss^T + \epsilon)^{-\frac{1}{2}} \bullet s \end{align} 
+$$
+\begin{align}
+\nabla_X F & = I^T V^T I^T \frac{1}{2}(Vss^T + \epsilon)^{-\frac{1}{2}} \bullet 2s \\
+& = V^T \frac{1}{2}(Vss^T + \epsilon)^{-\frac{1}{2}} \bullet 2s \\
+& = V^T (Vss^T + \epsilon)^{-\frac{1}{2}} \bullet s
+\end{align}
+$$
+    
 
 
 #### 2.3 示例3：ICA重建代价（Example 3: ICA reconstruction cost）
