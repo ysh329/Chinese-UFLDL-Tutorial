@@ -8,7 +8,9 @@
 
 稀疏自编码算法，试着学习得到一组权重参数 $W$ 以及相应的截距 $b$ ，通过这些参数可以得到稀疏特征向量 $σ(Wx + b)$ ，这些特征向量对于重构输入样本非常有用。
 
-<center>![STL_SparseAE](./images/240px-STL_SparseAE.png)</center>
+<center>
+![STL_SparseAE](./images/240px-STL_SparseAE.png)
+</center>
 
 稀疏编码可以看作是稀疏自编码方法的一个变形，该方法试图直接学习数据 $x$ 的特征集 $s$ 。利用与此特征集相应的基向量 $A$ ，将学习得到的特征集 $s$ 从特征空间转换到样本数据 $x$ 的空间，这样就可以用学习得到的（译者注：所在的样本空间的）特征集 $As$ 重构样本数据 $x$ 。
 
@@ -26,9 +28,9 @@ $$
 
 $$
 \begin{array}{rcl}
-     {\rm minimize} & \lVert As - x \rVert_2^2 + \lambda \lVert s \rVert_1 \\
-     {\rm s.t.}     &    A_j^TA_j \le 1 \; \forall j \\
-\end{array} 
+{\rm minimize} & \lVert As - x \rVert_2^2 + \lambda \lVert s \rVert_1 \\
+{\rm s.t.}     &    A_j^TA_j \le 1 \; \forall j \\
+\end{array}
 $$
 
 遗憾的是，因为目标函数并不是一个凸函数（译者注：两个变量 $A$ 和 $s$ 存在乘积项，此外 $A$ 有约束限制 $A_j^TA_j \le 1 \; \forall j$ ），所以不能用梯度方法解决这个优化问题。但是，在给定 $A$ 的情况下，最小化 $J(A,s)$ 求解 $s$ 是凸的。同理，给定 $s$ 最小化 $J(A,s)$ 求解 $A$ 也是凸的。这表明，可以通过交替固定 $s$ 和 $A$ 分别求解 $A$ 和 $s$ 。实践表明，这一策略取得的效果非常好。
@@ -41,7 +43,7 @@ $$
 
 注意上式中的第三项 $\lVert A \rVert_2^2$ ，等价于 $\sum_r{\sum_c{A_{rc}^2}}$ ，是 $A$ 中各项的平方和。
 
-这一目标函数带来了最后一个问题，即 $L1$ 范数在 $0$ 点处不可微影响了梯度方法的应用。尽管可以通过其他非梯度下降方法避开这一问题，但是本文通过使用近似值“平滑” $L1$ 范数的方法解决此难题。使用 $\sqrt{x^2 + \epsilon}$ 代替 $\left| x \right|$ ，对 $L1$ 范数进行平滑，其中 $ε$ 是“平滑参数”（ "smoothing parameter" ）或者“稀疏参数”（ "sparsity parameter" ）。
+这一目标函数带来了最后一个问题，即 $L1$ 范数在 $0$ 点处不可微影响了梯度方法的应用。尽管可以通过其他非梯度下降方法避开这一问题，但是本文通过使用近似值“平滑” $L1$ 范数的方法解决此难题。使用 $\sqrt{x^2 + \epsilon}$ 代替 $\left| x \right|$ ，对 $L1$ 范数进行平滑，其中 $\epsilon$ 是“平滑参数”（ "smoothing parameter" ）或者“稀疏参数”（ "sparsity parameter" ）。
 
 >**绝对值函数 $y=|x|$ 在 $x=0$ 处不可微的原因**：
 >
