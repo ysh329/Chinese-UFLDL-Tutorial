@@ -2,7 +2,7 @@
 
 # 非监督特征学习与深度学习 中文教程
 
-中文版的新版 UFLDL 教程（项目地址： www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自 [UFLDL Tutorial](http://deeplearning.stanford.edu/tutorial/) ，是新版教程的翻译。也可参考 [旧版 UFLDL 中文教程](http://ufldl.stanford.edu/wiki/index.php/UFLDL教程) 。翻译过程中有一些数学公式，使用 [Haroopad](http://pad.haroopress.com/user.html#download) 编辑和排版， Haroopad 是一个优秀的离线 [MarkDown](https://en.wikipedia.org/wiki/Markdown) 编辑器，支持 [Tex](https://en.wikipedia.org/wiki/TeX) 公式编辑，支持多平台（Win/Mac/Linux），目前还在翻译中，翻译完成后会考虑使用 Tex 重新排版。  
+中文版的新版 UFLDL 教程（项目地址： www.github.com/ysh329/Chinese-UFLDL-Tutorial ），该版本翻译自 [UFLDL Tutorial](http://deeplearning.stanford.edu/tutorial/) ，是新版教程的翻译。也可参考 [旧版 UFLDL 中文教程](http://ufldl.stanford.edu/wiki/index.php/UFLDL教程) 。翻译过程中有一些数学公式，使用 [Haroopad](http://pad.haroopress.com/user.html#download) 编辑和排版， Haroopad 是一个优秀的离线 [MarkDown](https://en.wikipedia.org/wiki/Markdown) 编辑器，支持 [TeX](https://en.wikipedia.org/wiki/TeX) 公式编辑，支持多平台（Win/Mac/Linux），目前还在翻译中，翻译完成后会考虑使用 TeX 重新排版。  
 
 自己对新版 UFLDL 教程翻译过程中，发现的英文错误，见 [新版教程英文原文勘误表](./新版教程英文原文勘误表.md) 。  
 
@@ -109,7 +109,7 @@
 
    * [练习：独立成分分析（Exercise:Independent Component Analysis）](./无监督学习（Unsupervised Learning）/练习：独立成分分析（Exercise:Independent Component Analysis）.md)\[[old](http://ufldl.stanford.edu/wiki/index.php/Exercise:Independent_Component_Analysis)\]\[无\]\[无\]
 
-  * RICA（RICA）\[无\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/RICA)\]\[无\]
+  * [RICA（RICA）](./无监督学习（Unsupervised Learning）/独立成分分析重建（RICA）.md)\[无\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/RICA)\]\[无\]
 
    * [练习：RICA（Exercise: RICA）](./无监督学习（Unsupervised Learning）/练习：RICA（Exercise: RICA）.md)\[无\]\[[new](http://ufldl.stanford.edu/tutorial/unsupervised/ExerciseRICA)\]\[无\]
 
