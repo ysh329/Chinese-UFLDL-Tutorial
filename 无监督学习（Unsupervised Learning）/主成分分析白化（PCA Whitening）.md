@@ -1,12 +1,12 @@
 ## 主成分分析白化（PCA Whitening）  
 注：本章节翻译完全参考旧版 UFLDL 中文教程。  
-### 引言（Introduction）  
+### 1. 引言（Introduction）  
 
 主成分分析（PCA）是一种能够极大提升无监督特征学习速度的数据降维算法。更重要的是，理解 PCA 算法，对实现白化算法有很大的帮助，很多算法都先用白化算法作预处理步骤。  
 
 假设您使用图像来训练算法，因为图像中相邻的像素高度相关，输入数据是有一定冗余的（译者注：去冗余就是白化的目的，无论是通过 PCA 抑或 ZCA 的方式）。具体来说，假如正在训练的是分辨率为 $16 \times 16$ 灰度值图像，可记为一个 $256$ 维的向量 $\textstyle x \in \Re^{256}$ ，其中图像中特征的值 $\textstyle x_j$ 对应每个像素的亮度值。由于相邻像素间的相关性， PCA 算法可以将输入向量转换为一个维数低很多的近似向量，而且误差非常小。  
 
-### 实例与数学背景（Example and Mathematical Background）  
+### 2. 实例与数学背景（Example and Mathematical Background）  
 
 现在有一个实例，使用的输入数据集表示为 $\textstyle \{x^{(1)}, x^{(2)}, \ldots, x^{(m)}\}$ ，维度 $\textstyle n=2$ 即 $\textstyle x^{(i)} \in \Re^2$ 。假设我们想把数据从 $2$ 维降到 $1$ 维。（在实际应用中，也许需要把数据从 $256$ 维降到 $50$ 维；在这里使用低维数据，主要是为了更好地可视化算法的行为）。下图是数据集的可视化：  
 
@@ -46,7 +46,7 @@ $$
 
 在本例中，向量 $\textstyle u_1$ 和 $\textstyle u_2$ 构成了一个新基，可以用来表示数据。令 $\textstyle x \in \Re^2$ 为训练样本，那么 $\textstyle u_1^Tx$ 就是样本点 $\textstyle x$ 在维度 $\textstyle u_1$ 上的投影的长度（幅值）。同样的， $\textstyle u_2^Tx$ 是 $\textstyle x$ 投影到 $\textstyle u_2$ 维度上的幅值。  
 
-### 旋转数据（Rotating the Data）  
+### 3. 旋转数据（Rotating the Data）  
 
 至此，可以把 $\textstyle x$ 用 $\textstyle (u_1, u_2)$ 基表达为：
 
@@ -66,7 +66,7 @@ $$
 
 这就是把训练数据集旋转到 $\textstyle u_1$ ， $\textstyle u_2$ 基后的结果。一般而言，运算 $\textstyle U^Tx$ 表示旋转到基 $\textstyle u_1,\textstyle u_2, ...,\textstyle u_n$ 之上的训练数据。矩阵 $\textstyle U$ 有正交性，即满足 $\textstyle U^TU = UU^T = I$ ，所以若想将旋转后的向量 $\textstyle x_{\rm rot}$ 还原为原始数据 $\textstyle x$ ，将其左乘矩阵 $\textstyle U$ 即可： $\textstyle x=U x_{\rm rot}$ ，验算一下： $\textstyle U x_{\rm rot} = UU^T x = x.$ 
 
-### 数据降维（Reducing the Data Dimension）
+### 4. 数据降维（Reducing the Data Dimension）
 
 数据的主方向就是旋转数据的第一维 $\textstyle x_{{\rm rot},1}$ 。因此，若想把这数据降到一维，可令：
 
@@ -96,7 +96,7 @@ $$
 
 这也解释了我们为什么会以 $\textstyle u_1, u_2, \ldots, u_n$ 为基来表示数据：要决定保留哪些成分变得很简单，只需取前 $\textstyle k$ 个成分即可。这时也可以说，我们“保留了前 $\textstyle k$ 个 PCA （主）成分”。  
 
-### 还原近似数据（Recovering an Approximation of the Data）
+### 5. 还原近似数据（Recovering an Approximation of the Data）
 
 现在，我们得到了原始数据 $\textstyle x \in \Re^n$ 的低维“压缩”表征量 $\textstyle \tilde{x} \in \Re^k$ ， 反过来，如果给定 $\textstyle \tilde{x}$ ，我们应如何还原原始数据 $\textstyle x$ 呢？查看以往章节以往章节可知，要转换回来，只需 $\textstyle x = U x_{\rm rot}$ 即可。进一步，我们把 $\textstyle \tilde{x}$ 看作将 $\textstyle x_{\rm rot}$ 的最后 $\textstyle n-k$ 个元素被置 $0$ 所得的近似表示，因此如果给定 $\textstyle \tilde{x} \in \Re^k$ ，可以通过在其末尾添加 $\textstyle n-k$ 个 $0$ 来得到对 $\textstyle x_{\rm rot} \in \Re^n$ 的近似，最后，左乘 $\textstyle U$ 便可近似还原出原数据 $\textstyle x$ 。具体来说，计算如下：
 
@@ -114,7 +114,7 @@ $$
 
 在训练自动编码器或其它无监督特征学习算法时，算法运行时间将依赖于输入数据的维数。若用 $\textstyle \tilde{x} \in \Re^k$ 取代 $\textstyle x$ 作为输入数据，那么算法就可使用低维数据进行训练，运行速度将显著加快。对于很多数据集来说，低维表征量 $\textstyle \tilde{x}$ 是原数据集的极佳近似，因此在这些场合使用 PCA 是很合适的，它引入的近似误差的很小，却可显著地提高您算法的运行速度。 
 
-### 选择主成分个数（Number of components to retain）
+### 6. 选择主成分个数（Number of components to retain）
 
 我们该如何选择 $\textstyle k$ ，即保留多少个 PCA 主成分？在上面这个简单的二维实验中，保留第一个成分看起来是自然的选择。对于高维数据来说，做这个决定就没那么简单：如果 $\textstyle k$ 过大，数据压缩率不高，在极限情况 $\textstyle k=n$ 时，等于是在使用原始数据（只是旋转投射到了不同的基）；相反地，如果 $\textstyle k$ 过小，那数据的近似误差太太。
 
@@ -142,7 +142,7 @@ $$
 
 对其它应用，如不介意引入稍大的误差，有时也保留 $90-98\%$ 的方差范围。若向他人介绍 PCA 算法详情，告诉他们您选择的 $\textstyle k$ 保留了 $95\%$ 的方差，比告诉他们您保留了前 $120$ 个（或任意某个数字）主成分更好理解。
 
-### 对图像数据应用 PCA 算法（PCA on Images）  
+### 7. 对图像数据应用 PCA 算法（PCA on Images）  
 
 为使 PCA 算法能有效工作，通常我们希望所有的特征 $\textstyle x_1, x_2, \ldots, x_n$ 都有相似的取值范围（并且均值接近于 $0$ ）。如果您使用过 PCA 算法，您可能知道有必要单独对每个特征做预处理，即通过估算每个特征 $\textstyle x_j$ 的均值和方差，而后将其取值范围规整化为零均值和单位方差。但是，对于大部分图像类型，我们却不需要进行这样的预处理。假定我们将在自然图像上训练算法，此时特征 $\textstyle x_j$ 代表的是像素 $\textstyle j$ 的值。所谓“自然图像”，不严格的说，是指人或动物在他们一生中所见的那种图像。
 
@@ -172,11 +172,11 @@ $$
 
 如果您处理的图像并非自然图像（比如，手写文字，或者白背景正中摆放单独物体），其他规整化操作就值得考虑了，而哪种做法最合适也取决于具体应用场合。但对自然图像而言，对每幅图像进行上述的零均值规整化，是默认而合理的处理。  
 
-### 白化（Whitening）  
+### 8. 白化（Whitening）  
 
 我们已经了解了如何使用 PCA 降低数据维度。在一些算法中还需要一个与之相关的预处理步骤，这个预处理过程称为白化（一些文献中也叫 sphering ）。举例来说，假设训练数据是图像，由于图像中相邻像素之间具有很强的相关性，所以用于训练时输入是冗余的。白化的目的就是降低输入的冗余性；更正式的说，**我们希望通过白化过程使得学习算法的输入具有如下性质：(i)特征之间相关性较低；(ii)所有特征具有相同的方差。**  
 
-### 2D 的例子（2D example）  
+### 9. 2D 的例子（2D example）  
 
 下面我们先用前文的 2D 例子描述白化的主要思想，然后分别介绍如何将白化与平滑和 PCA 相结合。
 
@@ -213,7 +213,7 @@ $$
 
 白化与降维相结合。 如果您想要得到经过白化后的数据，并且比初始输入维数更低，可以仅保留 $\textstyle x_{{\rm PCAwhite}}$ 中前 $\textstyle k$ 个成分。当我们把 PCA 白化和正则化结合起来时（在稍后讨论）， $\textstyle x_{{\rm PCAwhite}}$ 中最后的少量成分将总是接近于 $0$ ，因而舍弃这些成分不会带来很大的问题。  
 
-### ZCA 白化（ZCA Whitening）
+### 10. ZCA 白化（ZCA Whitening）
 
 >ZCA 的全称为 Zero-phase Component Analysis ，是使数据的协方差矩阵变为单位矩阵 $\textstyle I$ 的另一种方式。
 
@@ -239,7 +239,7 @@ $$
 
 当使用 ZCA 白化时（不同于 PCA 白化），我们通常保留数据的全部 $\textstyle n$ 个维度，不尝试去降低它的维数。  
 
-### 正则化（Regularizaton）
+### 11. 正则化（Regularizaton）
 
 实践中需要实现 PCA 白化或 ZCA 白化时，有时一些特征值 $\textstyle \lambda_i$ 在数值上接近于 $0$ ，这样在缩放步骤时我们除以 $\sqrt{\lambda_i}$ 将导致除以一个接近 $0$ 的值；这可能使数据上溢（赋为大数值）或造成数值不稳定。因而在实践中，使用少量的正则化实现这个缩放过程，即在取平方根和倒数之前给特征值加上一个很小的常数 $\textstyle \epsilon$ ：  
 
@@ -256,7 +256,7 @@ $$
 
 ZCA 白化是一种数据预处理方法，它将数据从 $\textstyle x$ 映射到 $\textstyle x_{\rm ZCAwhite}$ 。事实证明这也是一种生物眼睛（视网膜）处理图像的粗糙模型。具体而言，当您的眼睛感知图像时，由于一幅图像中相邻的部分在亮度上十分相关，大多数临近的“像素”在眼中被感知为相近的值。因此，如果人眼需要分别传输每个像素值（通过视觉神经）到大脑中，会非常不划算。取而代之的是，视网膜进行一个与 ZCA 中相似的去相关操作（这是由视网膜上的 ON-型 和 OFF-型 光感受器细胞将光信号转变为神经信号完成的）。由此得到对输入图像的更低冗余的表示，并将它传输到大脑。
 
-### 实现主成分分析和白化（Implementing PCA Whitening）
+### 12. 实现主成分分析和白化（Implementing PCA Whitening）
 
 在这一节里，我们将总结 PCA ， PCA 白化和 ZCA 白化算法，并描述如何使用高效的线性代数库来实现它们。
 
