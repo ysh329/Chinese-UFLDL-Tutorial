@@ -1,3 +1,5 @@
+注意：这个项目我不再维护，我觉得我的翻译真的不够好来帮助其他人，尤其是那些刚入门或者刚开始学习了解深度学习、神经网络的人们。为了不误导其他人，我建议新人们去学习斯坦福的[CS231n课程](http://cs231n.github.io)，该门课程在[网易云课堂上也有一个配有中文字幕的版本](http://study.163.com/course/courseMain.htm?courseId=1003223001)。 Have fun!
+
 为了极佳的阅读体验，您可点击 [这里](https://github.com/ysh329/Chinese-UFLDL-Tutorial/archive/master.zip) 将本文档下载到本地，并安装 [Haroopad](http://pad.haroopress.com/user.html#download) 进行阅读。
 
 # 非监督特征学习与深度学习 中文教程
