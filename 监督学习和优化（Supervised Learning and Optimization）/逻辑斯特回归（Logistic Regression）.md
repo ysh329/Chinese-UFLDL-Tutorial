@@ -22,7 +22,7 @@ $$
 为了最小化 $J(\theta)$ ，可以使用类似线性回归（Linear Regression）的工具。这需要提供一个可以在任意参数 $\theta$ 值时，可计算出 $J(\theta)$ 和（其微分结果的） $\triangledown_{\theta} J(\theta)$ 的函数。在给定参数 $\theta_{j}$ 时， $J(\theta)$ 的微分结果是：  
 
 $$
-\frac{\partial J(\theta)}{\partial \theta_{j}} = \sum_{i}x_{j}^{(i)} \left ( h_{\theta}(x^{(i)} - y^{(i)} )  \right ). 
+\frac{\partial J(\theta)}{\partial \theta_{j}} = \sum_{i}x_{j}^{(i)} \left ( h_{\theta}( x^{(i)} ) - y^{(i)}  \right ). 
 $$  
 
 若写成向量形式，其整个梯度可表示为：  
